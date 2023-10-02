@@ -9,7 +9,7 @@ import { BsThreeDots } from "react-icons/bs";
 
 const Navbar = () => {
     return (
-        <nav className="flex justify-between pb-6 px-4">
+        <nav className="flex bg-white justify-between pt-4 pb-10 px-6 sticky bottom-0">
             {/* MENU */}
             <NavBtn name={Pages.MENU}>
                 <MdOutlineMenuBook size={20} />

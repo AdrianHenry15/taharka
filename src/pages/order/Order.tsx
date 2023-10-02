@@ -1,7 +1,8 @@
 import React from "react";
+import PageContainer from "../../components/PageContainer";
 
 const Order = () => {
-    return <div>Order</div>;
+    return <PageContainer>Order</PageContainer>;
 };
 
 export default Order;

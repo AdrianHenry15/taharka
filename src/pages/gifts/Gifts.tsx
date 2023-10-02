@@ -1,7 +1,8 @@
 import React from "react";
+import PageContainer from "../../components/PageContainer";
 
 const Gifts = () => {
-    return <div>Gifts</div>;
+    return <PageContainer>Gifts</PageContainer>;
 };
 
 export default Gifts;

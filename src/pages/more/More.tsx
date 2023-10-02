@@ -1,7 +1,8 @@
 import React from "react";
+import PageContainer from "../../components/PageContainer";
 
 const More = () => {
-    return <div>More</div>;
+    return <PageContainer>More</PageContainer>;
 };
 
 export default More;

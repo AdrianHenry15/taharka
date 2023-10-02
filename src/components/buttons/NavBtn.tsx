@@ -7,6 +7,7 @@ export enum Pages {
     WALLET = "Wallet",
     GIFTS = "Gifts",
     MORE = "More",
+    NONE = "",
 }
 
 interface INavBtnProps {
@@ -15,11 +16,9 @@ interface INavBtnProps {
 }
 
 const NavBtn = (props: INavBtnProps) => {
-    const [selectedPage, setSelectedPage] = useState(Pages.MENU);
-
     return (
-        <Link onClick={() => setSelectedPage(props.name)} to={props.name.toLowerCase()}>
-            <div className={`flex flex-col items-center ${selectedPage === props.name ? "text-black" : "text-gray-500"}`}>
+        <Link to={props.name.toLowerCase()}>
+            <div className={`flex flex-col items-center text-black`}>
                 <div>{props.children}</div>
                 <span className="text-xs">{props.name}</span>
             </div>
