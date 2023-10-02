@@ -1,11 +1,8 @@
 import React from "react";
 import PageContainer from "../../components/PageContainer";
-import ProductDisplay from "./ProductDisplay";
-import ProductDisplay2 from "./ProductDisplay2";
-//IMAGES
-import HoneyGraham from "../../assets/imgs/honey_graham.webp";
-import VanillaBean from "../../assets/imgs/vanilla_bean.webp";
-import NonDairyChoco from "../../assets/imgs/non-dairy-chocolate.webp";
+import MenuDisplay from "./MenuDisplay";
+import MenuDisplay2 from "./MenuDisplay2";
+import { Products } from "../../lib/Data";
 
 const Menu = () => {
     return (
@@ -17,21 +14,13 @@ const Menu = () => {
             <PageContainer>
                 <aside className="text-gray-500">You must order 6 pints to complete an order.</aside>
                 <div className="flex flex-col py-4">
-                    <ProductDisplay
-                        title="Honey Graham"
-                        description="Graham ice cream with a graham cracker swirl."
-                        product={HoneyGraham}
-                    />
-                    <ProductDisplay2
-                        title="Vanilla Bean"
-                        description="Madagascar vanilla ice cream with vanilla bean seeds."
-                        product={VanillaBean}
-                    />
-                    <ProductDisplay
-                        title="Non-Dairy Chocolate Love"
-                        description="Dark chocolate ice cream with a chocolate cookie swirl."
-                        product={NonDairyChoco}
-                    />
+                    {Products.map(({ id, title, description, img }) => {
+                        if (id % 2 === 0) {
+                            return <MenuDisplay key={id} title={title} description={description} product={img} />;
+                        } else {
+                            return <MenuDisplay2 key={id} title={title} description={description} product={img} />;
+                        }
+                    })}
                 </div>
             </PageContainer>
         </div>
