@@ -14,6 +14,7 @@ const App = () => {
         <section className="flex flex-col justify-between w-full">
             <LogoBar />
             <Routes>
+                <Route path="/" element={<Menu />} />
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/order" element={<Order />} />
                 <Route path="/wallet" element={<Wallet />} />
