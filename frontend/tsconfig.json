@@ -18,6 +18,7 @@
         "incremental": true,
         "types": ["node"]
     },
-    "include": ["**/*.ts", "**/*.tsx"],
-    "exclude": ["node_modules"]
+    "include": ["**/*.ts", "**/*.tsx", "server.js"],
+    "exclude": ["node_modules", "**/dist/**"],
+    "outDir": "./dist"
 }
