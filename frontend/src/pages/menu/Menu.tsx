@@ -3,7 +3,7 @@ import PageContainer from "../../components/PageContainer";
 import MenuDisplay from "./MenuDisplay";
 import MenuDisplay2 from "./MenuDisplay2";
 import { Products } from "../../lib/Data";
-import OrderBtn from "../../components/buttons/OrderBtn";
+import Button from "../../components/buttons/Button";
 
 const Menu = () => {
     return (
@@ -12,7 +12,7 @@ const Menu = () => {
                 <span className="title-text">Ice Cream Flavors</span>
                 <span className="aside-text">6 Pint Minimum</span>
             </div>
-            <PageContainer className="mb-10">
+            <PageContainer className="mb-10 md:px-10">
                 <aside className="text-gray-500">You must order 6 pints to complete an order.</aside>
                 <div className="flex items-center flex-col py-4">
                     {Products.map(({ id, title, description, img }) => {
@@ -24,7 +24,7 @@ const Menu = () => {
                     })}
                 </div>
             </PageContainer>
-            <OrderBtn />
+            <Button className="fixed" text="Order Now" />
         </div>
     );
 };
