@@ -9,6 +9,7 @@ import Wallet from "./pages/wallet/Wallet";
 import Gifts from "./pages/gifts/Gifts";
 import More from "./pages/more/More";
 import OrderBtn from "./components/buttons/Button";
+import AccountDetails from "./pages/account-details/AccountDetails";
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/wallet" element={<Wallet />} />
                 <Route path="/gifts" element={<Gifts />} />
                 <Route path="/more" element={<More />} />
+                <Route path="/account-details" element={<AccountDetails />} />
             </Routes>
             <Navbar />
         </section>

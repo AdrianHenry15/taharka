@@ -4,7 +4,12 @@ import Tab from "../../components/buttons/Tab";
 import { LiaStoreAltSolid } from "react-icons/lia";
 import { FaRegCreditCard } from "react-icons/fa";
 import { CgList } from "react-icons/cg";
+import { PiArrowsClockwiseFill } from "react-icons/pi";
+import { BsFillJournalBookmarkFill } from "react-icons/bs";
+import { IoLocationOutline, IoIdCardOutline } from "react-icons/io5";
+import { CiCreditCard1 } from "react-icons/ci";
 import Button from "../../components/buttons/Button";
+import { Link } from "react-router-dom";
 
 const More = () => {
     return (
@@ -33,22 +38,24 @@ const More = () => {
                     <CgList />
                 </Tab>
                 <Tab name="Manage Subscriptions" hasArrow={true}>
-                    <FaRegCreditCard />
+                    <PiArrowsClockwiseFill />
                 </Tab>
                 <Tab name="Ice Cream Diary" hasArrow={true}>
-                    <FaRegCreditCard />
+                    <BsFillJournalBookmarkFill />
                 </Tab>
                 <Tab name="Addresses" hasArrow={true}>
-                    <FaRegCreditCard />
+                    <IoLocationOutline />
                 </Tab>
                 <Tab name="Payment Details" hasArrow={true}>
-                    <FaRegCreditCard />
+                    <CiCreditCard1 />
                 </Tab>
-                <Tab name="Account Details" hasArrow={true}>
-                    <FaRegCreditCard />
-                </Tab>
+                <Link to="/account-details">
+                    <Tab name="Account Details" hasArrow={true}>
+                        <IoIdCardOutline />
+                    </Tab>
+                </Link>
             </div>
-            <Button className="mt-[110px]" text="Sign Out" />
+            <Button onClick={() => {}} containerClass="mt-[110px]" text="Sign Out" />
         </PageContainer>
     );
 };
