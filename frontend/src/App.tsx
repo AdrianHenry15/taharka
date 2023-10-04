@@ -8,7 +8,7 @@ import Order from "./pages/order/Order";
 import Wallet from "./pages/wallet/Wallet";
 import Gifts from "./pages/gifts/Gifts";
 import More from "./pages/more/More";
-import OrderBtn from "./components/buttons/OrderBtn";
+import OrderBtn from "./components/buttons/Button";
 
 const App = () => {
     return (
