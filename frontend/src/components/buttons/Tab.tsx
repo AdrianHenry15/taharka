@@ -9,12 +9,14 @@ interface ITabProps {
 
 const Tab = (props: ITabProps) => {
     return (
-        <div>
-            <div>
-                {props.children}
-                {props.name}
-            </div>
-            {props.hasArrow && <FiChevronRight />}
+        <div className="w-full flex justify-center my-2">
+            <button className="flex w-full bg-white border-[1px] border-gray-300 rounded-md p-2 lg:w-1/3">
+                <div className="flex items-center">
+                    {props.children}
+                    <span className="ml-2 text-sm">{props.name}</span>
+                </div>
+                {props.hasArrow && <FiChevronRight />}
+            </button>
         </div>
     );
 };

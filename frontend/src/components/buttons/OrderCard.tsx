@@ -7,7 +7,7 @@ interface IOrderCardProps {
 
 const OrderCard = (props: IOrderCardProps) => {
     return (
-        <div className="flex flex-col items-center flex-1 py-24 bg-white m-2 rounded-lg cursor-pointer">
+        <div className="flex flex-col items-center flex-1 lg:py-44 py-16 bg-white m-2 rounded-lg cursor-pointer mb-10 shadow-sm">
             {props.children}
             <span className="font-bold ">{props.type}</span>
         </div>
