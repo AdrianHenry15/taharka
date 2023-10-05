@@ -47,9 +47,11 @@ const More = () => {
                     <Tab name="Addresses" hasArrow={true}>
                         <IoLocationOutline />
                     </Tab>
-                    <Tab name="Payment Details" hasArrow={true}>
-                        <CiCreditCard1 />
-                    </Tab>
+                    <Link to="/payment-details">
+                        <Tab name="Payment Details" hasArrow={true}>
+                            <CiCreditCard1 />
+                        </Tab>
+                    </Link>
                     <Link to="/account-details">
                         <Tab name="Account Details" hasArrow={true}>
                             <IoIdCardOutline />

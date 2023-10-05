@@ -1,9 +1,9 @@
 import React from "react";
 import PageContainer from "../../components/PageContainer";
-import MenuDisplay from "./MenuDisplay";
-import MenuDisplay2 from "./MenuDisplay2";
 import { Products } from "../../lib/Data";
 import Button from "../../components/buttons/Button";
+import MenuDisplay from "./components/MenuDisplay";
+import MenuDisplay2 from "./components/MenuDisplay2";
 
 const Menu = () => {
     return (
@@ -24,7 +24,7 @@ const Menu = () => {
                     })}
                 </div>
             </PageContainer>
-            <Button className="fixed" text="Order Now" />
+            <Button onClick={() => {}} containerClass="fixed" text="Order Now" />
         </div>
     );
 };
