@@ -30,12 +30,12 @@ const App = () => {
                 <Route path="gifts" element={<Gifts />} />
                 {/* MORE SECTION  */}
                 <Route path="more" element={<More />} />
-                <Route path="locations" element={<Locations />} />
+                <Route path="store-locations" element={<Locations />} />
                 <Route path="nutritional-info" element={<NutritionalInfo />} />
                 <Route path="gift-card-balance" element={<GCBalance />} />
                 <Route path="orders" element={<Orders />} />
-                <Route path="manage-subs" element={<ManageSubscriptions />} />
-                <Route path="diary" element={<Diary />} />
+                <Route path="manage-subscriptions" element={<ManageSubscriptions />} />
+                <Route path="ice-cream-diary" element={<Diary />} />
                 <Route path="addresses" element={<Addresses />} />
                 <Route index path="payment-details" element={<PaymentDetails />} />
                 <Route index path="add-card" element={<AddCard />} />
