@@ -12,7 +12,7 @@ const MenuDisplay2 = (props: IMenuDisplay2Props) => {
     // const LinkTitle = props.title.split(" ").join("_");
     return (
         // <Link id={LinkTitle} to={LinkTitle}>
-        <div className="flex items-center justify-between cursor-pointer">
+        <div className="flex items-center justify-evenly cursor-pointer">
             <LazyLoadImage src={props.product} alt={props.title} className="w-1/3 drop-shadow-xl" />
             <div className="flex flex-col">
                 <span className="text-lg text-back font-medium">{props.title}</span>

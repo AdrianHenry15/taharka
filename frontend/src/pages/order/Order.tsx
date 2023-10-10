@@ -9,7 +9,7 @@ import { BsMailbox } from "react-icons/bs";
 
 const Order = () => {
     return (
-        <PageContainer className="w-full bg-gray-100">
+        <PageContainer className="bg-gray-100">
             <span className="font-bold text-2xl">Start an order</span>
 
             <div className="flex">

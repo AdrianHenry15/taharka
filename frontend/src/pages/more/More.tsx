@@ -13,54 +13,52 @@ import { Link, Outlet } from "react-router-dom";
 
 const More = () => {
     return (
-        <>
-            <PageContainer className="md:px-10 bg-gray-100">
-                {/* MAPS  */}
-                <div>
-                    <span className="title-text">Maps</span>
-                    <Tab name="Store Locations" hasArrow={true}>
-                        <LiaStoreAltSolid />
+        <PageContainer className="bg-gray-100">
+            {/* MAPS  */}
+            <div>
+                <span className="title-text">Maps</span>
+                <Tab name="Store Locations" hasArrow={true}>
+                    <LiaStoreAltSolid />
+                </Tab>
+            </div>
+            {/* INFORMATION  */}
+            <div>
+                <span className="title-text">Information</span>
+                <Tab name="Nutritional Information" hasArrow={true}>
+                    <CgList />
+                </Tab>
+                <Tab name="Check Gift Card Balance" hasArrow={true}>
+                    <FaRegCreditCard />
+                </Tab>
+            </div>
+            {/* ACCOUNT  */}
+            <div>
+                <span className="title-text">My Account</span>
+                <Tab name="Orders" hasArrow={true}>
+                    <CgList />
+                </Tab>
+                <Tab name="Manage Subscriptions" hasArrow={true}>
+                    <PiArrowsClockwiseFill />
+                </Tab>
+                <Tab name="Ice Cream Diary" hasArrow={true}>
+                    <BsFillJournalBookmarkFill />
+                </Tab>
+                <Tab name="Addresses" hasArrow={true}>
+                    <IoLocationOutline />
+                </Tab>
+                <Link to="/payment-details">
+                    <Tab name="Payment Details" hasArrow={true}>
+                        <CiCreditCard1 />
                     </Tab>
-                </div>
-                {/* INFORMATION  */}
-                <div>
-                    <span className="title-text">Information</span>
-                    <Tab name="Nutritional Information" hasArrow={true}>
-                        <CgList />
+                </Link>
+                <Link to="/account-details">
+                    <Tab name="Account Details" hasArrow={true}>
+                        <IoIdCardOutline />
                     </Tab>
-                    <Tab name="Check Gift Card Balance" hasArrow={true}>
-                        <FaRegCreditCard />
-                    </Tab>
-                </div>
-                {/* ACCOUNT  */}
-                <div>
-                    <span className="title-text">My Account</span>
-                    <Tab name="Orders" hasArrow={true}>
-                        <CgList />
-                    </Tab>
-                    <Tab name="Manage Subscriptions" hasArrow={true}>
-                        <PiArrowsClockwiseFill />
-                    </Tab>
-                    <Tab name="Ice Cream Diary" hasArrow={true}>
-                        <BsFillJournalBookmarkFill />
-                    </Tab>
-                    <Tab name="Addresses" hasArrow={true}>
-                        <IoLocationOutline />
-                    </Tab>
-                    <Link to="/payment-details">
-                        <Tab name="Payment Details" hasArrow={true}>
-                            <CiCreditCard1 />
-                        </Tab>
-                    </Link>
-                    <Link to="/account-details">
-                        <Tab name="Account Details" hasArrow={true}>
-                            <IoIdCardOutline />
-                        </Tab>
-                    </Link>
-                </div>
-                <Button onClick={() => {}} containerClass="mt-[110px]" text="Sign Out" />
-            </PageContainer>
-        </>
+                </Link>
+            </div>
+            <Button onClick={() => {}} containerClass="mt-[110px]" text="Sign Out" />
+        </PageContainer>
     );
 };
 

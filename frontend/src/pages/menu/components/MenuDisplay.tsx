@@ -12,7 +12,7 @@ const MenuDisplay = (props: IMenuDisplayProps) => {
     // const LinkTitle = props.title.split(" ").join("_").toLowerCase();
     return (
         // <Link to={LinkTitle}>
-        <div className="flex items-center justify-between cursor-pointer">
+        <div className="flex items-center justify-evenly cursor-pointer">
             <div className="flex flex-col">
                 <span className="text-lg text-back font-medium">{props.title}</span>
                 <span className="text-sm">{props.description}</span>

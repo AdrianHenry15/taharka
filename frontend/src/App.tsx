@@ -21,7 +21,7 @@ import AddCard from "./pages/more/secondaryPages/AddCard";
 
 const App = () => {
     return (
-        <section className="flex flex-col justify-between w-full">
+        <section className="flex flex-col w-full [&::-webkit-scrollbar]:hidden">
             <Header />
             <Routes>
                 <Route index path="/" element={<Menu />} />

@@ -4,7 +4,6 @@ import NavBtn, { Pages } from "./buttons/NavBtn";
 import { CgMenuBoxed } from "react-icons/cg";
 import { CiIceCream, CiWallet } from "react-icons/ci";
 import { GoGift } from "react-icons/go";
-import { TbGiftCard } from "react-icons/tb";
 import { BsThreeDots } from "react-icons/bs";
 
 const Navbar = () => {
