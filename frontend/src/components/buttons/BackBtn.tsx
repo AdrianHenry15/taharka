@@ -2,9 +2,14 @@ import React from "react";
 import { FiChevronLeft } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-const BackBtn = () => {
+interface IBackBtnProps {
+    path: string;
+    className?: string;
+}
+
+const BackBtn = (props: IBackBtnProps) => {
     return (
-        <Link to="/more" className="absolute left-2 top-5">
+        <Link to={props.path} className={`${props.className} absolute left-2 top-5`}>
             <FiChevronLeft size={25} />
         </Link>
     );

@@ -1,10 +1,12 @@
 import React from "react";
 import PageContainer from "../../../components/PageContainer";
 import SearchBar from "../../../components/inputs/SearchBar";
+import BackBtn from "../../../components/buttons/BackBtn";
 
 const Addresses = () => {
     return (
         <div className="bg-zinc-400 flex flex-col h-full">
+            <BackBtn path="/more" />
             <PageContainer className="flex flex-1 flex-col">
                 <span className="font-bold">Default Address</span>
                 <span className="font-semibold">For delivery and shipping orders</span>

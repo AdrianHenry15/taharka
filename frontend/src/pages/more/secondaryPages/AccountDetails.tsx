@@ -7,7 +7,7 @@ import BackBtn from "../../../components/buttons/BackBtn";
 const AccountDetails = () => {
     return (
         <PageContainer className="bg-gray-200 ">
-            <BackBtn />
+            <BackBtn path="/more" />
             <span className="title-text pb-4">Account Details</span>
             <div className="flex flex-col w-full items-center">
                 <Input title="Name" handleInput={() => {}} placeHolder="Your name" />

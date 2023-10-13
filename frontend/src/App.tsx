@@ -18,6 +18,13 @@ import ManageSubscriptions from "./pages/more/secondaryPages/ManageSubscriptions
 import Diary from "./pages/more/secondaryPages/Diary";
 import Addresses from "./pages/more/secondaryPages/Addresses";
 import AddCard from "./pages/more/secondaryPages/AddCard";
+import MyReviews from "./pages/more/secondaryPages/diaryPages/MyReviews";
+import ToReview from "./pages/more/secondaryPages/diaryPages/ToReview";
+import ThisWeek from "./pages/more/secondaryPages/diaryPages/ThisWeek";
+import LastWeek from "./pages/more/secondaryPages/diaryPages/LastWeek";
+import Popular from "./pages/more/secondaryPages/diaryPages/Popular";
+import Graveyard from "./pages/more/secondaryPages/diaryPages/Graveyard";
+import Classics from "./pages/more/secondaryPages/diaryPages/Classics";
 
 const App = () => {
     return (
@@ -35,7 +42,15 @@ const App = () => {
                 <Route path="gift-card-balance" element={<GCBalance />} />
                 <Route path="orders" element={<Orders />} />
                 <Route path="manage-subscriptions" element={<ManageSubscriptions />} />
-                <Route path="ice-cream-diary" element={<Diary />} />
+                <Route path="ice-cream-diary" element={<Diary />}>
+                    <Route path="my-reviews" element={<MyReviews />} />
+                    <Route path="to-review" element={<ToReview />} />
+                    <Route path="this-week" element={<ThisWeek />} />
+                    <Route path="last-week" element={<LastWeek />} />
+                    <Route path="popular" element={<Popular />} />
+                    <Route path="graveyard" element={<Graveyard />} />
+                    <Route path="classics" element={<Classics />} />
+                </Route>
                 <Route path="addresses" element={<Addresses />} />
                 <Route index path="payment-details" element={<PaymentDetails />} />
                 <Route index path="add-card" element={<AddCard />} />
