@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export enum Pages {
     MENU = "Menu",
     ORDER = "Order",
-    WALLET = "Wallet",
+    REWARDS = "Rewards",
     GIFTS = "Gifts",
     MORE = "More",
     NONE = "",

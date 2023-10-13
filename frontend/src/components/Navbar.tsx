@@ -2,9 +2,9 @@ import React from "react";
 import NavBtn, { Pages } from "./buttons/NavBtn";
 //icons
 import { CgMenuBoxed } from "react-icons/cg";
-import { CiIceCream, CiWallet } from "react-icons/ci";
+import { CiIceCream } from "react-icons/ci";
 import { GoGift } from "react-icons/go";
-import { BsThreeDots } from "react-icons/bs";
+import { BsThreeDots, BsTrophy } from "react-icons/bs";
 
 const Navbar = () => {
     return (
@@ -18,8 +18,8 @@ const Navbar = () => {
                 <CiIceCream size={20} />
             </NavBtn>
             {/* WALLET */}
-            <NavBtn name={Pages.WALLET}>
-                <CiWallet size={20} />
+            <NavBtn name={Pages.REWARDS}>
+                <BsTrophy size={20} />
             </NavBtn>
             {/* GIFTS */}
             <NavBtn name={Pages.GIFTS}>
