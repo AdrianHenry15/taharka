@@ -12,7 +12,7 @@ const Button = (props: IButtonProps) => {
     return (
         <div className={`${props.containerClass} flex bottom-0 justify-center w-full mb-[110px]`}>
             <Link
-                className={`${props.btnClass} flex justify-center bg-black py-4 w-3/4 md:w-64 lg:w-64 rounded-full shadow-lg`}
+                className={`${props.btnClass} flex justify-center bg-black py-[10px] w-3/4 md:w-64 lg:w-64 rounded-full shadow-lg`}
                 to={"/order"}
             >
                 <button>

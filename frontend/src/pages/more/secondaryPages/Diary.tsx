@@ -9,10 +9,12 @@ import { PiIceCreamLight } from "react-icons/pi";
 import { TbGrave2 } from "react-icons/tb";
 import DiaryTab from "../components/DiaryTab";
 import { Outlet } from "react-router-dom";
+import BackBtn from "../../../components/buttons/BackBtn";
 
 const Diary = () => {
     return (
         <PageContainer>
+            <BackBtn path="/more" />
             <div className="flex w-full justify-between items-center">
                 <span className="font-bold text-xl">Ice Cream Diary</span>
                 <div className="text-zinc-400">

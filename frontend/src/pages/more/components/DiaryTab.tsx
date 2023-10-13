@@ -10,7 +10,7 @@ interface IDiaryTabProps {
 const DiaryTab = (props: IDiaryTabProps) => {
     const link = props.text.toLowerCase().replace(" ", "-");
     return (
-        <Link to={link}>
+        <Link to={link === "my-reviews" ? "" : link}>
             <div
                 className={`${props.containerClassName} flex flex-col items-center border-solid border-b-4 border-black p-2 mx-2 min-w-[80px]`}
             >

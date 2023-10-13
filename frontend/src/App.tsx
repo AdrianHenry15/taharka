@@ -43,7 +43,7 @@ const App = () => {
                 <Route path="orders" element={<Orders />} />
                 <Route path="manage-subscriptions" element={<ManageSubscriptions />} />
                 <Route path="ice-cream-diary" element={<Diary />}>
-                    <Route path="my-reviews" element={<MyReviews />} />
+                    <Route index={true} path="" element={<MyReviews />} />
                     <Route path="to-review" element={<ToReview />} />
                     <Route path="this-week" element={<ThisWeek />} />
                     <Route path="last-week" element={<LastWeek />} />
