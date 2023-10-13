@@ -1,7 +1,10 @@
 import React from "react";
-import PageContainer from "../../components/PageContainer";
 import InfoContainer from "../../components/InfoContainer";
 import RewardsCard from "./components/RewardsCard";
+import Progressbar from "./components/ProgressBar";
+import Tab from "../../components/buttons/Tab";
+import { LiaGiftsSolid } from "react-icons/lia";
+import { IoAddCircleOutline, IoTicketOutline } from "react-icons/io5";
 
 const Rewards = () => {
     return (
@@ -13,12 +16,38 @@ const Rewards = () => {
                 <div className="w-full bg-white rounded-lg">
                     <RewardsCard />
                     {/* CREAM POINTS  */}
-                    <div className="w-full text-xs justify-between flex p-2">
-                        <span>Cream:</span>
-                        <span>100 more to earn $10</span>
+                    <div className="w-full text-xs flex flex-col p-2">
+                        <div className="flex w-full justify-between">
+                            <span>Cream:</span>
+                            <span>100 more to earn $10</span>
+                        </div>
+                        <Progressbar />
                     </div>
                 </div>
                 {/* SECTION 2  */}
+                <Tab textClass="font-bold" hasArrow name="Earn Free Cream">
+                    <div className="text-pink-300">
+                        <LiaGiftsSolid size={25} />
+                    </div>
+                </Tab>
+                {/* SECTION 3  */}
+                <div>
+                    {/* VOUCHERS ROW  */}
+                    <div className="flex items-center justify-between">
+                        <span className="font-bold text-lg">Vouchers</span>
+                        {/* PROMO CODE BUTTON  */}
+                        <div className="flex items-center">
+                            <IoAddCircleOutline size={18} />
+                            <span className="ml-[5px] text-sm">Promo Code</span>
+                        </div>
+                    </div>
+                    {/* VOUCHERS SECTION  */}
+                    <div className="text-xs flex flex-col items-center w-full h-54 border-2 border-zinc-400">
+                        <IoTicketOutline />
+                        <span className="font-bold">You Have No Vouchers</span>
+                        <span className="text-zinc-400">Enter a promo code to earn a voucher</span>
+                    </div>
+                </div>
             </div>
         </div>
     );
