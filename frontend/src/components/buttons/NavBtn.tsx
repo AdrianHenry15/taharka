@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export enum Pages {
     MENU = "Menu",
@@ -18,12 +18,12 @@ interface INavBtnProps {
 const NavBtn = (props: INavBtnProps) => {
     const LinkTitle = props.name === "Menu" ? "/" : props.name.toLowerCase();
     return (
-        <Link to={LinkTitle}>
+        <NavLink to={LinkTitle}>
             <div className={`flex flex-col items-center text-black`}>
                 <div>{props.children}</div>
                 <span className="text-xs">{props.name}</span>
             </div>
-        </Link>
+        </NavLink>
     );
 };
 
