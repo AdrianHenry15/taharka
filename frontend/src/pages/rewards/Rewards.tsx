@@ -42,8 +42,8 @@ const Rewards = () => {
                         </div>
                     </div>
                     {/* VOUCHERS SECTION  */}
-                    <div className="text-xs flex flex-col items-center w-full h-54 border-2 border-zinc-400">
-                        <IoTicketOutline />
+                    <div className="my-2 text-xs flex flex-col justify-center items-center w-full h-52 border-2 border-zinc-400 rounded-lg">
+                        <IoTicketOutline size={20} />
                         <span className="font-bold">You Have No Vouchers</span>
                         <span className="text-zinc-400">Enter a promo code to earn a voucher</span>
                     </div>
