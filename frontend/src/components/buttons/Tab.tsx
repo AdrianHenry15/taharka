@@ -4,7 +4,8 @@ import { FiChevronRight } from "react-icons/fi";
 interface ITabProps {
     children: React.ReactNode;
     name: string;
-    hasArrow: boolean;
+    hasArrow?: boolean;
+    hasPoints?: boolean;
     textClass?: string;
 }
 
@@ -17,6 +18,7 @@ const Tab = (props: ITabProps) => {
                     <span className={`${props.textClass} ml-2 text-sm`}>{props.name}</span>
                 </div>
                 {props.hasArrow && <FiChevronRight />}
+                {props.hasPoints && <span className="bg-black text-white rounded-full px-2 font-bold text-sm">+5</span>}
             </button>
         </div>
     );

@@ -25,6 +25,7 @@ import Popular from "./pages/more/secondaryPages/diaryPages/Popular";
 import Graveyard from "./pages/more/secondaryPages/diaryPages/Graveyard";
 import Classics from "./pages/more/secondaryPages/diaryPages/Classics";
 import Rewards from "./pages/rewards/Rewards";
+import EarnFreeCream from "./pages/rewards/secondaryPages/EarnFreeCream";
 
 const App = () => {
     return (
@@ -34,6 +35,7 @@ const App = () => {
                 <Route index path="/" element={<Menu />} />
                 <Route path="order" element={<Order />} />
                 <Route path="rewards" element={<Rewards />} />
+                <Route path="earn-free-cream" element={<EarnFreeCream />} />
                 <Route path="gifts" element={<Gifts />} />
                 {/* MORE SECTION  */}
                 <Route path="more" element={<More />} />

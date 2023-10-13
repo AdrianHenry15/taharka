@@ -5,6 +5,7 @@ import Progressbar from "./components/ProgressBar";
 import Tab from "../../components/buttons/Tab";
 import { LiaGiftsSolid } from "react-icons/lia";
 import { IoAddCircleOutline, IoTicketOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Rewards = () => {
     return (
@@ -25,11 +26,13 @@ const Rewards = () => {
                     </div>
                 </div>
                 {/* SECTION 2  */}
-                <Tab textClass="font-bold" hasArrow name="Earn Free Cream">
-                    <div className="text-pink-300">
-                        <LiaGiftsSolid size={25} />
-                    </div>
-                </Tab>
+                <Link to={"/earn-free-cream"}>
+                    <Tab textClass="font-bold" hasArrow name="Earn Free Cream">
+                        <div className="text-pink-300">
+                            <LiaGiftsSolid size={25} />
+                        </div>
+                    </Tab>
+                </Link>
                 {/* SECTION 3  */}
                 <div>
                     {/* VOUCHERS ROW  */}
