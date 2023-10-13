@@ -5,7 +5,6 @@ import Header from "./components/Header";
 //ROUTES
 import Menu from "./pages/menu/Menu";
 import Order from "./pages/order/Order";
-import Wallet from "./pages/wallet/Wallet";
 import Gifts from "./pages/gifts/Gifts";
 import More from "./pages/more/More";
 import AccountDetails from "./pages/more/secondaryPages/AccountDetails";
@@ -25,6 +24,7 @@ import LastWeek from "./pages/more/secondaryPages/diaryPages/LastWeek";
 import Popular from "./pages/more/secondaryPages/diaryPages/Popular";
 import Graveyard from "./pages/more/secondaryPages/diaryPages/Graveyard";
 import Classics from "./pages/more/secondaryPages/diaryPages/Classics";
+import Rewards from "./pages/rewards/Rewards";
 
 const App = () => {
     return (
@@ -33,7 +33,7 @@ const App = () => {
             <Routes>
                 <Route index path="/" element={<Menu />} />
                 <Route path="order" element={<Order />} />
-                <Route path="wallet" element={<Wallet />} />
+                <Route path="rewards" element={<Rewards />} />
                 <Route path="gifts" element={<Gifts />} />
                 {/* MORE SECTION  */}
                 <Route path="more" element={<More />} />
