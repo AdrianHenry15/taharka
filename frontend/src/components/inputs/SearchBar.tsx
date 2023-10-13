@@ -3,6 +3,8 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 interface ISearchBarProps {
     handleSearch: () => void;
+    placeHolder: string;
+    inputClass?: string;
 }
 
 const SearchBar = (props: ISearchBarProps) => {
@@ -13,9 +15,9 @@ const SearchBar = (props: ISearchBarProps) => {
             </div>
             <input
                 onChange={props.handleSearch}
-                className="w-full p-2 bg-zinc-300 rounded-full outline-none"
+                className={`${props.inputClass} w-full p-2 bg-zinc-300 rounded-full outline-none`}
                 type="text"
-                placeholder="Enter a new address"
+                placeholder={props.placeHolder}
             />
         </div>
     );

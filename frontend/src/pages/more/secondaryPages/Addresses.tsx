@@ -16,7 +16,7 @@ const Addresses = () => {
             </PageContainer>
             <PageContainer className="bg-white flex flex-2">
                 <span className="font-bold">Saved Addresses</span>
-                <SearchBar handleSearch={() => {}} />
+                <SearchBar placeHolder="Enter a new address" handleSearch={() => {}} />
                 <span className="text-center text-sm mt-4">You don't have any saved addresses.</span>
             </PageContainer>
         </div>

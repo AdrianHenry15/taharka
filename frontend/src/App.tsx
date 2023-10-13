@@ -26,6 +26,8 @@ import Graveyard from "./pages/more/secondaryPages/diaryPages/Graveyard";
 import Classics from "./pages/more/secondaryPages/diaryPages/Classics";
 import Rewards from "./pages/rewards/Rewards";
 import EarnFreeCream from "./pages/rewards/secondaryPages/EarnFreeCream";
+import DeliveryAddress from "./components/DeliveryAddress";
+import PickupLocation from "./components/PickupLocation";
 
 const App = () => {
     return (
@@ -33,7 +35,10 @@ const App = () => {
             <Header />
             <Routes>
                 <Route index path="/" element={<Menu />} />
-                <Route path="order" element={<Order />} />
+                <Route path="order" element={<Order />}>
+                    <Route path="delivery" element={<DeliveryAddress returnPath="/order" />} />
+                    <Route path="store-pickup" element={<PickupLocation />} />
+                </Route>
                 <Route path="rewards" element={<Rewards />} />
                 <Route path="earn-free-cream" element={<EarnFreeCream />} />
                 <Route path="gifts" element={<Gifts />} />
