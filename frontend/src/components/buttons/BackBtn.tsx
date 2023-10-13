@@ -9,7 +9,7 @@ interface IBackBtnProps {
 
 const BackBtn = (props: IBackBtnProps) => {
     return (
-        <Link to={props.path} className={`${props.className} absolute left-2 top-5`}>
+        <Link to={props.path} className={`${props.className} fixed left-2 top-5 z-50`}>
             <FiChevronLeft size={25} />
         </Link>
     );
