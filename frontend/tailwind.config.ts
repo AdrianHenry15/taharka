@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
     content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -11,6 +12,20 @@ const config: Config = {
             fontFamily: {},
         },
     },
-    plugins: [],
+    plugins: [
+        plugin(function ({ addUtilities }) {
+            addUtilities({
+                ".content-auto": {
+                    "content-visibility": "auto",
+                },
+                ".content-hidden": {
+                    "content-visibility": "hidden",
+                },
+                ".content-visible": {
+                    "content-visibility": "visible",
+                },
+            });
+        }),
+    ],
 };
 export default config;

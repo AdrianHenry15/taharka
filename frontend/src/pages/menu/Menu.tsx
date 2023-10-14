@@ -1,9 +1,9 @@
 import React from "react";
-import PageContainer from "../../components/PageContainer";
-import MenuDisplay from "./MenuDisplay";
-import MenuDisplay2 from "./MenuDisplay2";
+import PageContainer from "../../components/containers/PageContainer";
 import { Products } from "../../lib/Data";
-import OrderBtn from "../../components/buttons/OrderBtn";
+import Button from "../../components/buttons/Button";
+import MenuDisplay from "./components/MenuDisplay";
+import MenuDisplay2 from "./components/MenuDisplay2";
 
 const Menu = () => {
     return (
@@ -13,7 +13,7 @@ const Menu = () => {
                 <span className="aside-text">6 Pint Minimum</span>
             </div>
             <PageContainer className="mb-10">
-                <aside className="text-gray-500">You must order 6 pints to complete an order.</aside>
+                <aside className="text-gray-500 pt-6">You must order 6 pints to complete an order.</aside>
                 <div className="flex items-center flex-col py-4">
                     {Products.map(({ id, title, description, img }) => {
                         if (id % 2 === 0) {
@@ -24,7 +24,7 @@ const Menu = () => {
                     })}
                 </div>
             </PageContainer>
-            <OrderBtn />
+            <Button onClick={() => {}} containerClass="fixed" text="Order Now" />
         </div>
     );
 };
