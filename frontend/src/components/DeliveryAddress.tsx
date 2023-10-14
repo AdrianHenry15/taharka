@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 interface IDeliveryAddressProps {
     returnPath: string;
+    onClick?: () => void;
 }
 
 const DeliveryAddress = (props: IDeliveryAddressProps) => {

@@ -6,6 +6,8 @@ import LocationTab from "./tabs/LocationTab";
 
 interface IPickupLocationProps {
     returnPath: string;
+    path: string;
+    onClick: () => void;
 }
 
 const PickupLocation = (props: IPickupLocationProps) => {
@@ -20,16 +22,16 @@ const PickupLocation = (props: IPickupLocationProps) => {
             <SearchBar containerClass="bg-white" inputClass="bg-white" placeHolder="Enter city, state, or zip" handleSearch={() => {}} />
             <div className="flex flex-col w-full">
                 <LocationTab
-                    onClick={() => {}}
-                    path="/pickup-order"
+                    onClick={props.onClick}
+                    path={props.path}
                     distance="3.1"
                     city="Winter Park"
                     address="501 N Orlando Ave Suite 309"
                     state="Florida"
                 />
                 <LocationTab
-                    onClick={() => {}}
-                    path="/pickup-order"
+                    onClick={props.onClick}
+                    path={props.path}
                     distance="3.1"
                     city="Winter Park"
                     address="501 N Orlando Ave Suite 309"

@@ -22,15 +22,15 @@ const StartOrder = () => {
                     </OrderCard>
                 </div>
                 {/* CATERING */}
-                <Tab name="Catering Pickup" hasArrow={false}>
+                <Tab path="/store-pickup" onClick={() => {}} name="Catering Pickup" hasArrow={false}>
                     <PiBellRingingLight />
                 </Tab>
                 {/* MONTHLY SUBSCRIPTIONS */}
-                <Tab name="Monthly Subscriptions" hasArrow={false}>
+                <Tab path="/seasonal-subscription" onClick={() => {}} name="Seasonal Subscriptions" hasArrow={false}>
                     <PiArrowsCounterClockwiseLight />
                 </Tab>
                 {/* NATIONAL SHIPPING */}
-                <Tab name="National Shipping" hasArrow={false}>
+                <Tab path="/delivery" onClick={() => {}} name="National Shipping" hasArrow={false}>
                     <BsMailbox />
                 </Tab>
             </PageContainer>

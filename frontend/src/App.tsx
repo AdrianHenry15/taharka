@@ -29,6 +29,7 @@ import DeliveryAddress from "./components/DeliveryAddress";
 import PickupLocation from "./components/PickupLocation";
 import StartOrder from "./pages/order/StartOrder";
 import PickupOrder from "./pages/order/secondaryPages/PickupOrder";
+import SeasonalSubscription from "./pages/order/secondaryPages/SeasonalSubscription";
 
 const App = () => {
     return (
@@ -38,7 +39,9 @@ const App = () => {
                 <Route index path="/" element={<Menu />} />
                 <Route path="order" element={<StartOrder />} />
                 <Route path="delivery" element={<DeliveryAddress returnPath="/order" />} />
-                <Route path="store-pickup" element={<PickupLocation returnPath="/order" />} />
+                {/* TODO: RETURN PATH AND REGULAR PATH NEED TO BE DYNAMIC AND COME FROM STATE STORE  */}
+                <Route path="store-pickup" element={<PickupLocation onClick={() => {}} path="" returnPath="/order" />} />
+                <Route path="seasonal-subscription" element={<SeasonalSubscription />} />
                 <Route path="pickup-order" element={<PickupOrder city={""} />} />
                 <Route path="rewards" element={<Rewards />} />
                 <Route path="earn-free-cream" element={<EarnFreeCream />} />

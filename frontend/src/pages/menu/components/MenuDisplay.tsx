@@ -13,7 +13,7 @@ const MenuDisplay = (props: IMenuDisplayProps) => {
     return (
         // <Link to={LinkTitle}>
         <div className="flex items-center justify-evenly cursor-pointer">
-            <div className="flex flex-col flex-3 w-full">
+            <div className="flex flex-col flex-2 w-full">
                 <span className="text-lg text-back font-medium">{props.title}</span>
                 <span className="text-sm">{props.description}</span>
                 <span className="text-xs text-zinc-400 my-2">$14.00</span>
