@@ -1,5 +1,5 @@
 import React from "react";
-import PageContainer from "../../components/PageContainer";
+import PageContainer from "../../components/containers/PageContainer";
 import { Products } from "../../lib/Data";
 import Button from "../../components/buttons/Button";
 import MenuDisplay from "./components/MenuDisplay";

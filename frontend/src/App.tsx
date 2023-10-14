@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 //ROUTES
 import Menu from "./pages/menu/Menu";
-import Order from "./pages/order/Order";
 import Gifts from "./pages/gifts/Gifts";
 import More from "./pages/more/More";
 import AccountDetails from "./pages/more/secondaryPages/AccountDetails";
@@ -28,17 +27,19 @@ import Rewards from "./pages/rewards/Rewards";
 import EarnFreeCream from "./pages/rewards/secondaryPages/EarnFreeCream";
 import DeliveryAddress from "./components/DeliveryAddress";
 import PickupLocation from "./components/PickupLocation";
+import StartOrder from "./pages/order/StartOrder";
+import PickupOrder from "./pages/order/secondaryPages/PickupOrder";
 
 const App = () => {
     return (
-        <section className="flex flex-col w-full [&::-webkit-scrollbar]:hidden">
+        <section className="flex flex-col w-full overscroll-none">
             <Header />
             <Routes>
                 <Route index path="/" element={<Menu />} />
-                <Route path="order" element={<Order />}>
-                    <Route path="delivery" element={<DeliveryAddress returnPath="/order" />} />
-                    <Route path="store-pickup" element={<PickupLocation />} />
-                </Route>
+                <Route path="order" element={<StartOrder />} />
+                <Route path="delivery" element={<DeliveryAddress returnPath="/order" />} />
+                <Route path="store-pickup" element={<PickupLocation returnPath="/order" />} />
+                <Route path="pickup-order" element={<PickupOrder city={""} />} />
                 <Route path="rewards" element={<Rewards />} />
                 <Route path="earn-free-cream" element={<EarnFreeCream />} />
                 <Route path="gifts" element={<Gifts />} />

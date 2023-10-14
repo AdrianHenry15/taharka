@@ -1,5 +1,5 @@
 import React from "react";
-import PageContainer from "../../../components/PageContainer";
+import PageContainer from "../../../components/containers/PageContainer";
 import Input from "../../../components/inputs/Input";
 import Button from "../../../components/buttons/Button";
 import BackBtn from "../../../components/buttons/BackBtn";

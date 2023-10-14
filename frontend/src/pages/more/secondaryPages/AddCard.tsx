@@ -1,5 +1,5 @@
 import React from "react";
-import PageContainer from "../../../components/PageContainer";
+import PageContainer from "../../../components/containers/PageContainer";
 import { Link } from "react-router-dom";
 import { PiCreditCardLight } from "react-icons/pi";
 import { BiPlus } from "react-icons/bi";

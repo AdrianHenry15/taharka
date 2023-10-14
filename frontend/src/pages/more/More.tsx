@@ -1,6 +1,6 @@
 import React from "react";
-import PageContainer from "../../components/PageContainer";
-import Tab from "../../components/buttons/Tab";
+import PageContainer from "../../components/containers/PageContainer";
+import Tab from "../../components/tabs/Tab";
 import { LiaStoreAltSolid } from "react-icons/lia";
 import { FaRegCreditCard } from "react-icons/fa";
 import { CgList } from "react-icons/cg";

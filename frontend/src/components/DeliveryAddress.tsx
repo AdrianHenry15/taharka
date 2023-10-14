@@ -9,14 +9,16 @@ interface IDeliveryAddressProps {
 
 const DeliveryAddress = (props: IDeliveryAddressProps) => {
     return (
-        <div className="absolute z-50 bg-white w-full h-full rounded-lg px-4">
-            <div className="flex items-center justify-center">
+        <div className="bg-white w-full h-full rounded-lg px-4 flex flex-col items-center slide-in origin-bottom">
+            <div className="flex items-center justify-center w-full">
                 <Link to={props.returnPath} className="left-2 fixed">
                     <AiOutlineClose />
                 </Link>
-                <span>Delivery Address</span>
+                <span className="font-bold">Delivery Address</span>
             </div>
-            <SearchBar placeHolder="Enter a new address" handleSearch={() => {}} />
+            <span className="self-start mt-4 font-bold">Saved Addresses</span>
+            <SearchBar containerClass="bg-zinc-300" inputClass="bg-zinc-300" placeHolder="Enter a new address" handleSearch={() => {}} />
+            <span className="text-center w-full mt-4 text-sm">You don't have any saved addresses.</span>
         </div>
     );
 };

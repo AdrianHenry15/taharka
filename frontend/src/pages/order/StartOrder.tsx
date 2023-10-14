@@ -1,24 +1,23 @@
 import React from "react";
-import PageContainer from "../../components/PageContainer";
-import OrderCard from "../../components/buttons/OrderCard";
-import Tab from "../../components/buttons/Tab";
+import PageContainer from "../../components/containers/PageContainer";
+import OrderCard from "../../components/cards/OrderCard";
+import Tab from "../../components/tabs/Tab";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { LiaStoreAltSolid } from "react-icons/lia";
 import { PiBellRingingLight, PiArrowsCounterClockwiseLight } from "react-icons/pi";
 import { BsMailbox } from "react-icons/bs";
-import { Outlet } from "react-router-dom";
 
-const Order = () => {
+const StartOrder = () => {
     return (
         <div className="h-full flex flex-col">
             <PageContainer className="bg-gray-100">
                 <span className="font-bold text-2xl">Start an order</span>
 
                 <div className="flex">
-                    <OrderCard text="Delivery">
+                    <OrderCard path="/delivery" text="Delivery">
                         <CiDeliveryTruck style={{ color: "var(--main-color)" }} size={35} />
                     </OrderCard>
-                    <OrderCard text="Store Pickup">
+                    <OrderCard path="/store-pickup" text="Store Pickup">
                         <LiaStoreAltSolid style={{ color: "var(--main-color)" }} size={35} />
                     </OrderCard>
                 </div>
@@ -35,9 +34,8 @@ const Order = () => {
                     <BsMailbox />
                 </Tab>
             </PageContainer>
-            <Outlet />
         </div>
     );
 };
 
-export default Order;
+export default StartOrder;

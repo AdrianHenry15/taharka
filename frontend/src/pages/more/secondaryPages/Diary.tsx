@@ -1,5 +1,5 @@
 import React from "react";
-import PageContainer from "../../../components/PageContainer";
+import PageContainer from "../../../components/containers/PageContainer";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { MdOutlineReviews } from "react-icons/md";
 import { FaRegHandPointUp } from "react-icons/fa";
@@ -10,7 +10,7 @@ import { TbGrave2 } from "react-icons/tb";
 import DiaryTab from "../components/DiaryTab";
 import { Outlet } from "react-router-dom";
 import BackBtn from "../../../components/buttons/BackBtn";
-import InfoContainer from "../../../components/InfoContainer";
+import InfoContainer from "../../../components/containers/InfoContainer";
 
 const Diary = () => {
     return (

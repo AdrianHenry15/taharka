@@ -1,5 +1,5 @@
 import React from "react";
-import Tab from "../../../components/buttons/Tab";
+import Tab from "../../../components/tabs/Tab";
 import {
     BsFillPersonPlusFill,
     BsHandIndexThumb,

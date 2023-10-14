@@ -1,8 +1,8 @@
 import React from "react";
-import InfoContainer from "../../components/InfoContainer";
+import InfoContainer from "../../components/containers/InfoContainer";
 import RewardsCard from "./components/RewardsCard";
 import Progressbar from "./components/ProgressBar";
-import Tab from "../../components/buttons/Tab";
+import Tab from "../../components/tabs/Tab";
 import { LiaGiftsSolid } from "react-icons/lia";
 import { IoAddCircleOutline, IoTicketOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
