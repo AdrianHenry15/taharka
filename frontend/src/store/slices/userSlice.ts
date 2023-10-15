@@ -24,7 +24,6 @@ export const userSlice = createSlice({
         user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user") || "{}") : {},
         access_token: localStorage.getItem("access_token") ? JSON.parse(localStorage.getItem("access_token") || "") : null,
         isLoggedIn: localStorage.getItem("user") ? true : false,
-        notifications: localStorage.getItem("notifications") ? JSON.parse(localStorage.getItem("notifications") || "[]") : [],
     } as UserState,
     reducers: {
         user_login: (state, action: PayloadAction<object>) => {
@@ -39,13 +38,10 @@ export const userSlice = createSlice({
         setAccessToken: (state, action: PayloadAction<string>) => {
             state.access_token = action.payload;
         },
-        setNotifications: (state, action: PayloadAction<object[]>) => {
-            state.notifications = action.payload;
-        },
     },
 });
 
-export const { user_login, user_logout, setAccessToken, setNotifications } = userSlice.actions;
+export const { user_login, user_logout, setAccessToken } = userSlice.actions;
 
 export const selectUser = (state: State) => state.user;
 

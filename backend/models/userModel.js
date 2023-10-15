@@ -9,10 +9,10 @@ const userSchema = mongoose.Schema(
         },
         email: {
             type: String,
-            required: true,
+            required: false,
             unique: true
         },
-        password: {
+        phone: {
             type: String,
             required: true
         },
@@ -22,20 +22,20 @@ const userSchema = mongoose.Schema(
     }
 );
 
-// match user entered password to hashed password in database
-userSchema.methods.matchPassword = async function (enteredPassword) {
-    return await bcrypt.compare(enteredPassword, this.password)
-};
+// // match user entered password to hashed password in database
+// userSchema.methods.matchPassword = async function (enteredPassword) {
+//     return await bcrypt.compare(enteredPassword, this.password)
+// };
 
-// encrypt password using bcrypt hashing
-userSchema.pre('save', async function (next) {
-    if (!this.isModified('password')) {
-        next()
-    }
+// // encrypt password using bcrypt hashing
+// userSchema.pre('save', async function (next) {
+//     if (!this.isModified('password')) {
+//         next()
+//     }
 
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt)
-})
+//     const salt = await bcrypt.genSalt(10);
+//     this.password = await bcrypt.hash(this.password, salt)
+// })
 
 const User = mongoose.model('User', userSchema)
 
