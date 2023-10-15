@@ -81,6 +81,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
         res.json({
             _id: user._id,
             name: user.name,
+            phone: user.phone,
             email: user.email
         });
     } else {
@@ -98,6 +99,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 
     if (user) {
         user.name = req.body.name || user.name;
+        user.phone = req.body.phone || user.phone;
         user.email = req.body.email || user.email;
 
         if (req.body.password) {
@@ -109,6 +111,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
         res.status(200).json({
             _id: updatedUser._id,
             name: updatedUser.name,
+            phone: updatedUser.phone,
             email: updatedUser.email,
         })
     } else {

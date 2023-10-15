@@ -6,6 +6,9 @@ import pageSlice from "./slices/pageSlice";
 import productSlice from "./slices/productSlice";
 import reviewSlice from "./slices/reviewSlice";
 import wishlistSlice from "./slices/wishlistSlice";
+import rewardSlice from "./slices/rewardSlice";
+import storeLocationSlice from "./slices/storeLocationSlice";
+import userLocationSlice from "./slices/userLocationSlice";
 
 const store = configureStore({
     reducer: {
@@ -16,6 +19,9 @@ const store = configureStore({
         review: reviewSlice,
         user: userSlice,
         wishlist: wishlistSlice,
+        rewards: rewardSlice,
+        storeLocation: storeLocationSlice,
+        userLocation: userLocationSlice,
     },
 });
 
