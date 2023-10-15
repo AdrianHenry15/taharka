@@ -17,59 +17,41 @@ const More = () => {
             {/* MAPS  */}
             <div>
                 <span className="title-text">Maps</span>
-                <Link to="/store-locations">
-                    <Tab name="Store Locations" hasArrow={true}>
-                        <LiaStoreAltSolid />
-                    </Tab>
-                </Link>
+                <Tab path="/store-locations" onClick={() => {}} name="Store Locations" hasArrow={true}>
+                    <LiaStoreAltSolid />
+                </Tab>
             </div>
             {/* INFORMATION  */}
             <div>
                 <span className="title-text">Information</span>
-                <Link to="/nutritional-info">
-                    <Tab name="Nutritional Information" hasArrow={true}>
-                        <CgList />
-                    </Tab>
-                </Link>
-                <Link to="/gift-card-balance">
-                    <Tab name="Check Gift Card Balance" hasArrow={true}>
-                        <FaRegCreditCard />
-                    </Tab>
-                </Link>
+                <Tab path="/nutritional-info" onClick={() => {}} name="Nutritional Information" hasArrow={true}>
+                    <CgList />
+                </Tab>
+                <Tab path="/gift-card-balance" onClick={() => {}} name="Check Gift Card Balance" hasArrow={true}>
+                    <FaRegCreditCard />
+                </Tab>
             </div>
             {/* ACCOUNT  */}
             <div>
                 <span className="title-text">My Account</span>
-                <Link to="/orders">
-                    <Tab name="Orders" hasArrow={true}>
-                        <CgList />
-                    </Tab>
-                </Link>
-                <Link to="/manage-subscriptions">
-                    <Tab name="Manage Subscriptions" hasArrow={true}>
-                        <PiArrowsClockwiseFill />
-                    </Tab>
-                </Link>
-                <Link to="/ice-cream-diary">
-                    <Tab name="Ice Cream Diary" hasArrow={true}>
-                        <BsFillJournalBookmarkFill />
-                    </Tab>
-                </Link>
-                <Link to="/addresses">
-                    <Tab name="Addresses" hasArrow={true}>
-                        <IoLocationOutline />
-                    </Tab>
-                </Link>
-                <Link to="/payment-details">
-                    <Tab name="Payment Details" hasArrow={true}>
-                        <CiCreditCard1 />
-                    </Tab>
-                </Link>
-                <Link to="/account-details">
-                    <Tab name="Account Details" hasArrow={true}>
-                        <IoIdCardOutline />
-                    </Tab>
-                </Link>
+                <Tab path="/orders" onClick={() => {}} name="Orders" hasArrow={true}>
+                    <CgList />
+                </Tab>
+                <Tab path="/manage-subscriptions" onClick={() => {}} name="Manage Subscriptions" hasArrow={true}>
+                    <PiArrowsClockwiseFill />
+                </Tab>
+                <Tab path="/ice-cream-diary" onClick={() => {}} name="Ice Cream Diary" hasArrow={true}>
+                    <BsFillJournalBookmarkFill />
+                </Tab>
+                <Tab path="/addresses" onClick={() => {}} name="Addresses" hasArrow={true}>
+                    <IoLocationOutline />
+                </Tab>
+                <Tab path="/payment-details" onClick={() => {}} name="Payment Details" hasArrow={true}>
+                    <CiCreditCard1 />
+                </Tab>
+                <Tab path="/account-details" onClick={() => {}} name="Account Details" hasArrow={true}>
+                    <IoIdCardOutline />
+                </Tab>
             </div>
             <Button onClick={() => {}} containerClass="mt-[110px]" text="Sign Out" />
         </PageContainer>

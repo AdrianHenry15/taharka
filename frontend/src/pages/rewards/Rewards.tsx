@@ -26,13 +26,11 @@ const Rewards = () => {
                     </div>
                 </div>
                 {/* SECTION 2  */}
-                <Link to={"/earn-free-cream"}>
-                    <Tab textClass="font-bold" hasArrow name="Earn Free Cream">
-                        <div className="text-pink-300">
-                            <LiaGiftsSolid size={25} />
-                        </div>
-                    </Tab>
-                </Link>
+                <Tab path="/earn-free-cream" onClick={() => {}} textClass="font-bold" hasArrow name="Earn Free Cream">
+                    <div className="text-pink-300">
+                        <LiaGiftsSolid size={25} />
+                    </div>
+                </Tab>
                 {/* SECTION 3  */}
                 <div>
                     {/* VOUCHERS ROW  */}
