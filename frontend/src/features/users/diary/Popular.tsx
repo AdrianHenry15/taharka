@@ -2,7 +2,7 @@ import React from "react";
 import PageContainer from "../../../components/containers/PageContainer";
 import ComingSoon from "../../../components/ComingSoon";
 
-const Locations = () => {
+const Popular = () => {
     return (
         <PageContainer>
             <ComingSoon />
@@ -10,4 +10,4 @@ const Locations = () => {
     );
 };
 
-export default Locations;
+export default Popular;

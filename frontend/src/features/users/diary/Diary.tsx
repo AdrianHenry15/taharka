@@ -7,7 +7,7 @@ import { LiaCalendarCheck, LiaStar } from "react-icons/lia";
 import { BsArrowCounterclockwise } from "react-icons/bs";
 import { PiIceCreamLight } from "react-icons/pi";
 import { TbGrave2 } from "react-icons/tb";
-import DiaryTab from "../components/DiaryTab";
+import DiaryTab from "../../../pages/more/components/DiaryTab";
 import { Outlet } from "react-router-dom";
 import BackBtn from "../../../components/buttons/BackBtn";
 import InfoContainer from "../../../components/containers/InfoContainer";

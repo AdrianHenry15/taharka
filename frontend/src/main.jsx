@@ -3,6 +3,8 @@ import * as ReactDOM from "react-dom/client";
 import { BrowserRouter } from 'react-router-dom'
 import App from "./App";
 import "./globals.css";
+import { Provider } from 'react-redux'
+import store from "./store/store";
 //ROUTES
 // import Menu from "./pages/menu/Menu";
 // import Order from "./pages/order/Order";
@@ -30,8 +32,10 @@ import "./globals.css";
 // );
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>
     </React.StrictMode>
 );
