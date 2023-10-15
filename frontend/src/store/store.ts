@@ -22,4 +22,4 @@ const store = configureStore({
 export default store;
 
 export type Dispatch = typeof store.dispatch;
-export type State = typeof store.getState;
+export type State = ReturnType<typeof store.getState>;
