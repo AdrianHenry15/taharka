@@ -1,6 +1,6 @@
 import React from "react";
 import BackBtn from "../../../components/buttons/BackBtn";
-import SubscriptionTab from "../components/SubscriptionTab";
+import SubscriptionTab from "../../../pages/order/components/SubscriptionTab";
 import { ImTruck } from "react-icons/im";
 import PageContainer from "../../../components/containers/PageContainer";
 import { BsFillBagHeartFill } from "react-icons/bs";

@@ -1,6 +1,6 @@
 import React from "react";
 import BackBtn from "../../../components/buttons/BackBtn";
-import OrderCard from "../components/OrderCard";
+import OrderCard from "../../../pages/order/components/OrderCard";
 
 interface IPickupOrderProps {
     city: string;

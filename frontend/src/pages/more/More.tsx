@@ -9,7 +9,6 @@ import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import { IoLocationOutline, IoIdCardOutline } from "react-icons/io5";
 import { CiCreditCard1 } from "react-icons/ci";
 import Button from "../../components/buttons/Button";
-import { Link, Outlet } from "react-router-dom";
 
 const More = () => {
     return (

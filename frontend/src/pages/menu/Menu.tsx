@@ -24,7 +24,7 @@ const Menu = () => {
                     })}
                 </div>
             </PageContainer>
-            <Button onClick={() => {}} containerClass="fixed" text="Order Now" />
+            <Button path="/order" onClick={() => {}} containerClass="fixed" text="Order Now" />
         </div>
     );
 };

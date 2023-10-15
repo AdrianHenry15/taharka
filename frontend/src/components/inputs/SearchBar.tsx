@@ -17,7 +17,7 @@ const SearchBar = (props: ISearchBarProps) => {
             <input
                 onChange={props.handleSearch}
                 className={`${props.inputClass} w-full p-2 rounded-full outline-none`}
-                type="text"
+                type="search"
                 placeholder={props.placeHolder}
             />
         </div>
