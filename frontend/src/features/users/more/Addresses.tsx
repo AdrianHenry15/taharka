@@ -1,7 +1,7 @@
 import React from "react";
-import PageContainer from "../../components/containers/PageContainer";
-import SearchBar from "../../components/inputs/SearchBar";
-import BackBtn from "../../components/buttons/BackBtn";
+import PageContainer from "../../../components/containers/PageContainer";
+import SearchBar from "../../../components/inputs/SearchBar";
+import BackBtn from "../../../components/buttons/BackBtn";
 
 const Addresses = () => {
     return (

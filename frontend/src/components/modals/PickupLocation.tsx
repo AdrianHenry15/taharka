@@ -1,8 +1,8 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import SearchBar from "./inputs/SearchBar";
-import LocationTab from "./tabs/LocationTab";
+import SearchBar from "../inputs/SearchBar";
+import LocationTab from "../tabs/LocationTab";
 
 interface IPickupLocationProps {
     returnPath: string;

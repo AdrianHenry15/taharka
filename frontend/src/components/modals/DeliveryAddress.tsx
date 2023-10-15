@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import SearchBar from "./inputs/SearchBar";
+import SearchBar from "../inputs/SearchBar";
 import { Link } from "react-router-dom";
 
 interface IDeliveryAddressProps {
