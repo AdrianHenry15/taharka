@@ -13,6 +13,9 @@ export interface IUser extends Document {
   refreshToken: string[]
   provider: string
   createdAt: Date
+  phoneVerificationCode?: string
+  isPhoneVerified: boolean
+  phoneVerificationExpiry?: Date
 }
 
 const UserSchema = new Schema<IUser>(
@@ -34,6 +37,12 @@ const UserSchema = new Schema<IUser>(
       type: String,
       required: true,
     },
+    phoneVerificationCode: String,
+    isPhoneVerified: {
+      type: Boolean,
+      default: false,
+    },
+    phoneVerificationExpiry: Date,
     isAdmin: {
       type: Boolean,
       default: false,
@@ -68,6 +77,20 @@ const UserSchema = new Schema<IUser>(
   }
 )
 
+// get review count
+UserSchema.virtual("reviewCount").get(function () {
+  return this.reviews.length
+})
+
+// format createdAt date
+UserSchema.virtual("createdAtFormatted").get(function () {
+  return date.format(this.createdAt, "dddd MMM DD, YYYY")
+})
+
+const User = mongoose.model<IUser>("User", UserSchema)
+
+export default User
+
 // // match user entered password to hashed password in database
 // userSchema.methods.matchPassword = async function (enteredPassword) {
 //     return await bcrypt.compare(enteredPassword, this.password)
@@ -82,17 +105,3 @@ const UserSchema = new Schema<IUser>(
 //     const salt = await bcrypt.genSalt(10);
 //     this.password = await bcrypt.hash(this.password, salt)
 // })
-
-// get review count
-UserSchema.virtual("reviewCount").get(function () {
-  return this.reviews.length
-})
-
-// format createdAt date
-UserSchema.virtual("createdAtFormatted").get(function () {
-  return date.format(this.createdAt, "dddd MMM DD, YYYY")
-})
-
-const User = mongoose.model<IUser>("User", UserSchema)
-
-export default User
