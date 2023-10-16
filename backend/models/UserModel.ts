@@ -1,21 +1,21 @@
-import mongoose, { Schema } from "mongoose"
+import mongoose, { Schema, Types } from "mongoose"
 import date from "date-and-time"
 
 export interface IUser extends Document {
   name: string
   email?: string
+  savedLocations?: Types.ObjectId[]
   phone: string
   isAdmin: boolean
   isVerified: boolean
-  accountDetails?: string
-  reviews: mongoose.Types.ObjectId[]
+  reviews: Types.ObjectId[]
   accessToken?: string
   refreshToken: string[]
   provider: string
   createdAt: Date
 }
 
-const userSchema = new mongoose.Schema<IUser>(
+const UserSchema = new Schema<IUser>(
   {
     name: {
       type: String,
@@ -42,14 +42,16 @@ const userSchema = new mongoose.Schema<IUser>(
       type: Boolean,
       default: false,
     },
-    accountDetails: {
-      type: String,
-      // default: false
-    },
     reviews: [
       {
         type: Schema.Types.ObjectId,
         ref: "Review",
+      },
+    ],
+    savedLocations: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Location",
       },
     ],
     accessToken: {
@@ -82,15 +84,15 @@ const userSchema = new mongoose.Schema<IUser>(
 // })
 
 // get review count
-userSchema.virtual("reviewCount").get(function () {
+UserSchema.virtual("reviewCount").get(function () {
   return this.reviews.length
 })
 
 // format createdAt date
-userSchema.virtual("createdAtFormatted").get(function () {
+UserSchema.virtual("createdAtFormatted").get(function () {
   return date.format(this.createdAt, "dddd MMM DD, YYYY")
 })
 
-const User = mongoose.model("User", userSchema)
+const User = mongoose.model<IUser>("User", UserSchema)
 
 export default User
