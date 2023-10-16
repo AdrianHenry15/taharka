@@ -1,6 +1,6 @@
 // to limit use of try and catch methods
 import asyncHandler from 'express-async-handler'
-import User from '../models/userModel.js'
+import User from '../models/UserModel.js'
 import generateToken from '../utils/generateToken.js';
 
 // @description     Auth user/set token
