@@ -15,6 +15,4 @@ const RewardSchema = new Schema({
   description: String,
 })
 
-const Reward = mongoose.model("Reward", RewardSchema)
-
-export default Reward
+export default mongoose.model("Reward", RewardSchema)

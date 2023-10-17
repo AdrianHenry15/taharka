@@ -56,6 +56,4 @@ ReviewSchema.virtual("createdAtFormatted").get(function () {
   return date.format(this.createdAt, "dddd MMM DD, YYYY")
 })
 
-const Review = mongoose.model("Review", ReviewSchema)
-
-export default Review
+export default mongoose.model("Review", ReviewSchema)

@@ -90,9 +90,7 @@ UserSchema.virtual("createdAtFormatted").get(function () {
   return date.format(this.createdAt, "dddd MMM DD, YYYY")
 })
 
-const User = mongoose.model("User", UserSchema)
-
-export default User
+export default mongoose.model("User", UserSchema)
 
 // // match user entered password to hashed password in database
 // userSchema.methods.matchPassword = async function (enteredPassword) {

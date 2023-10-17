@@ -16,7 +16,7 @@ import mongoose, { Schema } from "mongoose"
 // }
 
 // Product Schema
-const ProductSchema = new Schema < IProduct > ({
+const ProductSchema = new Schema({
   sku: {
     type: String,
   },
@@ -60,4 +60,4 @@ const ProductSchema = new Schema < IProduct > ({
   },
 })
 
-module.exports = mongoose.model("Product", ProductSchema)
+export default mongoose.model("Product", ProductSchema)

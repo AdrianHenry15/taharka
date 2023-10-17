@@ -6,6 +6,7 @@ import connectDB from "./config/db.js"
 // routes
 import userRoutes from "./routes/userRoutes.js"
 import cartRoutes from "./routes/cartRoutes.js"
+import productRoutes from "./routes/productRoutes.js"
 // error middlewares
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js"
 // import { createServer } from "http"
@@ -34,6 +35,7 @@ app.use(cookieParser())
 // route usage
 app.use("/api/users", userRoutes)
 app.use("/api/cart", cartRoutes)
+app.use("/api/products", productRoutes)
 
 app.get("/", (req, res) => res.send("Server is ready"))
 
