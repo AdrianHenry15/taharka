@@ -1,24 +1,24 @@
-import mongoose, { Schema, Types } from "mongoose"
+import mongoose, { Schema } from "mongoose"
 import date from "date-and-time"
 
-export interface IUser extends Document {
-  name: string
-  email?: string
-  savedLocations?: Types.ObjectId[]
-  phone: string
-  isAdmin: boolean
-  isVerified: boolean
-  reviews: Types.ObjectId[]
-  accessToken?: string
-  refreshToken: string[]
-  provider: string
-  createdAt: Date
-  phoneVerificationCode?: string
-  phoneVerificationExpiry?: Date
-  birthday?: string
-}
+// export interface IUser extends Document {
+//   name: string
+//   email?: string
+//   savedLocations?: Types.ObjectId[]
+//   phone: string
+//   isAdmin: boolean
+//   isVerified: boolean
+//   reviews: Types.ObjectId[]
+//   accessToken?: string
+//   refreshToken: string[]
+//   provider: string
+//   createdAt: Date
+//   phoneVerificationCode?: string
+//   phoneVerificationExpiry?: Date
+//   birthday?: string
+// }
 
-const UserSchema = new Schema<IUser>(
+const UserSchema = new Schema(
   {
     name: {
       type: String,
@@ -90,7 +90,7 @@ UserSchema.virtual("createdAtFormatted").get(function () {
   return date.format(this.createdAt, "dddd MMM DD, YYYY")
 })
 
-const User = mongoose.model<IUser>("User", UserSchema)
+const User = mongoose.model("User", UserSchema)
 
 export default User
 

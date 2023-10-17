@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler"
-import User from "../../models/UserModel"
+import User from "../../models/UserModel.js"
 
 // @description     UPDATE user profile
 // route            PUT /api/users/profile

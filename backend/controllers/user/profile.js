@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler"
-import User from "../../models/UserModel"
+import User from "../../models/UserModel.js"
 
 // @description     GET user profile
 // route            POST /api/users/profile

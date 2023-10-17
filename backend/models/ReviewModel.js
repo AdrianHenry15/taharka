@@ -1,16 +1,16 @@
-import mongoose, { Schema, Document } from "mongoose"
+import mongoose, { Schema } from "mongoose"
 import date from "date-and-time"
 
-interface IReview extends Document {
-  image: string
-  text: string
-  author: mongoose.Types.ObjectId
-  likes: mongoose.Types.ObjectId[]
-  dislikes: mongoose.Types.ObjectId[]
-  createdAt: Date
-}
+// interface IReview extends Document {
+//   image: string
+//   text: string
+//   author: mongoose.Types.ObjectId
+//   likes: mongoose.Types.ObjectId[]
+//   dislikes: mongoose.Types.ObjectId[]
+//   createdAt: Date
+// }
 
-const ReviewSchema = new Schema<IReview>(
+const ReviewSchema = new Schema(
   {
     image: {
       type: String,
@@ -19,11 +19,14 @@ const ReviewSchema = new Schema<IReview>(
     text: {
       type: String,
       trim: true,
-      required: true,
     },
     author: {
       type: Schema.Types.ObjectId,
       ref: "User",
+    },
+    rating: {
+      type: Number,
+      required: true
     },
     likes: [
       {
@@ -49,10 +52,10 @@ ReviewSchema.virtual("likeCount").get(function () {
 })
 
 // format createdAt date
-ReviewSchema.virtual("createdAtFormatted").get(function (this: IReview) {
+ReviewSchema.virtual("createdAtFormatted").get(function () {
   return date.format(this.createdAt, "dddd MMM DD, YYYY")
 })
 
-const Review = mongoose.model<IReview>("User", ReviewSchema)
+const Review = mongoose.model("Review", ReviewSchema)
 
 export default Review

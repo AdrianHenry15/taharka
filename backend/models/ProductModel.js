@@ -1,22 +1,22 @@
-import mongoose, { Schema, Document } from "mongoose"
+import mongoose, { Schema } from "mongoose"
 
-interface IProduct extends Document {
-  sku: string
-  name: string
-  slug: string
-  imageUrl: string
-  imageKey: string
-  description: string
-  quantity: number
-  price: number
-  taxable: boolean
-  isActive: boolean
-  updated: Date
-  created: Date
-}
+// interface IProduct extends Document {
+//   sku: string
+//   name: string
+//   slug: string
+//   imageUrl: string
+//   imageKey: string
+//   description: string
+//   quantity: number
+//   price: number
+//   taxable: boolean
+//   isActive: boolean
+//   updated: Date
+//   created: Date
+// }
 
 // Product Schema
-const ProductSchema = new Schema<IProduct>({
+const ProductSchema = new Schema < IProduct > ({
   sku: {
     type: String,
   },
@@ -60,4 +60,4 @@ const ProductSchema = new Schema<IProduct>({
   },
 })
 
-module.exports = mongoose.model<IProduct>("Product", ProductSchema)
+module.exports = mongoose.model("Product", ProductSchema)

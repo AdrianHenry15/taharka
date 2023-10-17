@@ -1,14 +1,14 @@
-import mongoose, { Schema, Types, Document } from "mongoose"
+import mongoose, { Schema } from "mongoose"
 
-interface IOrder extends Document {
-  cart: Types.ObjectId
-  user: Types.ObjectId
-  total: number
-  updated: Date
-  created: Date
-}
+// interface IOrder extends Document {
+//   cart: Types.ObjectId
+//   user: Types.ObjectId
+//   total: number
+//   updated: Date
+//   created: Date
+// }
 
-const OrderSchema = new Schema<IOrder>({
+const OrderSchema = new Schema({
   cart: {
     type: Schema.Types.ObjectId,
     ref: "Cart",
@@ -33,4 +33,4 @@ const OrderSchema = new Schema<IOrder>({
   },
 })
 
-export default mongoose.model<IOrder>("Order", OrderSchema)
+export default mongoose.model("Order", OrderSchema)

@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler"
-import User from "../../models/UserModel"
-import generateToken from "../../utils/generateToken"
+import User from "../../models/UserModel.js"
+import generateToken from "../../utils/generateToken.js"
 
 // USER REGISTRATION
 // @description     Register a new user

@@ -1,11 +1,11 @@
 import asyncHandler from "express-async-handler"
-import User from "../../models/UserModel"
-import generateToken from "../../utils/generateToken"
+import User from "../../models/UserModel.js"
+import generateToken from "../../utils/generateToken.js"
 
 // @description     Auth user/set token
 // route            POST /api/users/auth
 // @access          Public
-export const login = asyncHandler(async (req, res) => {
+export const loginUser = asyncHandler(async (req, res) => {
   const { name, email, phone } = req.body
 
   const user = await User.findOne({ name: name, $or: [{ email }, { phone }] })
