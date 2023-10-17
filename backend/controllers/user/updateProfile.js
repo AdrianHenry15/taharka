@@ -6,7 +6,7 @@ import User from "../../models/UserModel.js"
 // @access          Private/ have to have a valid token
 export const updateUserProfile = asyncHandler(async (req, res) => {
   try {
-    const user = await User.findById(req.params.userId)
+    const user = await User.findById(req.user._id)
 
     if (user) {
       // Update user's profile fields if provided in the request

@@ -21,8 +21,8 @@ export const registerUser = asyncHandler(async (req, res) => {
       return
     }
 
-    // Create new user document with name, email, and/or phone
-    const newUser = await User.create({ name, email, phone })
+    // Create new user document with name, phone, and/or email
+    const newUser = await User.create({ name, $or: [{ email }, { phone }] })
 
     // Save the user to the database
     await newUser.save()

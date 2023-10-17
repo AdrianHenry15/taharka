@@ -10,7 +10,7 @@ export const loginUser = asyncHandler(async (req, res) => {
 
   const user = await User.findOne({ name: name, $or: [{ email }, { phone }] })
 
-  if (user && user.isVerified) {
+  if (user) {
     generateToken(res, user._id)
 
     res.status(201).json({
