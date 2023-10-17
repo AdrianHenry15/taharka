@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose"
-import { CartStatus } from "../constants"
 
 // interface ICartItem extends Document {
 //   product: Types.ObjectId[]
@@ -45,15 +44,13 @@ const CartItemSchema = new Schema({
   },
   status: {
     type: String,
-    // default: CartStatus.NOT_PROCESSED,
     default: "Not Processed",
-    // enum: [
-    //   CartStatus.NOT_PROCESSED,
-    //   CartStatus.PROCESSING,
-    //   CartStatus.SHIPPED,
-    //   CartStatus.DELIVERED,
-    //   CartStatus.CANCELLED,
-    // ],
+    enum: ["Not Processed",
+      "Processing",
+      "Shipped",
+      "Delivered",
+      "CANCELED",
+    ],
     required: true,
   },
 })
