@@ -14,8 +14,8 @@ export interface IUser extends Document {
   provider: string
   createdAt: Date
   phoneVerificationCode?: string
-  isPhoneVerified: boolean
   phoneVerificationExpiry?: Date
+  birthday?: string
 }
 
 const UserSchema = new Schema<IUser>(
@@ -38,10 +38,6 @@ const UserSchema = new Schema<IUser>(
       required: true,
     },
     phoneVerificationCode: String,
-    isPhoneVerified: {
-      type: Boolean,
-      default: false,
-    },
     phoneVerificationExpiry: Date,
     isAdmin: {
       type: Boolean,
@@ -70,6 +66,13 @@ const UserSchema = new Schema<IUser>(
     provider: {
       type: String,
       default: "email",
+    },
+    birthday: {
+      type: String,
+      match: [
+        /^\d{2}\/\d{2}\/\d{4}$/,
+        "Please enter a valid birthday 01/01/3030",
+      ],
     },
   },
   {
