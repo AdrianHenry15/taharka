@@ -1,20 +1,5 @@
 import mongoose, { Schema } from "mongoose"
 
-// interface IProduct extends Document {
-//   sku: string
-//   name: string
-//   slug: string
-//   imageUrl: string
-//   imageKey: string
-//   description: string
-//   quantity: number
-//   price: number
-//   taxable: boolean
-//   isActive: boolean
-//   updated: Date
-//   created: Date
-// }
-
 // Product Schema
 const ProductSchema = new Schema({
   sku: {
@@ -29,11 +14,10 @@ const ProductSchema = new Schema({
     slug: "name",
     unique: true,
   },
-  imageUrl: {
-    type: String,
-  },
-  imageKey: {
-    type: String,
+  image: {
+    type: Schema.Types.ObjectId,
+    ref: "Image",
+    required: true
   },
   description: {
     type: String,

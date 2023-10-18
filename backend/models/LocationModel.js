@@ -1,11 +1,5 @@
 import mongoose, { Schema } from "mongoose"
 
-// interface ILocation extends Document {
-//   city: string
-//   address: string
-//   state: string
-// }
-
 const LocationSchema = new Schema({
   city: {
     type: String,

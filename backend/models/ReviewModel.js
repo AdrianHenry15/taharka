@@ -1,15 +1,6 @@
 import mongoose, { Schema } from "mongoose"
 import date from "date-and-time"
 
-// interface IReview extends Document {
-//   image: string
-//   text: string
-//   author: mongoose.Types.ObjectId
-//   likes: mongoose.Types.ObjectId[]
-//   dislikes: mongoose.Types.ObjectId[]
-//   createdAt: Date
-// }
-
 const ReviewSchema = new Schema(
   {
     image: {

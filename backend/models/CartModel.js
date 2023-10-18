@@ -1,21 +1,5 @@
 import mongoose, { Schema } from "mongoose"
 
-// interface ICartItem extends Document {
-//   product: Types.ObjectId[]
-//   quantity: number
-//   price: number
-//   tax: number
-//   priceWithTax: number
-//   status: string
-// }
-
-// interface ICart extends Document {
-//   products: [ICartItem]
-//   user: Types.ObjectId
-//   updated: Date
-//   created: Date
-// }
-
 const CartItemSchema = new Schema({
   product: [
     {

@@ -3,23 +3,6 @@ import date from "date-and-time"
 import crypto from "crypto"
 import nodemailer from "nodemailer"
 
-// export interface IUser extends Document {
-//   name: string
-//   email?: string
-//   savedLocations?: Types.ObjectId[]
-//   phone: string
-//   isAdmin: boolean
-//   isVerified: boolean
-//   reviews: Types.ObjectId[]
-//   accessToken?: string
-//   refreshToken: string[]
-//   provider: string
-//   createdAt: Date
-//   phoneVerificationCode?: string
-//   phoneVerificationExpiry?: Date
-//   birthday?: string
-// }
-
 const UserSchema = new Schema(
   {
     name: {
