@@ -9,7 +9,7 @@
     "server": "nodemon backend/server.js",
     "client": "npm run dev --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "seed": "node config/seeds.js"
+    "seed": "node backend/config/seeds.js"
   },
   "repository": {
     "type": "git",
