@@ -1,5 +1,7 @@
 import mongoose, { Schema } from "mongoose"
 import date from "date-and-time"
+import crypto from "crypto"
+import nodemailer from "nodemailer"
 
 // export interface IUser extends Document {
 //   name: string
@@ -45,6 +47,8 @@ const UserSchema = new Schema(
     },
     phoneVerificationCode: String,
     phoneVerificationExpiry: Date,
+    emailVerificationCode: String,
+    emailVerificationExpiry: Date,
     isAdmin: {
       type: Boolean,
       default: false,
@@ -74,12 +78,12 @@ const UserSchema = new Schema(
       default: "email",
     },
     birthday: {
-      type: String,
-      match: [
-        /^\d{2}\/\d{2}\/\d{4}$/,
-        "Please enter a valid birthday 01/01/3030",
-      ],
+      type: Date,
     },
+    paymentMethod: {
+      type: Schema.Types.ObjectId,
+      ref: "PaymentMethod"
+    }
   },
   {
     timestamps: true,
@@ -95,6 +99,64 @@ UserSchema.virtual("reviewCount").get(function () {
 UserSchema.virtual("createdAtFormatted").get(function () {
   return date.format(this.createdAt, "dddd MMM DD, YYYY")
 })
+
+// method to send a PHONE verification code
+UserSchema.methods.sendPhoneVerification = async function () {
+  // Generate a random verification code, 4 digit code
+  const verificationCode = Math.floor(1000 + Math.random() * 9000).toString();
+
+  // Set the verification code and its epiry time
+  this.phoneVerificationCode = verificationCode;
+  const expiryTime = new Date();
+  expiryTime.setMinutes(expiryTime.getMinutes() + 10); // Verification code
+  this.phoneVerificationExpiry = expiryTime;
+
+  // TODO: Send the verification code to the user's phone via SMS
+  // You'll need to use and SMS service to send the code
+
+  return verificationCode; // Return the 4-digit code in case you want to use it for further processing
+}
+
+// method to send a EMAIL verification code
+UserSchema.methods.sendEmailVerification = async function () {
+  // Generate a unique verification token
+  const verificationCode = crypto.randomBytes(20).toString('hex')
+
+  // Set the verification code and its epiration time
+  this.emailVerificationCode = verificationCode;
+  const expiryTime = new Date();
+  expiryTime.setHours(expiryTime.getHours() + 24); // Verification code
+  this.emailVerificationExpiry = expiryTime;
+
+  // Save the updated user
+  await this.save()
+
+  // Create a nodemailer transporter (adjust as per the email service that will be used)
+  const transporter = nodemailer.createTransport({
+    service: 'EmailService',
+    auth: {
+      user: 'nodemailer@email.com',
+      pass: "password" // hide this in process.env
+    }
+  });
+
+  // Send the email verification link to the user's email address
+  const verificationLink = `http://your-website.com/verify-email/${verificationCode}`
+  const mailOptions = {
+    from: 'dummy@email.com',
+    to: this.email,
+    subject: 'Email Verification',
+    text: `To verify your emil, click on the following link: ${verificationLink}`
+  }
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  })
+}
 
 export default mongoose.model("User", UserSchema)
 
