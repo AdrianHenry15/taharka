@@ -4,11 +4,10 @@ import Product from '../../models/ProductModel.js'
 // create product but only if your admin
 export const createProduct = asyncHandler(async (req, res) => {
     const product = new Product(req.body);
+    const savedProduct = await product.save();
 
-    try {
-        const savedProduct = await product.save();
-        res.status(201).json(savedProduct);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
+    if (!savedProduct) {
+        res.status(400).json({ message: 'Failed to create the product. Please include required fields.' });
     }
+    res.status(201).json(savedProduct);
 });

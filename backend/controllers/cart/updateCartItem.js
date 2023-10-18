@@ -1,7 +1,7 @@
 import Cart from '../../models/CartModel.js'
 import asyncHandler from "express-async-handler"
 
-export const updateCart = asyncHandler(async (req, res) => {
+export const updateCartItem = asyncHandler(async (req, res) => {
     try {
         const cartId = req.params.cartId;
         const { products } = req.body;
