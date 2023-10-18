@@ -26,7 +26,10 @@ const UserSchema = new Schema(
     },
     email: {
       type: String,
-      required: false,
+      required: function () {
+        // require email if phone is not provided
+        return !this.phone;
+      },
       // unique: true
       match: [
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
@@ -35,7 +38,10 @@ const UserSchema = new Schema(
     },
     phone: {
       type: String,
-      required: true,
+      required: function () {
+        // require email if phone is not provided
+        return !this.email;
+      },
     },
     phoneVerificationCode: String,
     phoneVerificationExpiry: Date,

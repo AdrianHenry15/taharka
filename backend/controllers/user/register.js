@@ -12,17 +12,18 @@ export const registerUser = asyncHandler(async (req, res) => {
   try {
     // Check if the user with provided email or phone number already exists
     const existingUser = await User.findOne({
-      name: name,
       $or: [{ email }, { phone }],
     })
 
     if (existingUser) {
-      res.status(400).json({ message: "User already exists" })
-      return
+      return res.status(400).json({ message: "User already exists" })
     }
 
     // Create new user document with name, phone, and/or email
-    const newUser = await User.create({ name, $or: [{ email }, { phone }] })
+    const newUser = new User({ name })
+
+    if (email) newUser.email = email;
+    if (phone) newUser.phone = phone;
 
     // Save the user to the database
     await newUser.save()

@@ -34,3 +34,17 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
     res.status(500).json({ message: "Internal server error" })
   }
 })
+
+// export const updateUserProfile = asyncHandler(async (req, res) => {
+//   const userId = req.params.id;
+
+//   const updatedUser = await User.findByIdAndUpdate(userId, req.body, {
+//     new: true, // Return the updated product
+//   });
+
+//   if (updatedUser) {
+//     res.status(200).json(updatedUser);
+//   } else {
+//     res.status(404).json({ message: 'User not found' });
+//   }
+// });
