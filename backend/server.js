@@ -12,19 +12,10 @@ import { fileURLToPath } from "url"
 import userRoutes from "./routes/userRoutes.js"
 import cartRoutes from "./routes/cartRoutes.js"
 import productRoutes from "./routes/productRoutes.js"
-import imageRoutes from "./routes/imageRoutes.js"
+import rewardsRoutes from "./routes/rewardsRoutes.js"
+// import imageRoutes from "./routes/imageRoutes.js"
 // error middlewares
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js"
-// import { createServer } from "http"
-// import { ApolloServer } from "@apollo/server"
-// import { expressMiddleware } from "@apollo/server/express4"
-// import { ApolloServerPluginInlineTrace } from "@apollo/server/plugin/inlineTrace"
-// import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer"
-// import { makeExecutableSchema } from "@graphql-tools/schema"
-// import { useServer } from "graphql-ws/lib/use/ws"
-// import { protect } from "./middleware/authMiddleware.js"
-// import { WebSocketServer } from "ws"
-// import {typeDefs, resolvers} from './schemas'
 
 connectDB()
 
@@ -51,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api/users", userRoutes)
 app.use("/api/cart", cartRoutes)
 app.use("/api/products", productRoutes)
+app.use("/api/rewards", rewardsRoutes)
 // app.use("/api/images", imageRoutes)
 
 
