@@ -37,14 +37,15 @@ const Menu = () => {
             <PageContainer className="mb-10">
                 <aside className="text-gray-500 pt-6">You must order 6 pints to complete an order.</aside>
                 <div className="flex items-center flex-col py-4">
-                    {products.map(({ _id, name, imageUrl, imageKey, description, price }) => {
-                        if (_id % 2 === 0) {
-                            return <MenuDisplay key={imageKey} name={name} description={description} imageUrl={imageUrl} price={price} />;
+                    {products.map(({ _id, name, image, description, price, devId }) => {
+                        if (devId % 2 === 0) {
+                            return <MenuDisplay key={_id} name={name} description={description} imageUrl={image} price={price} />;
                         } else {
-                            return <MenuDisplay2 key={imageKey} name={name} description={description} imageUrl={imageUrl} price={price} />;
+                            return <MenuDisplay2 key={_id} name={name} description={description} imageUrl={image} price={price} />;
                         }
                     })}
                 </div>
+                {/* <span></span> */}
             </PageContainer>
             <Button path="/order" onClick={() => {}} containerClass="fixed" text="Order Now" />
         </div>

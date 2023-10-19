@@ -6,6 +6,8 @@ import express from "express"
 import cookieParser from "cookie-parser"
 import connectDB from "./config/db.js"
 import cors from 'cors'
+import path, { dirname } from 'path'
+import { fileURLToPath } from "url"
 // routes
 import userRoutes from "./routes/userRoutes.js"
 import cartRoutes from "./routes/cartRoutes.js"
@@ -40,14 +42,16 @@ app.use(cookieParser())
 // CROSS ORIGIN RESOURCE SHARING
 app.use(cors());
 
-// Serve static files from the 'assets' directory
-app.use('/assets', express.static('assets'))
+// Serve static files from the 'public' directory
+const __fileName = fileURLToPath(import.meta.url)
+const __dirname = dirname(__fileName)
+app.use(express.static(path.join(__dirname, 'public')));
 
 // route usage
 app.use("/api/users", userRoutes)
 app.use("/api/cart", cartRoutes)
 app.use("/api/products", productRoutes)
-app.use("/api/images", imageRoutes)
+// app.use("/api/images", imageRoutes)
 
 
 app.get("/", (req, res) => res.send("Server is ready"))

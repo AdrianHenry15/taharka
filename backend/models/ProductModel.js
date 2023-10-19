@@ -2,6 +2,7 @@ import mongoose, { Schema } from "mongoose"
 
 // Product Schema
 const ProductSchema = new Schema({
+  devId: Number,
   sku: {
     type: String,
   },
@@ -15,8 +16,7 @@ const ProductSchema = new Schema({
     unique: true,
   },
   image: {
-    type: Schema.Types.ObjectId,
-    ref: "Image",
+    type: String,
     required: true
   },
   description: {

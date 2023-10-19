@@ -20,7 +20,8 @@ const MenuDisplay = (props: IMenuDisplayProps) => {
                 <span className="text-sm">{props.description}</span>
                 <span className="text-xs text-zinc-400 my-2">{`${fullDollarAmount}`}</span>
             </div>
-            <LazyLoadImage src={props.imageUrl} alt={props.name} className="lg:w-1/3 md:w-1/3 w-1/2 drop-shadow-xl flex flex-1" />
+            <img src={props.imageUrl} alt={props.name} className="lg:w-1/3 md:w-1/3 w-1/2 drop-shadow-xl flex flex-1" />
+            {/* <span>{props.imageUrl}</span> */}
         </div>
         // </Link>
     );
