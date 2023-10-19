@@ -26,17 +26,6 @@ const CartItemSchema = new Schema({
     default: 0,
     required: true,
   },
-  status: {
-    type: String,
-    default: "Not Processed",
-    enum: ["Not Processed",
-      "Processing",
-      "Shipped",
-      "Delivered",
-      "CANCELED",
-    ],
-    required: true,
-  },
 })
 
 const CartSchema = new Schema({
@@ -54,6 +43,11 @@ const CartSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+})
+
+// format createdAt date
+CartSchema.virtual("createdAtFormatted").get(function () {
+  return date.format(this.createdAt, "dddd MMM DD, YYYY")
 })
 
 export default mongoose.model("Cart", CartSchema)

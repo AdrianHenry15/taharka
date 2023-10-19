@@ -3,9 +3,13 @@ import date from "date-and-time"
 
 const ReviewSchema = new Schema(
   {
-    image: {
-      type: String,
-      trim: true,
+    product: {
+      type: Schema.Types.ObjectId,
+      ref: "Product"
+    },
+    isPurchaseVerified: {
+      type: Boolean,
+      default: trim
     },
     text: {
       type: String,
@@ -14,6 +18,7 @@ const ReviewSchema = new Schema(
     author: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: true
     },
     rating: {
       type: Number,
@@ -31,6 +36,10 @@ const ReviewSchema = new Schema(
         ref: "User",
       },
     ],
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
   {
     timestamps: true,

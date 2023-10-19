@@ -35,10 +35,15 @@ const ProductSchema = new Schema({
     default: true,
   },
   updated: Date,
-  created: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },
+})
+
+// format createdAt date
+ProductSchema.virtual("createdAtFormatted").get(function () {
+  return date.format(this.createdAt, "dddd MMM DD, YYYY")
 })
 
 export default mongoose.model("Product", ProductSchema)

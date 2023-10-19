@@ -40,6 +40,10 @@ const UserSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    image_url: {
+      type: String,
+      trim: true
+    },
     reviews: [
       {
         type: Schema.Types.ObjectId,
@@ -66,7 +70,11 @@ const UserSchema = new Schema(
     paymentMethod: {
       type: Schema.Types.ObjectId,
       ref: "PaymentMethod"
-    }
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
   {
     timestamps: true,

@@ -21,5 +21,10 @@ const PaymentMethodSchema = new Schema({
     },
 });
 
+// format createdAt date
+PaymentMethodSchema.virtual("createdAtFormatted").get(function () {
+    return date.format(this.createdAt, "dddd MMM DD, YYYY")
+})
+
 export default mongoose.model("PaymentMethod", PaymentMethodSchema)
 
