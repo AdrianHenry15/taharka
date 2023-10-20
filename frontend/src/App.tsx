@@ -31,7 +31,7 @@ import Popular from "./features/users/more/diary/Popular";
 import Graveyard from "./features/users/more/diary/Graveyard";
 import Classics from "./features/users/more/diary/Classics";
 import Login from "./features/users/Login";
-import Register from "./features/users/Register";
+import Register from "./features/users/Login";
 import AppRoutes from "./routes";
 
 const App = () => {
