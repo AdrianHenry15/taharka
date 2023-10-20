@@ -4,9 +4,9 @@ import ComingSoon from "../../components/ComingSoon";
 
 const Gifts = () => {
     return (
-        <PageContainer>
+        <div>
             <ComingSoon />
-        </PageContainer>
+        </div>
     );
 };
 
