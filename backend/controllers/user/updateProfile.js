@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler"
 import User from "../../models/UserModel.js"
+import bcrypt from "bcryptjs"
 
 // @description     UPDATE user profile
 // route            PUT /api/users/profile
@@ -13,6 +14,14 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
     user.email = req.body.email || user.email
     user.phone = req.body.phone || user.phone
     user.birthday = req.body.birthday || user.birthday
+
+    // CHeck if a new password is provided
+    if (req.body.password) {
+      // Hash the new passowrd before saving it
+      const saltRounds = 10;
+      const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+      user.password = hashedPassword;
+    }
 
     const updatedUser = await user.save()
 
@@ -29,17 +38,3 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
     throw new Error("User not found")
   }
 })
-
-// export const updateUserProfile = asyncHandler(async (req, res) => {
-//   const userId = req.params.id;
-
-//   const updatedUser = await User.findByIdAndUpdate(userId, req.body, {
-//     new: true, // Return the updated product
-//   });
-
-//   if (updatedUser) {
-//     res.status(200).json(updatedUser);
-//   } else {
-//     res.status(404).json({ message: 'User not found' });
-//   }
-// });

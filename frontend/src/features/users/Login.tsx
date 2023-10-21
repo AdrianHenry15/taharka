@@ -1,38 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/buttons/Button";
 import BackBtn from "../../components/buttons/BackBtn";
 import RegisterInput from "../../components/inputs/RegisterInput";
-import { useDispatch } from "react-redux";
-import { user_login } from "../../store/slices/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [email, setEmail] = useState("");
+    // const [email, setEmail] = useState("");
+
+    // Add a useEffect to listen for "Enter" key presses
+    useEffect(() => {
+        const handleKeyPress = (e: any) => {
+            if (e.key === "Enter") {
+                handleLogin();
+            }
+        };
+
+        // Attach the event listener when the component mounts
+        document.addEventListener("keydown", handleKeyPress);
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            document.removeEventListener("keydown", handleKeyPress);
+        };
+    }, []);
 
     const handleLogin = async () => {
         try {
+            // Send a request to your backend to request a confirmation code
+            // Include the "identifier" in the request (email or phone number)
+            // Your backend should send a confirmation code to the provided email or phone
+
             // API endpoint for user login
-            const response = await fetch("/api/login", {
+            const response = await fetch("http://localhost:8000/api/users/phone/send-verification", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ name, email, phoneNumber }),
+                body: JSON.stringify({ phoneNumber }),
             });
+
             if (response.ok) {
-                const userData = await response.json();
-                const accessToken = ""; // get token from response
-
-                // Dispatch the user_login action to update the user state
-                dispatch(user_login(userData));
-
-                // Store user data and access token in localStorage
-                localStorage.setItem("user", JSON.stringify(userData));
-                localStorage.setItem("access_token", accessToken);
-
-                // Redirect or perform any other actions for a successful login
+                // Redirect to the confrmation code page once the code is sent
+                navigate("/confirmation-code"); // use navigate to change the route
             } else {
                 // Handle login failure
             }
@@ -40,6 +52,7 @@ const Login = () => {
             console.error("Login error:", error);
         }
     };
+
     return (
         <div className="flex flex-col items-center justify-center h-full">
             <BackBtn path="/" />
@@ -48,12 +61,17 @@ const Login = () => {
                 We'll text you a confirmation code to <br /> get started.
             </span>
             <div className="flex flex-col items-center justify-center w-full px-10">
-                <RegisterInput onChange={() => {}} type="text" placeholder="Enter first and last name" />
-                <RegisterInput onChange={() => {}} type="tel" placeholder="+1 (888) 888 - 8888" />
-                <span>or</span>
-                <RegisterInput onChange={() => {}} type="email" placeholder="john@doe.com" />
+                <RegisterInput value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter first and last name" />
+                <RegisterInput
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    type="tel"
+                    placeholder="+1 (888) 888 - 8888"
+                />
+                {/* <span>or</span> */}
+                {/* <RegisterInput value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="john@doe.com" /> */}
             </div>
-            <Button path="/confirmation-code" onClick={() => {}} text="Send Confirmation Code"></Button>
+            <Button path="" onClick={() => handleLogin()} text="Send Confirmation Code"></Button>
         </div>
     );
 };

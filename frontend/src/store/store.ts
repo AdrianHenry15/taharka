@@ -14,7 +14,7 @@ const store = configureStore({
     reducer: {
         cart: cartSlice,
         modal: modalSlice,
-        page: pageSlice,
+        currentPage: pageSlice,
         product: productSlice,
         review: reviewSlice,
         user: userSlice,
@@ -25,7 +25,7 @@ const store = configureStore({
     },
 });
 
-export default store;
-
 export type Dispatch = typeof store.dispatch;
 export type State = ReturnType<typeof store.getState>;
+
+export default store;

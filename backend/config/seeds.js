@@ -1,13 +1,19 @@
 import connectDB from './db.js'
 import User from "../models/UserModel.js"
 import Product from "../models/ProductModel.js"
-import * as fs from 'fs'
-import Image from "../models/ImageModel.js"
+import bcrypt from 'bcryptjs'
 import dotenv from 'dotenv'
 dotenv.config()
 
+// hash the password
+const hashPassword = async (password) => {
+    const hashedPassword = await bcrypt.hash(password, 10) // salt rounds can be adjusted
+    return hashedPassword
+}
+
 const seedData = async () => {
     try {
+        const hashedPassword = await hashPassword(process.env.ADMIN_PASSWORD)
         await Product.deleteMany();
 
         // create all seeds
@@ -200,16 +206,10 @@ const seedData = async () => {
                 {
                     name: "Adrian Henry",
                     email: "adrianhenry2115@gmail.com",
-                    phone: "123-123-1234",
+                    phone: "321-370-0836",
+                    password: "tacamo",
                     isAdmin: true,
                     isVerified: true
-                },
-                {
-                    name: "John Doe",
-                    email: "john@doe.com",
-                    phone: "333-333-3333",
-                    isAdmin: false,
-                    isVerified: false,
                 },
             ]
         );

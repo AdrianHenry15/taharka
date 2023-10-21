@@ -2,6 +2,7 @@ import mongoose, { Schema } from "mongoose"
 import date from "date-and-time"
 import crypto from "crypto"
 import nodemailer from "nodemailer"
+import bcrypt from 'bcryptjs'
 
 const UserSchema = new Schema(
   {
@@ -39,6 +40,10 @@ const UserSchema = new Schema(
     isVerified: {
       type: Boolean,
       default: false,
+    },
+    password: {
+      type: String,
+      required: true
     },
     image_url: {
       type: String,
@@ -149,19 +154,19 @@ UserSchema.methods.sendEmailVerification = async function () {
   })
 }
 
+// match user entered password to hashed password in database
+UserSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password)
+};
+
+// encrypt password using bcrypt hashing
+UserSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) {
+    next()
+  }
+
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt)
+})
 export default mongoose.model("User", UserSchema)
 
-// // match user entered password to hashed password in database
-// userSchema.methods.matchPassword = async function (enteredPassword) {
-//     return await bcrypt.compare(enteredPassword, this.password)
-// };
-
-// // encrypt password using bcrypt hashing
-// userSchema.pre('save', async function (next) {
-//     if (!this.isModified('password')) {
-//         next()
-//     }
-
-//     const salt = await bcrypt.genSalt(10);
-//     this.password = await bcrypt.hash(this.password, salt)
-// })
