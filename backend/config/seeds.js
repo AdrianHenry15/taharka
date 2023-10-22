@@ -207,7 +207,7 @@ const seedData = async () => {
                     name: "Adrian Henry",
                     email: "adrianhenry2115@gmail.com",
                     phone: "321-370-0836",
-                    password: "tacamo",
+                    password: process.env.ADMIN_PASSWORD,
                     isAdmin: true,
                     isVerified: true
                 },

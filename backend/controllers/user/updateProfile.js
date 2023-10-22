@@ -17,10 +17,7 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
 
     // CHeck if a new password is provided
     if (req.body.password) {
-      // Hash the new passowrd before saving it
-      const saltRounds = 10;
-      const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
-      user.password = hashedPassword;
+      user.password = req.body.password;
     }
 
     const updatedUser = await user.save()

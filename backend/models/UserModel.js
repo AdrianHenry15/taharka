@@ -8,6 +8,7 @@ const UserSchema = new Schema(
   {
     name: {
       type: String,
+      set: (value) => value.toLowerCase(), // Custom setter function to convert to lowercase
       required: true,
     },
     email: {

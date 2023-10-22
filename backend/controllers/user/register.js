@@ -20,22 +20,21 @@ export const registerUser = asyncHandler(async (req, res) => {
   }
 
   // Create new user document with name, phone, and/or email
-  const newUser = new User({ name })
+  const user = await User.create({
+    name, password, $or: [{ email }, { phone }]
+  })
 
-  if (email) newUser.email = email;
-  if (phone) newUser.phone = phone;
-  if (password) {
-    // Hash the password before storing it
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-    newUser.password = hashedPassword
+  if (user) {
+    generateToken(res, user._id)
+
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      phone: user.phone
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid user data")
   }
-
-  // Save the user to the database
-  await newUser.save()
-
-  // Generate and send a token
-  generateToken(res, newUser._id)
-
-  res.status(201).json({ user: newUser })
 })
