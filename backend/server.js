@@ -37,7 +37,7 @@ app.use(cors());
 // Serve static files from the 'public' directory
 const __fileName = fileURLToPath(import.meta.url)
 const __dirname = dirname(__fileName)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // route usage
 app.use("/api/users", userRoutes)

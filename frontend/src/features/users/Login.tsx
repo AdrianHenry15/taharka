@@ -11,14 +11,16 @@ import { GlobalStateContext } from "../../context/GlobalStoreContext";
 const Login = () => {
     const navigate = useNavigate();
     const store = useContext<GlobalStateStore>(GlobalStateContext);
-    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = async () => {
+        const email = store.User.email;
         try {
             const response = await axios.post(`${store.BaseUrl}/users/login`, {
-                name,
+                email,
                 password,
             });
 
@@ -35,12 +37,16 @@ const Login = () => {
         }
     };
 
+    const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+        store.User.email = e.target.value;
+    };
+    const handlePhoneNumber = (e: ChangeEvent<HTMLInputElement>) => {
+        setPhoneNumber(e.target.value);
+        store.User.phoneNumber = e.target.value;
+    };
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);
-    };
-    const handleName = (e: ChangeEvent<HTMLInputElement>) => {
-        setName(e.target.value);
-        store.User.username = e.target.value;
     };
     const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
@@ -56,10 +62,18 @@ const Login = () => {
             <div className="flex flex-col items-center justify-center w-full p-10">
                 <RegisterInput
                     className="outline-none"
-                    value={name}
-                    onChange={(e) => handleName(e)}
+                    value={email}
+                    onChange={(e) => handleEmail(e)}
                     type="text"
-                    placeholder="Enter first and last name"
+                    placeholder="john@doe.com"
+                />
+                <span>or</span>
+                <RegisterInput
+                    className="outline-none"
+                    value={phoneNumber}
+                    onChange={(e) => handlePhoneNumber(e)}
+                    type="text"
+                    placeholder="+1 (123) 123-1234"
                 />
                 <div className="flex w-full items-center border-[1px] border-zinc-300 rounded-full">
                     <RegisterInput

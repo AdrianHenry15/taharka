@@ -7,8 +7,8 @@ import { updateUserProfile } from "../controllers/user/updateProfile.js"
 import { protect } from "../middleware/authMiddleware.js"
 import { deleteUser } from "../controllers/user/deleteUser.js"
 import { getAllUsers } from "../controllers/user/getAllProfiles.js"
-import { verifyEmail } from "../controllers/user/verifyEmail.js"
-import { sendPhoneVerification, verifyPhone } from "../controllers/user/verifyPhone.js"
+// import { verifyEmail } from "../controllers/user/verifyEmail.js"
+// import { sendPhoneVerification, verifyPhone } from "../controllers/user/verifyPhone.js"
 const router = express.Router()
 
 router.post("/register", registerUser)
