@@ -5,35 +5,20 @@ import RegisterInput from "../../components/inputs/RegisterInput";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { useAppState } from "../../store/hooks";
 
 const Login = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const [name, setName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
-    const user = useAppState((state) => state.user);
-
-    // useEffect(() => {
-    //     if (user) {
-    //         navigate("/rewards");
-    //     }
-    // }, [navigate, user]);
-
-    const handleTogglePassword = () => {
-        setShowPassword(!showPassword);
-    };
-
     // Add a useEffect to listen for "Enter" key presses
     useEffect(() => {
         const handleKeyPress = (e: any) => {
             if (e.key === "Enter") {
-                handleLogin(e);
+                // handleLogin(e);
             }
         };
 
@@ -46,32 +31,8 @@ const Login = () => {
         };
     }, []);
 
-    const handleLogin = async (e?: React.FormEvent) => {
-        e?.preventDefault();
-        try {
-            // Send a request to your backend to request a confirmation code
-            // Include the "identifier" in the request (email or phone number)
-            // Your backend should send a confirmation code to the provided email or phone
-
-            // API endpoint for user login
-            const response = await axios.post("http://localhost:8000/api/users/login", {
-                name,
-                password,
-                email,
-                phoneNumber,
-            });
-
-            if (response.status === 200) {
-                // Dispatch the user_login action with the user data
-                dispatch(user_login(response.data));
-                navigate("/rewards"); // use navigate to change the route
-            } else {
-                // Handle login failure
-                console.error("Login Failed", response.status, response.statusText);
-            }
-        } catch (error) {
-            console.error("Login error:", error);
-        }
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
     };
     const handleName = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
@@ -138,7 +99,7 @@ const Login = () => {
                     placeholder="john@doe.com"
                 />
             </div>
-            <Button path="" onClick={handleLogin} text="Login"></Button>
+            <Button path="" onClick={() => {}} text="Login"></Button>
             <Link className="text-zinc-400 text-sm" to="/register">
                 register
             </Link>

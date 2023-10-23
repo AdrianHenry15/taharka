@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import BackBtn from "../../components/buttons/BackBtn";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { State } from "../../store/store";
+import { State } from "../../store/GlobalStateStore";
 
 const ConfirmationCode = () => {
     const state = useSelector((state: State) => state.currentPage);
