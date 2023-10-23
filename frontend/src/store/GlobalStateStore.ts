@@ -18,6 +18,7 @@ export class GlobalStateStore {
         id: 0,
         username: "",
         email: "",
+        phoneNumber: "",
         rewardsPoints: 0,
         preferredPaymentMethod: {
             cardNumber: "",
@@ -26,8 +27,6 @@ export class GlobalStateStore {
         },
         savedPaymentMethods: [],
         isLoggedIn: false,
-        token: "",
-        phoneNumber: "",
         birthday: new Date(),
         savedAddresses: [],
         reviews: [],

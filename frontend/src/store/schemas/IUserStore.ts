@@ -5,14 +5,13 @@ export interface IUserStore {
     username: string;
     email: string;
     phoneNumber: string;
-    birthday: Date;
-    rewardsPoints: number;
-    savedPaymentMethods: IPaymentMethod[];
-    preferredPaymentMethod: IPaymentMethod;
     isLoggedIn: boolean;
-    token: string;
-    savedAddresses: ILocationStore[];
-    reviews: IReview[];
+    birthday?: Date;
+    rewardsPoints?: number;
+    savedPaymentMethods?: IPaymentMethod[];
+    preferredPaymentMethod?: IPaymentMethod;
+    savedAddresses?: ILocationStore[];
+    reviews?: IReview[];
 }
 
 interface IPaymentMethod {
@@ -26,5 +25,5 @@ interface IReview {
     iceCreamId: number;
     userId: number;
     rating: number;
-    comment: string;
+    comment?: string;
 }

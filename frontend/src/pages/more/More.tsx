@@ -1,6 +1,14 @@
-import React, { useContext } from "react";
+//components
 import PageContainer from "../../components/containers/PageContainer";
 import Tab from "../../components/tabs/Tab";
+import Button from "../../components/buttons/Button";
+import { GlobalStateStore } from "../../store/GlobalStateStore";
+import { GlobalStateContext } from "../../context/GlobalStoreContext";
+//dependencies
+import React, { useContext } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+// icons
 import { LiaStoreAltSolid } from "react-icons/lia";
 import { FaRegCreditCard } from "react-icons/fa";
 import { CgList } from "react-icons/cg";
@@ -8,11 +16,6 @@ import { PiArrowsClockwiseFill } from "react-icons/pi";
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import { IoLocationOutline, IoIdCardOutline } from "react-icons/io5";
 import { CiCreditCard1 } from "react-icons/ci";
-import Button from "../../components/buttons/Button";
-import axios from "axios";
-import { GlobalStateStore } from "../../store/GlobalStateStore";
-import { GlobalStateContext } from "../../context/GlobalStoreContext";
-import { useNavigate } from "react-router-dom";
 
 const More = () => {
     const store = useContext<GlobalStateStore>(GlobalStateContext);
@@ -32,6 +35,7 @@ const More = () => {
             // Navigate to Menu | ~ This function is needed for this whole function to work correctly ~
             navigate("/");
         } catch (error) {
+            // THIS SHOULD NEVER HAPPEN
             console.error("Invalid credentials. Please try again.");
         }
     };
