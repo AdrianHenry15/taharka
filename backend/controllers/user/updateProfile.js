@@ -12,7 +12,7 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
     // Update user's profile fields if provided in the request
     user.name = req.body.name || user.name
     user.email = req.body.email || user.email
-    user.phone = req.body.phone || user.phone
+    user.phoneNumber = req.body.phoneNumber || user.phoneNumber
     user.birthday = req.body.birthday || user.birthday
 
     // CHeck if a new password is provided
@@ -26,7 +26,7 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
-      phone: updatedUser.phone,
+      phoneNumber: updatedUser.phoneNumber,
       birthday: updatedUser.birthday,
       message: "User Profile Updated",
     })

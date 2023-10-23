@@ -1,12 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import BackBtn from "../../components/buttons/BackBtn";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { State } from "../../store/GlobalStateStore";
+import { GlobalStateStore } from "../../store/GlobalStateStore";
+import { GlobalStateContext } from "../../context/GlobalStoreContext";
+import { observer } from "mobx-react";
 
 const ConfirmationCode = () => {
-    const state = useSelector((state: State) => state.currentPage);
     const navigate = useNavigate();
+    const store = useContext<GlobalStateStore>(GlobalStateContext);
 
     // Create state variables for each input field
     const [code1, setCode1] = useState("");
@@ -37,7 +38,7 @@ const ConfirmationCode = () => {
                 });
                 if (response.ok) {
                     // Redirect to the provate page once the code is verified
-                    navigate(state.currentPage === "/rewards" ? "/rewards" : "/more");
+                    navigate(store.CurrentPage === "/rewards" ? "/rewards" : "/more");
                 } else {
                     // Display error message
                     console.error("Server responded with an error", response.status, response.statusText);

@@ -7,6 +7,8 @@ interface IMenuDisplayProps {
     description: string;
     imageUrl: string;
     price: number;
+    onClick: () => void;
+    className?: string;
 }
 
 const MenuDisplay = (props: IMenuDisplayProps) => {
@@ -14,7 +16,10 @@ const MenuDisplay = (props: IMenuDisplayProps) => {
     const fullDollarAmount = Math.floor(props.price);
     return (
         // <Link to={LinkTitle}>
-        <div className="flex items-center justify-evenly cursor-pointer w-full lg:px-10 md:px-10 px-4">
+        <div
+            onClick={props.onClick}
+            className={`${props.className} flex items-center justify-evenly cursor-pointer w-full lg:px-10 md:px-10 px-4`}
+        >
             <div className="flex flex-col flex-2 w-[500px]">
                 <span className="text-lg text-back font-medium">{props.name}</span>
                 <span className="text-xs text-zinc-500">{props.description}</span>

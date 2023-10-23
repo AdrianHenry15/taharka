@@ -5,4 +5,5 @@ export interface IProductStore {
     price: number;
     category: string;
     imageUrl: string;
+    devId: number;
 }

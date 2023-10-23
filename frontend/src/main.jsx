@@ -2,7 +2,6 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import App from "./App";
 import "./globals.css";
-import { Provider } from 'mobx-react'
 import { globalStore } from "./store/GlobalStateStore";
 import { debugGlobalStateStore } from "./store/DevGlobalStateStore"
 import { GlobalStateContext } from "./context/GlobalStoreContext"

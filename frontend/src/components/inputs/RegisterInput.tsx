@@ -4,7 +4,7 @@ interface IRegisterInputProps {
     type: string;
     placeholder: string;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    value: string;
+    value?: string;
     className?: string;
 }
 

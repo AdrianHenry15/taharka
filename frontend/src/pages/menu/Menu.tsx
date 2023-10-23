@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "../../components/buttons/Button";
 import MenuDisplay from "./components/MenuDisplay";
 import MenuDisplay2 from "./components/MenuDisplay2";
 import axios from "axios";
+import { GlobalStateStore } from "../../store/GlobalStateStore";
+import { GlobalStateContext } from "../../context/GlobalStoreContext";
 
 const Menu = () => {
+    const store = useContext<GlobalStateStore>(GlobalStateContext);
     const [products, setProducts] = useState<any[]>([]);
 
     useEffect(() => {
         // Fetch data when the component mounts
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/api/products");
+                const response = await axios.get(`${store.BaseUrl}/products`);
 
                 if (response.status === 200) {
                     const data = await response.data;
@@ -34,13 +37,31 @@ const Menu = () => {
                 <span className="aside-text">6 Pint Minimum</span>
             </div>
             <div className="mb-10">
-                <aside className="text-gray-500 pt-6">You must order 6 pints to complete an order.</aside>
+                <aside className="text-gray-500 p-6">You must order 6 pints to complete an order.</aside>
                 <div className="flex items-center flex-col py-4">
                     {products.map(({ _id, name, image, description, price, devId }) => {
                         if (devId % 2 === 0) {
-                            return <MenuDisplay key={_id} name={name} description={description} imageUrl={image} price={price} />;
+                            return (
+                                <MenuDisplay
+                                    onClick={() => {}}
+                                    key={_id}
+                                    name={name}
+                                    description={description}
+                                    imageUrl={image}
+                                    price={price}
+                                />
+                            );
                         } else {
-                            return <MenuDisplay2 key={_id} name={name} description={description} imageUrl={image} price={price} />;
+                            return (
+                                <MenuDisplay2
+                                    onClick={() => {}}
+                                    key={_id}
+                                    name={name}
+                                    description={description}
+                                    imageUrl={image}
+                                    price={price}
+                                />
+                            );
                         }
                     })}
                 </div>

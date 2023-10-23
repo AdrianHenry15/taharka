@@ -23,7 +23,7 @@ const UserSchema = new Schema(
         "Please enter a valid email address",
       ],
     },
-    phone: {
+    phoneNumber: {
       type: String,
       required: function () {
         // require email if phone is not provided

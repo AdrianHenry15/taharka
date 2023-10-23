@@ -12,6 +12,8 @@ export class GlobalStateStore {
 
     @observable CurrentPage: string = "";
 
+    @observable BaseUrl: string = "";
+
     @observable User: IUserStore = {
         id: 0,
         username: "",
@@ -38,6 +40,7 @@ export class GlobalStateStore {
         price: 0,
         category: "",
         imageUrl: "",
+        devId: 0,
     };
 
     @observable Cart: ICartStore = {

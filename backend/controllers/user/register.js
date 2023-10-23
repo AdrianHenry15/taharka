@@ -7,11 +7,11 @@ import generateToken from "../../utils/generateToken.js"
 // route            POST /api/users
 // @access          Public
 export const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, phone, password } = req.body
+  const { name, email, phoneNumber, password } = req.body
 
   // Check if the user with provided email or phone number already exists
   const existingUser = await User.findOne({
-    $or: [{ email }, { phone }],
+    $or: [{ email: email }, { phoneNumber: phoneNumber }],
   })
 
   if (existingUser) {
@@ -20,7 +20,10 @@ export const registerUser = asyncHandler(async (req, res) => {
 
   // Create new user document with name, phone, and/or email
   const user = await User.create({
-    name, password, email, phone
+    name: name,
+    password: password,
+    email: email || null,
+    phoneNumber: phoneNumber || null
   })
 
   if (user) {
@@ -30,7 +33,7 @@ export const registerUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
-      phone: user.phone
+      phone: user.phoneNumber
     });
   } else {
     res.status(400);

@@ -11,7 +11,7 @@ export const getUserProfile = asyncHandler(async (req, res) => {
     res.status(200).json({
       _id: user._id,
       name: user.name,
-      phone: user.phone,
+      phoneNumber: user.phoneNumber,
       email: user.email,
       birthday: user.birthday,
     });

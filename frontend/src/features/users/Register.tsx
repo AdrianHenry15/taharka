@@ -1,76 +1,61 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import Button from "../../components/buttons/Button";
 import BackBtn from "../../components/buttons/BackBtn";
 import RegisterInput from "../../components/inputs/RegisterInput";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { GlobalStateStore } from "../../store/GlobalStateStore";
+import { GlobalStateContext } from "../../context/GlobalStoreContext";
+import axios from "axios";
 
 const Register = () => {
     const navigate = useNavigate();
+    const store = useContext<GlobalStateStore>(GlobalStateContext);
     const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+
+    const handleRegister = async () => {
+        try {
+            const response = await axios.post(`${store.BaseUrl}/users/register`, {
+                name: name,
+                password: password,
+                email: email,
+                phoneNumber: phoneNumber,
+            });
+
+            // This sets the authorization token into the local storage
+            const authToken = response.data.token;
+            localStorage.setItem("authToken", authToken);
+
+            store.User.isLoggedIn = true;
+
+            // Navigate to Menu page when logged in
+            navigate("/");
+        } catch (error) {
+            console.error("Invalid credentials. Please try again.");
+        }
+    };
 
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);
     };
-
-    // Add a useEffect to listen for "Enter" key presses
-    useEffect(() => {
-        const handleKeyPress = (e: any) => {
-            if (e.key === "Enter") {
-                handleRegister();
-            }
-        };
-
-        // Attach the event listener when the component mounts
-        document.addEventListener("keydown", handleKeyPress);
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-            document.removeEventListener("keydown", handleKeyPress);
-        };
-    }, []);
-
-    const handleRegister = async () => {
-        try {
-            // Send a request to your backend to request a confirmation code
-            // Include the "identifier" in the request (email or phone number)
-            // Your backend should send a confirmation code to the provided email or phone
-
-            // API endpoint for user login
-            const response = await fetch("http://localhost:8000/api/users", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ name, password, email, phoneNumber }),
-            });
-
-            if (response.ok) {
-                // TODO: Redirect to the confrmation code page once the code is sent
-                navigate("/rewards"); // use navigate to change the route
-            } else {
-                // Handle login failure
-                console.error("Login Failed", response.status, response.statusText);
-            }
-        } catch (error) {
-            console.error("Login error:", error);
-        }
-    };
     const handleName = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
+        store.User.username = e.target.value;
     };
     const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
     };
     const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
+        store.User.email = e.target.value;
     };
     const handlePhoneNumber = (e: ChangeEvent<HTMLInputElement>) => {
         setPhoneNumber(e.target.value);
+        store.User.phoneNumber = e.target.value;
     };
 
     return (
