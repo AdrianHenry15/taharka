@@ -11,6 +11,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Login from "../features/users/Login";
 import ConfirmationCode from "../features/users/ConfirmationCode";
+import Register from "../features/users/Register";
 
 // const { Login } = lazyImport(() => import('../features/users'), 'Login');
 // const { Register } = lazyImport(() => import('../features/users'), 'Register');
@@ -62,6 +63,10 @@ export const publicRoutes = [
             {
                 path: "/login",
                 element: <Login />,
+            },
+            {
+                path: "/register",
+                element: <Register />,
             },
             {
                 path: "/confirmation-code",

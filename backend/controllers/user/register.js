@@ -1,7 +1,6 @@
 import asyncHandler from "express-async-handler"
 import User from "../../models/UserModel.js"
 import generateToken from "../../utils/generateToken.js"
-import bcrypt from 'bcryptjs'
 
 // USER REGISTRATION
 // @description     Register a new user
@@ -21,7 +20,7 @@ export const registerUser = asyncHandler(async (req, res) => {
 
   // Create new user document with name, phone, and/or email
   const user = await User.create({
-    name, password, $or: [{ email }, { phone }]
+    name, password, email, phone
   })
 
   if (user) {

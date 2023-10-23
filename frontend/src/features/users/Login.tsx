@@ -2,16 +2,28 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import Button from "../../components/buttons/Button";
 import BackBtn from "../../components/buttons/BackBtn";
 import RegisterInput from "../../components/inputs/RegisterInput";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { useAppState } from "../../store/hooks";
 
 const Login = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [name, setName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+
+    const user = useAppState((state) => state.user);
+
+    // useEffect(() => {
+    //     if (user) {
+    //         navigate("/rewards");
+    //     }
+    // }, [navigate, user]);
 
     const handleTogglePassword = () => {
         setShowPassword(!showPassword);
@@ -21,7 +33,7 @@ const Login = () => {
     useEffect(() => {
         const handleKeyPress = (e: any) => {
             if (e.key === "Enter") {
-                handleLogin();
+                handleLogin(e);
             }
         };
 
@@ -34,26 +46,28 @@ const Login = () => {
         };
     }, []);
 
-    const handleLogin = async () => {
+    const handleLogin = async (e?: React.FormEvent) => {
+        e?.preventDefault();
         try {
             // Send a request to your backend to request a confirmation code
             // Include the "identifier" in the request (email or phone number)
             // Your backend should send a confirmation code to the provided email or phone
 
             // API endpoint for user login
-            const response = await fetch("http://localhost:8000/api/users/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ name, password, email, phoneNumber }),
+            const response = await axios.post("http://localhost:8000/api/users/login", {
+                name,
+                password,
+                email,
+                phoneNumber,
             });
 
-            if (response.ok) {
-                // TODO: Redirect to the confrmation code page once the code is sent
+            if (response.status === 200) {
+                // Dispatch the user_login action with the user data
+                dispatch(user_login(response.data));
                 navigate("/rewards"); // use navigate to change the route
             } else {
                 // Handle login failure
+                console.error("Login Failed", response.status, response.statusText);
             }
         } catch (error) {
             console.error("Login error:", error);
@@ -75,11 +89,11 @@ const Login = () => {
     return (
         <div className="flex flex-col items-center justify-center h-full">
             <BackBtn path="/" />
-            <span className="font-bold text-xl">Sign In</span>
-            <span className="text-sm text-center m-2">
+            <span className="font-bold text-xl">Log In</span>
+            {/* <span className="text-sm text-center m-2">
                 We'll text you a confirmation code to <br /> get started.
-            </span>
-            <div className="flex flex-col items-center justify-center w-full px-10">
+            </span> */}
+            <div className="flex flex-col items-center justify-center w-full p-10">
                 <RegisterInput
                     className="outline-none"
                     value={name}
@@ -124,7 +138,10 @@ const Login = () => {
                     placeholder="john@doe.com"
                 />
             </div>
-            <Button path="" onClick={() => handleLogin()} text="Login"></Button>
+            <Button path="" onClick={handleLogin} text="Login"></Button>
+            <Link className="text-zinc-400 text-sm" to="/register">
+                register
+            </Link>
         </div>
     );
 };

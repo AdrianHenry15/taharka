@@ -11,7 +11,7 @@ import { verifyEmail } from "../controllers/user/verifyEmail.js"
 import { sendPhoneVerification, verifyPhone } from "../controllers/user/verifyPhone.js"
 const router = express.Router()
 
-router.post("/", registerUser)
+router.post("/register", registerUser)
 router.post("/login", loginUser)
 router.post("/logout", logoutUser)
 router.get("/", getAllUsers)

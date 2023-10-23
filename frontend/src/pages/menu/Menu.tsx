@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import PageContainer from "../../components/containers/PageContainer";
-import { Products } from "../../utils/Data";
 import Button from "../../components/buttons/Button";
 import MenuDisplay from "./components/MenuDisplay";
 import MenuDisplay2 from "./components/MenuDisplay2";
+import axios from "axios";
 
 const Menu = () => {
     const [products, setProducts] = useState<any[]>([]);
@@ -12,14 +11,14 @@ const Menu = () => {
         // Fetch data when the component mounts
         const fetchData = async () => {
             try {
-                const response = await fetch("http://localhost:8000/api/products");
+                const response = await axios.get("http://localhost:8000/api/products");
 
-                if (!response.ok) {
+                if (response.status === 200) {
+                    const data = await response.data;
+                    setProducts(data);
+                } else {
                     throw new Error("Network reponse was not ok");
                 }
-
-                const data = await response.json();
-                setProducts(data);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }

@@ -2,7 +2,7 @@ import { useRoutes } from "react-router-dom";
 import { protectedRoutes } from "./protected";
 import { publicRoutes } from "./public";
 import { useAppState } from "../store/hooks";
-import { selectUser } from "../store/slices/userSlice";
+import { selectUser } from "../store/slices/userApiSlice";
 
 export default function AppRoutes() {
     const user = useAppState(selectUser);
