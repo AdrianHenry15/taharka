@@ -3,7 +3,7 @@ import { FaIceCream } from "react-icons/fa";
 
 const Progressbar = () => {
     return (
-        <div className="flex items-center w-full justify-between bg-zinc-300 pr-2 rounded-full my-[2px]">
+        <div className="flex items-center w-full justify-between bg-zinc-300 pr-2 rounded-full my-[2px] max-w-md">
             <div className="bg-pink-300 rounded-full p-[3px]">
                 <FaIceCream />
             </div>

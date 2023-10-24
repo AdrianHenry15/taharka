@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useParams } from "react-router-dom";
 import Menu from "../pages/menu/Menu";
 import StartOrder from "../pages/order/StartOrder";
 import DeliveryAddress from "../components/modals/DeliveryAddress";
@@ -12,6 +12,7 @@ import Navbar from "../components/Navbar";
 import Login from "../features/users/Login";
 import ConfirmationCode from "../features/users/ConfirmationCode";
 import Register from "../features/users/Register";
+import FlavorDisplay from "../pages/flavorDisplay/FlavorDisplay";
 
 // const { Login } = lazyImport(() => import('../features/users'), 'Login');
 // const { Register } = lazyImport(() => import('../features/users'), 'Register');
@@ -35,6 +36,10 @@ export const publicRoutes = [
             {
                 path: "/",
                 element: <Menu />,
+            },
+            {
+                path: `/black-cherry-chunk`,
+                element: <FlavorDisplay _id={""} name={""} description={""} imageUrl={""} />,
             },
             {
                 path: "/order",
