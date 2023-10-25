@@ -10,7 +10,7 @@
     "client": "npm run dev --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "seed": "node backend/config/seeds.js",
-    "mobile": "react-native start cd taharkaphoneapp",
+    "mobile": "cd TaharkaPhoneApp && npx react-native start",
     "app": "concurrently \"npm run server\" \"npm run mobile\""
   },
   "repository": {
@@ -55,13 +55,6 @@
     "@types/ws": "^8.5.7",
     "concurrently": "^8.0.1",
     "nodemon": "^2.0.22",
-    "typescript": "^5.2.2",
-    "@tsconfig/react-native": "^3.0.0",
-    "metro-react-native-babel-preset": "0.76.8",
-    "@babel/core": "^7.20.0",
-    "@babel/preset-env": "^7.20.0",
-    "@babel/runtime": "^7.20.0",
-    "@react-native/eslint-config": "^0.72.2",
-    "@react-native/metro-config": "^0.72.11"
+    "typescript": "^5.2.2"
   }
 }
