@@ -10,7 +10,7 @@
     "client": "npm run dev --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "seed": "node backend/config/seeds.js",
-    "mobile": "cd TaharkaPhoneApp && npx react-native start",
+    "mobile": "cd Mobile && npx react-native start",
     "app": "concurrently \"npm run server\" \"npm run mobile\""
   },
   "repository": {
