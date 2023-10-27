@@ -25,6 +25,7 @@
   "homepage": "https://github.com/AdrianHenry15/taharka#readme",
   "dependencies": {
     "@apollo/server": "^4.9.4",
+    "@babel/preset-react": "^7.22.15",
     "@graphql-tools/schema": "^10.0.0",
     "@types/cookie-parser": "^1.4.4",
     "@types/react-toastify": "^4.1.0",
