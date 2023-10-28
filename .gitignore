@@ -132,3 +132,4 @@ dist
 .pnp.*
 DevGlobalStateStore.ts
 debugGlobalStateStore
+next-env.d.ts

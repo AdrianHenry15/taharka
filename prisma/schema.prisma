@@ -1,0 +1,182 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider     = "mongodb"
+    url          = env("MONGO_URI")
+    relationMode = "prisma"
+}
+
+model User {
+    id               String          @id @default(uuid()) @map("_id")
+    name             String
+    phoneNumber      String          @unique
+    email            String          @unique
+    savedLocations   Location[]
+    paymentMethods   PaymentMethod[]
+    paymentMethodsId String
+    isVerified       Boolean?
+    birthday         DateTime?
+    imageUrl         String?
+    Review           Review?         @relation(fields: [reviewId], references: [id])
+    reviewId         String?
+    createdAt        DateTime        @default(now())
+    updatedAt        DateTime        @updatedAt
+}
+
+model Store {
+    id         String     @id @default(uuid()) @map("_id")
+    name       String
+    userId     String
+    categories Category[] @relation("StoreToCategory")
+    products   Product[]  @relation("StoreToProduct")
+    orders     Order[]    @relation("StoreToOrder")
+    createdAt  DateTime   @default(now())
+    updatedAt  DateTime   @updatedAt
+}
+
+model Category {
+    id        String    @id @default(uuid()) @map("_id")
+    storeId   String // Foreign Key to Store
+    store     Store     @relation("StoreToCategory", fields: [storeId], references: [id])
+    name      String
+    products  Product[] @relation("CategoryToProduct")
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+
+    @@index([storeId])
+}
+
+model Product {
+    id          String      @id @default(uuid()) @map("_id")
+    storeId     String // Foreign Key to Store
+    store       Store       @relation("StoreToProduct", fields: [storeId], references: [id])
+    categoryId  String // Foreign Key to Category
+    category    Category    @relation("CategoryToProduct", fields: [categoryId], references: [id])
+    name        String
+    price       Float
+    images      Image[] // Relation to Image model
+    orderItems  OrderItem[] // Relation to Order model
+    description String
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime    @updatedAt
+    Review      Review[]
+    CartItem    CartItem?   @relation(fields: [cartItemId], references: [id])
+    cartItemId  String?
+
+    @@index([storeId])
+    @@index([categoryId])
+}
+
+model Order {
+    id         String      @id @default(uuid()) @map("_id")
+    storeId    String // Foreign Key to Store
+    store      Store       @relation("StoreToOrder", fields: [storeId], references: [id])
+    orderItems OrderItem[] // Relation to OrderItem model
+    isPaid     Boolean     @default(false)
+    phone      String      @default("")
+    address    String      @default("")
+    createdAt  DateTime    @default(now())
+    updatedAt  DateTime    @updatedAt
+    status     OrderStatus
+    total      Float
+
+    @@index([storeId])
+}
+
+// Intermediary for a many-to-many relationship
+model OrderItem {
+    id        String  @id @default(uuid()) @map("_id")
+    orderId   String // Foreign Key to Order
+    order     Order   @relation(fields: [orderId], references: [id])
+    productId String // Foreign Key to Product
+    product   Product @relation(fields: [productId], references: [id])
+
+    @@index([orderId])
+    @@index([productId])
+}
+
+model Reward {
+    id          String @id @default(uuid()) @map("_id")
+    name        String
+    points      Int
+    description String
+}
+
+model Review {
+    id         String   @id @default(uuid()) @map("_id")
+    product    Product  @relation(fields: [productId], references: [id])
+    authorId   Int
+    rating     Float
+    likes      Int
+    dislikes   Int
+    comment    String?
+    isVerified Boolean?
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    productId  String
+    userId     String   @unique
+    authors    User[]
+}
+
+model PaymentMethod {
+    id             String      @id @default(uuid()) @map("_id")
+    type           PaymentType
+    cardNumber     String      @unique
+    expirationDate String
+    bankName       String
+    accountNumber  String
+    createdAt      DateTime    @default(now())
+    userId         String      @unique
+    User           User        @relation(fields: [userId], references: [id])
+}
+
+model Location {
+    id      String  @id @default(uuid()) @map("_id")
+    city    String
+    address String
+    state   String
+    User    User?   @relation(fields: [userId], references: [id])
+    userId  String?
+}
+
+model CartItem {
+    id           String    @id @default(uuid()) @map("_id")
+    product      Product[]
+    quantity     Int
+    price        Float
+    tax          Float
+    priceWithTax Float
+    Cart         Cart?     @relation(fields: [cartId], references: [id])
+    cartId       String?
+}
+
+model Cart {
+    id        String     @id @default(uuid()) @map("_id")
+    products  CartItem[]
+    createdAt DateTime   @default(now())
+    updatedAt DateTime   @updatedAt
+    userId    String
+}
+
+model Image {
+    id        String   @id @default(uuid()) @map("_id")
+    Product   Product? @relation(fields: [productId], references: [id])
+    productId String?
+}
+
+enum PaymentType {
+    BANK_ACCOUNT
+    CREDIT_CARD
+    PAYPAL
+    OTHER
+}
+
+enum OrderStatus {
+    NOT_PROCESSED
+    PROCESSED
+    SHIPPED
+    DELIVERED
+    CANCELLED
+}
