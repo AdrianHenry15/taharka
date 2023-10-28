@@ -16,9 +16,10 @@
         "isolatedModules": true,
         "jsx": "preserve",
         "incremental": true,
-        "types": ["node"]
+        "types": ["node"],
+        "experimentalDecorators": true
     },
-    "include": ["**/*.ts", "**/*.tsx", "server.js", "src/store/slices/userSlice.ts"],
+    "include": ["**/*.ts", "**/*.tsx", "server.js", "src/store/schemas/IUserStore.ts", "src/store/schemas/authSlice.js"],
     "exclude": ["node_modules", "**/dist/**"],
     "outDir": "./dist"
 }

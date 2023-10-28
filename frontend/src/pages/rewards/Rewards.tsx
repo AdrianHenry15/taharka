@@ -12,14 +12,14 @@ const Rewards = () => {
         <div className="flex flex-col w-full bg-zinc-200 h-full">
             <InfoContainer className="bg-white border-t-2" text="Rewards" />
             {/* MAIN SECTION */}
-            <div className="p-4 flex flex-col w-full">
+            <div className="p-4 flex flex-col w-full justify-center">
                 {/* SECTION 1 */}
-                <div className="w-full bg-white rounded-lg">
+                <div className="w-full bg-white rounded-lg flex flex-col items-center">
                     <RewardsCard />
                     {/* CREAM POINTS  */}
-                    <div className="w-full text-xs flex flex-col p-2">
-                        <div className="flex w-full justify-between">
-                            <span>Cream:</span>
+                    <div className="w-full text-xs flex flex-col p-2 items-center">
+                        <div className="flex w-full md:justify-center justify-between">
+                            <span className="md:hidden lg:hidden">Cream:</span>
                             <span>100 more to earn $10</span>
                         </div>
                         <Progressbar />
@@ -32,9 +32,9 @@ const Rewards = () => {
                     </div>
                 </Tab>
                 {/* SECTION 3  */}
-                <div>
+                <div className="flex flex-col items-center w-full">
                     {/* VOUCHERS ROW  */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between w-full">
                         <span className="font-bold text-lg">Vouchers</span>
                         {/* PROMO CODE BUTTON  */}
                         <div className="flex items-center">
@@ -43,7 +43,7 @@ const Rewards = () => {
                         </div>
                     </div>
                     {/* VOUCHERS SECTION  */}
-                    <div className="my-2 text-xs flex flex-col justify-center items-center w-full h-52 border-2 border-zinc-400 rounded-lg">
+                    <div className="my-2 text-xs flex flex-col justify-center items-center w-full h-52 border-2 border-zinc-400 rounded-lg max-w-md">
                         <IoTicketOutline size={20} />
                         <span className="font-bold">You Have No Vouchers</span>
                         <span className="text-zinc-400">Enter a promo code to earn a voucher</span>

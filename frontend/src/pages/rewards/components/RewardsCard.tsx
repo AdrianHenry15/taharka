@@ -4,7 +4,7 @@ import { PiHandPointing } from "react-icons/pi";
 
 const RewardsCard = () => {
     return (
-        <div className="flex w-full rounded-xl h-52 bg-black text-white shadow-2xl">
+        <div className="flex w-full rounded-xl h-52 bg-black text-white shadow-2xl max-w-sm">
             <div className="text-white flex items-end h-full">
                 <GiIceCreamScoop size={200} />
             </div>
