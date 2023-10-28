@@ -55,6 +55,8 @@ model Product {
     categoryId  String // Foreign Key to Category
     category    Category    @relation("CategoryToProduct", fields: [categoryId], references: [id])
     name        String
+    isArchived  Boolean     @default(false)
+    isFeatured  Boolean     @default(false)
     price       Float
     images      Image[] // Relation to Image model
     orderItems  OrderItem[] // Relation to Order model

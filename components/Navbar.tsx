@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import NavBtn, { Pages } from "./buttons/NavBtn";
+import NavBtn, { Pages } from "./ui/buttons/NavBtn";
 //icons
 import { BiSolidFoodMenu } from "react-icons/bi";
 import { CiIceCream } from "react-icons/ci";

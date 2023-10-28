@@ -1,6 +1,6 @@
+import Link from "next/link";
 import React from "react";
 import { CiLocationOn } from "react-icons/ci";
-import { Link } from "react-router-dom";
 
 // TODO: THIS NEEDS TO BE IN STATE STORE
 interface ILocationTabProps {
@@ -14,7 +14,7 @@ interface ILocationTabProps {
 
 const LocationTab = (props: ILocationTabProps) => {
     return (
-        <Link className="flex flex-col bg-white rounded-lg p-2 my-2" onClick={props.onClick} to={props.path}>
+        <Link className="flex flex-col bg-white rounded-lg p-2 my-2" onClick={props.onClick} href={props.path}>
             <div className="flex">
                 {/* LOCATION ICON | DISTANCE */}
                 <div className="flex flex-col items-center justify-center mr-4">

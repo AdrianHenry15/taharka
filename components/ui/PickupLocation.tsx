@@ -2,8 +2,8 @@
 
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import SearchBar from "../inputs/SearchBar";
-import LocationTab from "../tabs/LocationTab";
+import SearchBar from "./inputs/SearchBar";
+import LocationTab from "./tabs/LocationTab";
 import Link from "next/link";
 
 interface IPickupLocationProps {

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import SearchBar from "../inputs/SearchBar";
+import SearchBar from "./inputs/SearchBar";
 import Link from "next/link";
 
 interface IDeliveryAddressProps {
