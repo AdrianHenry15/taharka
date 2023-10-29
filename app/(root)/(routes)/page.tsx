@@ -5,17 +5,13 @@ import { GlobalStateStore } from "@/store/GlobalStateStore";
 import { GlobalStateContext } from "@/providers/state-provider";
 
 const SetupPage = () => {
-    let { ModalOpen } = useContext<GlobalStateStore>(GlobalStateContext);
-
-    const onOpen = () => {
-        ModalOpen = true;
-    };
+    let { isOpen, onOpen } = useContext<GlobalStateStore>(GlobalStateContext).Modal;
 
     useEffect(() => {
-        if (!ModalOpen) {
+        if (!isOpen) {
             onOpen();
         }
-    }, [ModalOpen, onOpen]);
+    }, [isOpen, onOpen]);
 
     return null;
 };

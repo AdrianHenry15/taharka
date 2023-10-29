@@ -1,13 +1,13 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
-
-// import { ModalProvider } from '@/providers/modal-provider'
 import { ToastProvider } from "@/providers/toast-provider";
+import { Metadata } from "next";
+
 // import { ThemeProvider } from '@/providers/theme-provider'
+import StateProvider from "@/providers/state-provider";
+import { ModalProvider } from "@/providers/modal-provider";
 
 import "./global.css";
-import { Metadata } from "next";
-import StateProvider from "@/providers/state-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +29,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             enableSystem
           > */}
                         <ToastProvider />
-                        {/* <ModalProvider /> */}
+                        <ModalProvider />
                         {children}
                         {/* </ThemeProvider> */}
                     </body>

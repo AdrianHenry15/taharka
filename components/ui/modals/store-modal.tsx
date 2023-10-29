@@ -9,10 +9,10 @@ import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 
 import { Modal } from "@/components/Modal";
-import { Input } from "@/components/ui/inputs/InputVariant";
+import { Input } from "@/components/ui/Input";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/Form";
 
-import { Button } from "@/components/ui/buttons/BtnVariant";
+import { Button } from "@/components/ui/Button";
 import { GlobalStateStore } from "@/store/GlobalStateStore";
 import { GlobalStateContext } from "@/providers/state-provider";
 
@@ -21,7 +21,7 @@ const formSchema = z.object({
 });
 
 export const StoreModal = () => {
-    let { ModalOpen } = useContext<GlobalStateStore>(GlobalStateContext);
+    let { isOpen, onClose } = useContext<GlobalStateStore>(GlobalStateContext).Modal;
     const router = useRouter();
 
     const [loading, setLoading] = useState(false);
@@ -45,12 +45,8 @@ export const StoreModal = () => {
         }
     };
 
-    const onClose = () => {
-        ModalOpen = false;
-    };
-
     return (
-        <Modal title="Create store" description="Add a new store to manage products and categories." isOpen={ModalOpen} onClose={onClose}>
+        <Modal title="Create store" description="Add a new store to manage products and categories." isOpen={isOpen} onClose={onClose}>
             <div>
                 <div className="space-y-4 py-2 pb-4">
                     <div className="space-y-2">

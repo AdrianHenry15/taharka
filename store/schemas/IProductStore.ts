@@ -1,9 +1,8 @@
 export interface IProductStore {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    category: string;
-    imageUrl: string;
-    devId: number;
+    isOpen: boolean;
+    isEdit: boolean;
+    editId?: string;
+    onOpen: () => void;
+    onEdit: (id: string) => void;
+    onClose: () => void;
 }
