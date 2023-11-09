@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Logo from "../assets/imgs/taharka_logo.png";
+import Logo from "../public/taharka_logo.png";
 import Link from "next/link";
 import Image from "next/image";
 
