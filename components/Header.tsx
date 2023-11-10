@@ -11,13 +11,13 @@ import Logo from "../public/taharka_logo.png";
 
 const Header = () => {
     return (
-        <div className="flex items-center justify-between w-full p-4 sticky top-0 bg-white rounded-b-lg lg:w-2/3">
+        <div className="flex items-center justify-between w-full px-4 fixed top-0 bg-white z-10 rounded-b-lg lg:w-2/3">
             {/* HAMBURGER AND LOGO CONTAINER  */}
             <div className="flex items-center justify-start">
                 <RxHamburgerMenu className="text-zinc-500 font-extrabold" size={30} onClick={() => {}} />
                 <Link className="pl-10 flex items-center" href={"/"}>
                     <Image className="pb-4" width={50} src={Logo} alt="logo" />
-                    <span className="font-bold text-3xl">Taharka Bros.</span>
+                    <span className="font-bold text-2xl">Taharka Bros.</span>
                 </Link>
             </div>
             {/* LOCATION AND ORDER NOW CONTAINER */}
@@ -26,7 +26,7 @@ const Header = () => {
                     <MdLocationPin size={20} className="mr-2" />
                     <span>Find A Shop</span>
                 </Link>
-                <Link className="bg-black rounded-full text-white px-6 py-4" href={"/order"}>
+                <Link className="bg-black rounded-full text-white px-10 py-2" href={"/order"}>
                     <span className="font-bold">Order Now</span>
                 </Link>
             </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 interface IVideoPlayerProps {
@@ -6,9 +8,8 @@ interface IVideoPlayerProps {
 
 const VideoPlayer = (props: IVideoPlayerProps) => {
     return (
-        <video controls width="640" height="360">
+        <video className="h-min top-0 w-full" autoPlay muted loop>
             <source src={props.src} type="video/mp4" />
-            Your browser does not support the video tag.
         </video>
     );
 };
