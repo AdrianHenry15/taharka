@@ -5,7 +5,6 @@ import { Metadata } from "next";
 
 import { ThemeProvider } from "@/providers/theme-provider";
 import StateProvider from "@/providers/state-provider";
-import { ModalProvider } from "@/providers/modal-provider";
 
 import "./global.css";
 
@@ -25,7 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
                 <StateProvider>
                     {/* <ToastProvider /> */}
-                    <ModalProvider />
+                    {/* <ModalProvider /> */}
                     {children}
                 </StateProvider>
                 {/* </ThemeProvider> */}
