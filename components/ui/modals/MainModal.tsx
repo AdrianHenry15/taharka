@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 
 import ModalContainer from "./ModalContainer";
@@ -8,25 +8,37 @@ import ModalContainer from "./ModalContainer";
 import { AiOutlineClose, AiOutlineYoutube } from "react-icons/ai";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 import { BsTwitter, BsTiktok } from "react-icons/bs";
-import { GlobalStateStore } from "@/store/GlobalStateStore";
-import { GlobalStateContext } from "@/providers/state-provider";
+import { useModalStore } from "@/hooks/useModal";
 
 const pages = ["Home", "Menu", "Order", "Rewards", "Our Story"];
 const altPages = ["Wholesale", "Gifting", "Find Us", "Fundraisers", "Sign Out"];
 
 const MainModal = () => {
-    const modalStore = useContext<GlobalStateStore>(GlobalStateContext).Modal;
+    const { isOpen, closeModal } = useModalStore();
+    const modalRef = useRef<HTMLDivElement | null>(null);
     const borderBottom = "border-b-[1px] border-opacity-50 border-zinc-500";
 
-    const closeModal = () => {
-        // modalStore.onClose()
-        modalStore.isOpen = false;
-        console.log(modalStore.isOpen);
-    };
-    if (modalStore.isOpen) {
+    // if you click outside of the modal the modal closes
+    useEffect(() => {
+        const handleOutsideClick = (e: MouseEvent) => {
+            if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+                closeModal();
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener("mousedown", handleOutsideClick);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, [isOpen, closeModal]);
+
+    if (isOpen) {
         return (
             <ModalContainer>
-                <div className="flex flex-col h-screen bg-black text-white overflow-y-scroll p-6 w-9/12 sm:w-[275px]">
+                <div ref={modalRef} className="flex flex-col h-screen bg-black text-white overflow-y-scroll p-6 w-9/12 sm:w-[275px]">
                     {/* MODAL HEADER  */}
                     <div className={`flex items-center justify-between pb-2 ${borderBottom}`}>
                         <AiOutlineClose className="cursor-pointer" onClick={() => closeModal()} />
@@ -67,7 +79,7 @@ const MainModal = () => {
                 </div>
             </ModalContainer>
         );
-    } else if (!modalStore.isOpen) {
+    } else {
         return <div></div>;
     }
 };

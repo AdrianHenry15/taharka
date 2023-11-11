@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 // import { ToastProvider } from "@/providers/toast-provider";
 // import { ThemeProvider } from "@/providers/theme-provider";
-import StateProvider from "@/providers/state-provider";
+// import StateProvider from "@/providers/state-provider";
 
 import "./global.css";
 
@@ -21,10 +21,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <html lang="en">
             <link rel="icon" href="/taharka_logo.png" />
             <body className={inter.className}>
-                {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
-                {/* <ToastProvider /> */}
-                <StateProvider>{children}</StateProvider>
-                {/* </ThemeProvider> */}
+                {/* <StateProvider> */}
+                {children}
+                {/* </StateProvider> */}
             </body>
         </html>
         // </ClerkProvider>

@@ -8,17 +8,10 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { MdLocationPin } from "react-icons/md";
 
 import Logo from "../public/taharka_logo.png";
-import { GlobalStateStore } from "@/store/GlobalStateStore";
-import { GlobalStateContext } from "@/providers/state-provider";
+import { useModalStore } from "@/hooks/useModal";
 
 const Header = () => {
-    const modalStore = useContext<GlobalStateStore>(GlobalStateContext).Modal;
-
-    const openModal = () => {
-        // modalStore.onOpen();
-        modalStore.isOpen = true;
-        console.log(modalStore.isOpen);
-    };
+    const { openModal } = useModalStore();
     return (
         <div className="flex items-center justify-between w-full px-4 fixed top-0 bg-white z-10 rounded-b-lg lg:w-4/5">
             {/* HAMBURGER AND LOGO CONTAINER  */}
@@ -26,7 +19,7 @@ const Header = () => {
                 <RxHamburgerMenu
                     className="text-zinc-500 font-extrabold fixed left-5 cursor-pointer md:relative"
                     size={30}
-                    onClick={() => openModal()}
+                    onClick={openModal}
                 />
                 <Link className="pl-10 flex items-center w-full justify-center md:justify-start" href={"/"}>
                     <Image className="pb-4" width={40} src={Logo} alt="logo" />

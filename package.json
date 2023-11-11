@@ -56,8 +56,6 @@
         "eslint": "^8.52.0",
         "eslint-config-next": "^14.0.0",
         "lucide-react": "^0.290.0",
-        "mobx": "^6.10.2",
-        "mobx-react": "^9.0.1",
         "mongoose": "^7.1.0",
         "next": "^14.0.0",
         "next-themes": "^0.2.1",
@@ -73,7 +71,8 @@
         "recharts": "^2.9.0",
         "stripe": "^14.2.0",
         "tailwind-merge": "^1.14.0",
-        "zod": "^3.22.4"
+        "zod": "^3.22.4",
+        "zustand": "^4.4.6"
     },
     "devDependencies": {
         "prisma": "^5.5.2",
