@@ -15,7 +15,8 @@ const Header = () => {
     const modalStore = useContext<GlobalStateStore>(GlobalStateContext).Modal;
 
     const openModal = () => {
-        modalStore.onOpen();
+        // modalStore.onOpen();
+        modalStore.isOpen = true;
         console.log(modalStore.isOpen);
     };
     return (
@@ -25,7 +26,7 @@ const Header = () => {
                 <RxHamburgerMenu
                     className="text-zinc-500 font-extrabold fixed left-5 cursor-pointer md:relative"
                     size={30}
-                    onClick={openModal}
+                    onClick={() => openModal()}
                 />
                 <Link className="pl-10 flex items-center w-full justify-center md:justify-start" href={"/"}>
                     <Image className="pb-4" width={40} src={Logo} alt="logo" />
