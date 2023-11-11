@@ -1,6 +1,6 @@
+import Link from "next/link";
 import React from "react";
 import { FiChevronRight } from "react-icons/fi";
-import { Link } from "react-router-dom";
 
 interface ITabProps {
     children: React.ReactNode;
@@ -15,7 +15,7 @@ interface ITabProps {
 
 const Tab = (props: ITabProps) => {
     return (
-        <Link to={props.path} onClick={props.onClick} className="w-full flex justify-center my-2">
+        <Link href={props.path} onClick={props.onClick} className="w-full flex justify-center my-2">
             <button className="flex items-center justify-between w-full bg-white border-[1px] border-gray-300 rounded-md p-4 md:w-1/2 lg:w-1/3">
                 <div className={`${props.tabClass} flex items-center`}>
                     {props.children}
