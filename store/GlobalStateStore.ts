@@ -5,7 +5,6 @@ import { IProductStore } from "./schemas/IProductStore";
 import { IModalStore } from "./schemas/IModalStore";
 import { IActiveStore } from "./schemas/IActiveStore";
 import { ICategoryStore } from "./schemas/ICategoryStore";
-import { IStoreModalStore } from "./schemas/IStoreModalStore";
 
 export class GlobalStateStore {
     constructor(base?: Partial<GlobalStateStore>) {
@@ -67,12 +66,6 @@ export class GlobalStateStore {
         birthday: new Date(),
         savedAddresses: [],
         reviews: [],
-    };
-
-    @observable StoreModal: IStoreModalStore = {
-        isOpen: false,
-        onOpen: () => (this.StoreModal.isOpen = true),
-        onClose: () => (this.StoreModal.isOpen = false),
     };
 
     @observable Product: IProductStore = {

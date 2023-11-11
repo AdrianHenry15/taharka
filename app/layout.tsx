@@ -1,10 +1,11 @@
 // import { ClerkProvider } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
-// import { ToastProvider } from "@/providers/toast-provider";
 import { Metadata } from "next";
 
-import { ThemeProvider } from "@/providers/theme-provider";
+// import { ToastProvider } from "@/providers/toast-provider";
+// import { ThemeProvider } from "@/providers/theme-provider";
 import StateProvider from "@/providers/state-provider";
+import { ModalProvider } from "@/providers/modal-provider";
 
 import "./global.css";
 
@@ -22,11 +23,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <link rel="icon" href="/taharka_logo.png" />
             <body className={inter.className}>
                 {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
-                <StateProvider>
-                    {/* <ToastProvider /> */}
-                    {/* <ModalProvider /> */}
-                    {children}
-                </StateProvider>
+                {/* <ToastProvider /> */}
+                <ModalProvider>
+                    <StateProvider>{children}</StateProvider>
+                </ModalProvider>
                 {/* </ThemeProvider> */}
             </body>
         </html>
