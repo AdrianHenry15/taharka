@@ -5,7 +5,7 @@ import { PiCallBell, PiArrowsCounterClockwiseFill } from "react-icons/pi";
 
 const PageBanner = () => {
     const BtnClass =
-        "flex items-center text-black font-semibold bg-white rounded-lg flex-1 m-1 py-6 w-1/2 min-w-[190px] justify-start pr-10 lg:bg-black lg:text-white lg:w-full";
+        "flex items-center text-black font-semibold bg-white rounded-lg flex-1 m-1 py-6 w-1/2 min-w-[170px] max-w-[170px] justify-start pr-10 lg:bg-black lg:text-white lg:w-full";
 
     return (
         <div className="flex flex-col justify-center items-center text-center w-full py-6 px-2 bg-black text-white font-light">
@@ -15,7 +15,7 @@ const PageBanner = () => {
                 through the app.
             </span>
             <aside className="text-xs text-zinc-400 mb-4">*Shipping only available in the United States</aside>
-            <div className="flex flex-wrap py-4">
+            <div className="flex flex-wrap py-4 justify-center">
                 {/* DELIVERY  */}
                 <div className={BtnClass}>
                     <BsTruck className="mx-2" size={35} />
