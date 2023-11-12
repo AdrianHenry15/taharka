@@ -18,6 +18,7 @@
     },
     "homepage": "https://github.com/AdrianHenry15/taharka#readme",
     "dependencies": {
+        "@aws-sdk/client-s3": "^3.449.0",
         "@clerk/nextjs": "^4.26.1",
         "@cloudinary/react": "^1.11.2",
         "@cloudinary/url-gen": "^1.13.0",

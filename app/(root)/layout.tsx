@@ -3,6 +3,8 @@ import React from "react";
 import Header from "@/components/Header";
 import VideoPlayer from "@/components/ui/home/VideoPlayer";
 import MainModal from "@/components/ui/modals/MainModal";
+import MobileFooter from "@/components/MobileFooter";
+import Footer from "@/components/Footer";
 
 export default async function SetupLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -11,7 +13,8 @@ export default async function SetupLayout({ children }: { children: React.ReactN
             <VideoPlayer src="/taharka-bros-vid.mp4" />
             <Header />
             {children}
-            {/* <Footer /> */}
+            <MobileFooter />
+            <Footer />
         </div>
     );
 }

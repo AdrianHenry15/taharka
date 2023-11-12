@@ -15,7 +15,8 @@ const VideoPlayer = (props: IVideoPlayerProps) => {
     }, []);
 
     return (
-        <video className="h-min top-0 w-full mt-[50px] md:mt-0" autoPlay muted loop controls={false} playsInline>
+        // ADD AUTOPLAY TO VIDEO PROPS
+        <video className="h-min top-0 w-full mt-[50px] md:mt-0" muted loop controls={false} playsInline>
             <source src={props.src} type="video/mp4" />
         </video>
     );
