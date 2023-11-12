@@ -1,9 +1,9 @@
-import { Inter } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import { Metadata } from "next";
 
 import "./global.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Taharka Bros.",
