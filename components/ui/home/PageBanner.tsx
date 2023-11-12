@@ -11,8 +11,8 @@ const PageBanner = () => {
         <div className="flex flex-col justify-center items-center text-center w-full py-6 px-2 bg-black text-white font-light">
             <span className="font-bold text-3xl">Ice Cream</span>
             <span className="text-sm my-4">
-                Whether you need dessert delivery*, curbside pickup, or something else, we make it easy to order cookies online and through
-                the app.
+                Whether you need dessert delivery*, curbside pickup, or something else, we make it easy to order ice cream online and
+                through the app.
             </span>
             <aside className="text-xs text-zinc-400 mb-4">*Shipping only available in the United States</aside>
             <div className="flex flex-wrap py-4">
