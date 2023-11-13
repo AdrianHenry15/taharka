@@ -12,19 +12,16 @@ interface IButtonProps {
 
 const Button = (props: IButtonProps) => {
     return (
-        <div onClick={props.onClick} className={`${props.containerClass} flex bottom-0 justify-center w-full mb-[110px]`}>
+        <div onClick={props.onClick} className={`${props.containerClass} flex bottom-0 justify-center w-full`}>
             {!props.isLink && (
-                <Link
-                    className={`${props.btnClass} flex justify-center bg-black py-[10px] w-3/4 md:w-64 lg:w-64 rounded-full shadow-lg`}
-                    href={props.path}
-                >
+                <Link className={`${props.btnClass} flex justify-center bg-black py-[10px] w-64 rounded-full shadow-lg`} href={props.path}>
                     <button>
                         <span className="text-white font-bold flex text-xs">{props.text}</span>
                     </button>
                 </Link>
             )}
             {props.isLink && (
-                <div className={`${props.btnClass} flex justify-center bg-black py-[10px] w-3/4 md:w-64 lg:w-64 rounded-full shadow-lg`}>
+                <div className={`${props.btnClass} flex justify-center bg-black py-[10px] w-64 rounded-full shadow-lg`}>
                     <button>
                         <span className="text-white font-bold flex text-xs">{props.text}</span>
                     </button>
