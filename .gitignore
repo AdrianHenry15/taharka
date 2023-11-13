@@ -133,3 +133,4 @@ dist
 DevGlobalStateStore.ts
 debugGlobalStateStore
 next-env.d.ts
+awsConfig.ts
