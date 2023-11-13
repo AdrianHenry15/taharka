@@ -5,7 +5,7 @@ import { BsPhone } from "react-icons/bs";
 
 const RewardsBanner = () => {
     return (
-        <div className="flex justify-center items-center bg-pink-300 mb-14">
+        <div className="flex justify-center items-center bg-pink-300">
             <BsPhone size={400} />
             <div className="flex flex-col justify-start">
                 <span>EarnLoyalty Cream toward FREE cookies with the Taharka App!</span>
