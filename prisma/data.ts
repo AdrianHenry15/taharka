@@ -1,4 +1,4 @@
-export const useStaticProducts = [
+export const Products = [
     {
         id: 1,
         sku: "SKU125",
