@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Products } from "@/prisma/data";
 
 const MenuItem = dynamic(() => import("./MenuItem"));
 
