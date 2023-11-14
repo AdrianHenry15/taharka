@@ -16,7 +16,7 @@ const MenuItem = (props: IMenuItemProps) => {
         <Link className="flex h-auto items-center px-4 my-8 md:self-center md:w-2/3 md:justify-between lg:justify-center" href={ImageAlt}>
             {/* IMAGE */}
             {props.id % 2 !== 0 && (
-                <Image className="w-36 md:w-96" src={props.imageSrc} alt={ImageAlt} width={1000} height={1000} loading="lazy" />
+                <Image className="w-36 md:w-96" src={props.imageSrc} alt={ImageAlt} width={1000} height={1000} loading="eager" />
             )}
             {/* TEXT */}
             <div className={`flex flex-col flex-1 text-center max-w-[500px] min-w-[200px]`}>
@@ -26,7 +26,7 @@ const MenuItem = (props: IMenuItemProps) => {
             </div>
             {/* IMAGE ALT POSITION */}
             {props.id % 2 === 0 && (
-                <Image className="w-36 md:w-96" src={props.imageSrc} alt={ImageAlt} width={1000} height={1000} loading="lazy" />
+                <Image className="w-36 md:w-96" src={props.imageSrc} alt={ImageAlt} width={1000} height={1000} loading="eager" />
             )}
         </Link>
     );
