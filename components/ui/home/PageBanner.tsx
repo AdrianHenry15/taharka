@@ -29,7 +29,7 @@ const PageBanner = () => {
                 {/* CATERING  */}
                 <div className={BtnClass}>
                     <PiCallBell className="mx-2" size={35} />
-                    <span>Catering</span>
+                    <span>Wholesale</span>
                 </div>
                 {/* GIFTS  */}
                 <div className={BtnClass}>
@@ -44,7 +44,7 @@ const PageBanner = () => {
                 {/* SUBSCRIPTIONS  */}
                 <div className={BtnClass}>
                     <PiArrowsCounterClockwiseFill className="mx-2" size={35} />
-                    <span>Subscriptions</span>
+                    <span>Subs</span>
                 </div>
             </div>
         </div>
