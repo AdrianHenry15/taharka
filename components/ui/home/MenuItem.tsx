@@ -13,7 +13,11 @@ interface IMenuItemProps {
 const MenuItem = (props: IMenuItemProps) => {
     const ImageAlt = props.imageSrc.toLowerCase().replace(" ", "-");
     return (
-        <Link className="flex h-auto items-center px-4 my-8 md:self-center md:w-2/3 md:justify-between lg:justify-center" href={ImageAlt}>
+        // TODO: CHANGE THIS CONTAINER TO A LINK TO SEE EACH INDIVIDUAL MENU ITEM
+        <div
+            className="flex h-auto items-center px-4 my-8 md:self-center md:w-2/3 md:justify-between lg:justify-center"
+            // href={ImageAlt}
+        >
             {/* IMAGE */}
             {props.id % 2 !== 0 && (
                 <Image className="w-36 md:w-96" src={props.imageSrc} alt={ImageAlt} width={1000} height={1000} loading="eager" />
@@ -28,7 +32,7 @@ const MenuItem = (props: IMenuItemProps) => {
             {props.id % 2 === 0 && (
                 <Image className="w-36 md:w-96" src={props.imageSrc} alt={ImageAlt} width={1000} height={1000} loading="eager" />
             )}
-        </Link>
+        </div>
     );
 };
 

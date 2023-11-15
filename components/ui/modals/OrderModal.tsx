@@ -38,12 +38,15 @@ const OrderModal = () => {
             <ModalContainer>
                 <div id="order-modal" ref={modalRef} className="flex h-full justify-center items-center">
                     {/* CONTAINER */}
-                    <div className="flex flex-col justify-center w-full h-full p-4 bg-black border-white border-2 rounded-lg md:h-auto md:p-10 md:w-[1000px]">
+                    <div className="flex flex-col w-full h-full p-4 bg-black border-white border-2 rounded-lg md:h-auto md:p-10 md:w-[1000px]">
                         {/* HEAD */}
                         <IoMdClose className="left-0 text-white" size={35} onClick={closeModal} />
-                        <span className="font-bold text-2xl text-center w-full self-center text-white">Start Order</span>
+                        <span className="font-bold text-2xl text-center w-full self-center text-white mb-10 hidden md:flex md:flex-col">
+                            Start Order
+                        </span>
                         {/* BODY  */}
-                        <div className="flex  flex-col items-center py-10 md:px-36 md:h-[500px] md:flex-wrap">
+                        <span className="font-bold text-2xl text-center w-full self-center text-white mb-10 md:hidden">Start Order</span>
+                        <div className="flex flex-col justify-center h-full items-center py-10 md:justify-normal md:px-36 md:h-[500px] md:flex-wrap">
                             <OrderCard name="Delivery" description="Fresh ice cream delivered to you. What's better than that?">
                                 <BsTruck size={40} />
                             </OrderCard>
