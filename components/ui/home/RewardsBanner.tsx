@@ -6,7 +6,10 @@ import Button from "../buttons/Button";
 
 const RewardsBanner = () => {
     return (
-        <div className="flex flex-col justify-center items-center bg-[url('/imgs/ice-cream-bg-3.jpg')] bg-cover py-20 w-full object-top bg-bottom md:py-10 md:px-20 lg:py-20">
+        <div
+            id="rewards-banner"
+            className="flex flex-col justify-center items-center bg-[url('/imgs/ice-cream-bg-3.jpg')] bg-cover py-20 w-full object-top bg-bottom md:py-10 md:px-20 lg:py-20"
+        >
             <div className="flex w-1/2 self-center">
                 <span className="flex flex-1">
                     <BsPhoneFill className="flex-1" size={200} />

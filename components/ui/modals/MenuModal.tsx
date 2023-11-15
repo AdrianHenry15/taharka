@@ -4,18 +4,20 @@ import React, { useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 
 import ModalContainer from "./ModalContainer";
+import { useMenuModalStore } from "@/hooks/useModal";
 
 import { AiOutlineClose, AiOutlineYoutube } from "react-icons/ai";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 import { BsTwitter, BsTiktok } from "react-icons/bs";
-import { useModalStore } from "@/hooks/useModal";
 
 const pages = ["Home", "Menu", "Order", "Rewards", "Our Story"];
 const altPages = ["Wholesale", "Gifting", "Find Us", "Fundraisers", "Sign Out"];
 
 const MainModal = () => {
-    const { isOpen, closeModal } = useModalStore();
+    const { isOpen, closeModal } = useMenuModalStore();
     const modalRef = useRef<HTMLDivElement | null>(null);
+
+    // Tailwind Styles
     const borderBottom = "border-b-[1px] border-opacity-50 border-zinc-500";
 
     // if you click outside of the modal the modal closes
@@ -45,7 +47,7 @@ const MainModal = () => {
                 >
                     {/* MODAL HEADER  */}
                     <div className={`flex items-center justify-between pb-2 ${borderBottom}`}>
-                        <AiOutlineClose className="cursor-pointer" onClick={() => closeModal()} />
+                        <AiOutlineClose className="cursor-pointer" onClick={closeModal} />
                         <Link className="font=bold text-zinc-500" href={"/account"}>
                             My Account
                         </Link>

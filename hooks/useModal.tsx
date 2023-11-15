@@ -6,7 +6,13 @@ interface IModalStore {
     closeModal: () => void;
 }
 
-export const useModalStore = create<IModalStore>((set) => ({
+export const useMenuModalStore = create<IModalStore>((set) => ({
+    isOpen: false,
+    openModal: () => set({ isOpen: true }),
+    closeModal: () => set({ isOpen: false }),
+}));
+
+export const useOrderModalStore = create<IModalStore>((set) => ({
     isOpen: false,
     openModal: () => set({ isOpen: true }),
     closeModal: () => set({ isOpen: false }),

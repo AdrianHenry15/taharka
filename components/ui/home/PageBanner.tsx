@@ -8,7 +8,10 @@ const PageBanner = () => {
         "flex items-center text-black font-semibold bg-white rounded-lg flex-1 m-1 py-6 w-1/2 min-w-[170px] max-w-[170px] justify-start pr-10 lg:bg-black lg:text-white lg:w-full";
 
     return (
-        <div className="flex flex-col justify-center items-center text-center w-full py-6 px-2 bg-black text-white font-light">
+        <div
+            id="home-banner"
+            className="flex flex-col justify-center items-center text-center w-full py-6 px-2 bg-black text-white font-light"
+        >
             <span className="font-bold text-3xl">Ice Cream</span>
             <span className="text-sm my-4">
                 Whether you need dessert delivery*, curbside pickup, or something else, we make it easy to order ice cream online and
@@ -29,7 +32,7 @@ const PageBanner = () => {
                 {/* CATERING  */}
                 <div className={BtnClass}>
                     <PiCallBell className="mx-2" size={35} />
-                    <span>Catering</span>
+                    <span>Wholesale</span>
                 </div>
                 {/* GIFTS  */}
                 <div className={BtnClass}>
@@ -44,7 +47,7 @@ const PageBanner = () => {
                 {/* SUBSCRIPTIONS  */}
                 <div className={BtnClass}>
                     <PiArrowsCounterClockwiseFill className="mx-2" size={35} />
-                    <span>Subscriptions</span>
+                    <span>Subs</span>
                 </div>
             </div>
         </div>
