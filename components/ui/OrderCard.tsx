@@ -10,11 +10,14 @@ interface IOrderCardProps {
 const OrderCard = (props: IOrderCardProps) => {
     const source = props.name.toLowerCase().replace(" ", "-");
     return (
-        <Link href={source} className="flex bg-white py-4 px-10 items-center m-2 rounded-md w-3/5 justify-between">
-            <div className="flex flex-1 text-center">{props.children}</div>
-            <div className="flex flex-col flex-1 text-center">
-                <span className="font-bold">{props.name}</span>
-                <span className="hidden md:flex">{props.description}</span>
+        <Link
+            href={source}
+            className="flex flex-col bg-white py-4 px-10 items-center m-2 rounded-md w-[200px] md:max-h-[100px] md:flex-row md:w-[300px]"
+        >
+            <div className="flex flex-1 text-center md:pr-4">{props.children}</div>
+            <div className="flex flex-col flex-2 text-left">
+                <span className="font-bold text-xl">{props.name}</span>
+                <span className="hidden font-light text-sm md:flex">{props.description}</span>
             </div>
         </Link>
     );
