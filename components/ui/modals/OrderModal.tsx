@@ -38,12 +38,12 @@ const OrderModal = () => {
             <ModalContainer>
                 <div id="order-modal" ref={modalRef} className="flex h-full justify-center items-center">
                     {/* CONTAINER */}
-                    <div className="flex flex-col w-full h-full px-4 bg-black border-white border-2 rounded-lg justify-center md:h-auto md:p-10 md:w-[1000px]">
+                    <div className="flex flex-col justify-center w-full h-full p-4 bg-black border-white border-2 rounded-lg md:h-auto md:p-10 md:w-[1000px]">
                         {/* HEAD */}
                         <IoMdClose className="left-0 text-white" size={35} onClick={closeModal} />
                         <span className="font-bold text-2xl text-center w-full self-center text-white">Start Order</span>
                         {/* BODY  */}
-                        <div className="flex flex-wrap h-[500px] flex-col items-center py-10 sm:px-36 md:px-36">
+                        <div className="flex  flex-col items-center py-10 md:px-36 md:h-[500px] md:flex-wrap">
                             <OrderCard name="Delivery" description="Fresh ice cream delivered to you. What's better than that?">
                                 <BsTruck size={40} />
                             </OrderCard>
@@ -60,7 +60,9 @@ const OrderModal = () => {
                                 <BsMailbox size={40} />
                             </OrderCard>
                         </div>
-                        <span className="text-zinc-500 text-sm text-center">Minimum of 6 pints for any delivery order</span>
+                        <span className="flex text-zinc-500 text-sm text-center self-center">
+                            Minimum of 6 pints for any delivery order
+                        </span>
                     </div>
                 </div>
             </ModalContainer>
