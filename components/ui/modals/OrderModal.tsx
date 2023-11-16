@@ -40,10 +40,10 @@ const OrderModal = () => {
                 <div id="order-modal" ref={modalRef} className="flex flex-col w-full h-full justify-center items-center">
                     <div className="flex flex-col bg-black border-white border-2 w-full h-full justify-center md:w-[800px] md:h-[700px]">
                         {/* HEAD */}
-                        <div className="text-white flex items-center w-full justify-evenly">
-                            <IoMdClose className="flex" size={40} onClick={closeModal} />
-                            <span className="font-bold text-2xl">Start Order</span>
+                        <div className="w-full flex m-2">
+                            <IoMdClose className="text-white" size={25} onClick={closeModal} />
                         </div>
+                        <span className="font-bold text-2xl text-white self-center">Start Order</span>
                         {/* BODY  */}
                         <div className="flex flex-col mt-10 mb-4">
                             <OrderCard name="Delivery" description="Fresh ice cream delivered to you. What's better than that?">
