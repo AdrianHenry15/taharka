@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import Link from "next/link";
 
 import { IoMdClose } from "react-icons/io";
 import { BsTruck, BsShop, BsMailbox, BsCreditCard2Back } from "react-icons/bs";
@@ -37,8 +36,8 @@ const OrderModal = () => {
         return (
             <ModalContainer>
                 {/* CONTAINER */}
-                <div id="order-modal" ref={modalRef} className="flex flex-col w-full h-full justify-center items-center">
-                    <div className="flex flex-col bg-black border-white border-2 w-full h-full justify-center md:w-[800px] md:h-[700px]">
+                <div id="order-modal" ref={modalRef} className="flex flex-col w-full h-full justify-center items-center overflow-y-scroll">
+                    <div className="flex flex-col bg-black border-white border-2 w-full h-full justify-center md:rounded-md md:w-[800px] md:h-[700px]">
                         {/* HEAD */}
                         <div className="w-full flex m-2">
                             <IoMdClose className="text-white" size={25} onClick={closeModal} />
