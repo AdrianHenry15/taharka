@@ -36,17 +36,16 @@ const OrderModal = () => {
     if (isOpen) {
         return (
             <ModalContainer>
-                <div id="order-modal" ref={modalRef} className="flex h-full justify-center items-center">
-                    {/* CONTAINER */}
-                    <div className="flex flex-col w-full h-full p-4 bg-black border-white border-2 rounded-lg md:h-auto md:p-10 md:w-[1000px]">
+                {/* CONTAINER */}
+                <div id="order-modal" ref={modalRef} className="flex flex-col w-full h-full justify-center items-center">
+                    <div className="flex flex-col bg-black border-white border-2 w-full h-full justify-center md:w-[800px] md:h-[700px]">
                         {/* HEAD */}
-                        <IoMdClose className="left-0 text-white" size={40} onClick={closeModal} />
-                        <span className="font-bold text-2xl text-center w-full self-center text-white hidden md:flex md:flex-col">
-                            Start Order
-                        </span>
+                        <div className="text-white flex items-center w-full justify-evenly">
+                            <IoMdClose className="flex" size={40} onClick={closeModal} />
+                            <span className="font-bold text-2xl">Start Order</span>
+                        </div>
                         {/* BODY  */}
-                        <div className="flex flex-col justify-center h-full items-center py-10 mb-10 md:justify-normal md:px-36 md:h-[500px] md:flex-wrap">
-                            <span className="font-bold text-2xl text-center w-full self-center text-white mb-2 md:hidden">Start Order</span>
+                        <div className="flex flex-col mt-10 mb-4">
                             <OrderCard name="Delivery" description="Fresh ice cream delivered to you. What's better than that?">
                                 <BsTruck size={40} />
                             </OrderCard>
@@ -63,9 +62,7 @@ const OrderModal = () => {
                                 <BsMailbox size={40} />
                             </OrderCard>
                         </div>
-                        <span className="flex text-zinc-500 text-sm text-center self-center">
-                            Minimum of 6 pints for any delivery order
-                        </span>
+                        <span className="text-zinc-500 text-center text-sm">Minimum of 6 pints for any delivery order</span>
                     </div>
                 </div>
             </ModalContainer>
