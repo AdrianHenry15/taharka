@@ -2,6 +2,8 @@ import React from "react";
 
 import { BsTruck, BsShop, BsMailbox, BsCreditCard2Back } from "react-icons/bs";
 import { PiCallBell, PiArrowsCounterClockwiseFill } from "react-icons/pi";
+import { GiIceCreamScoop } from "react-icons/gi";
+import Link from "next/link";
 
 const PageBanner = () => {
     const BtnClass =
@@ -20,35 +22,35 @@ const PageBanner = () => {
             <aside className="text-xs text-zinc-400 mb-4">*Shipping only available in the United States</aside>
             <div className="flex flex-wrap py-4 justify-center">
                 {/* DELIVERY  */}
-                <div className={BtnClass}>
+                <Link href={"/delivery"} className={BtnClass}>
                     <BsTruck className="mx-2" size={35} />
                     <span>Delivery</span>
-                </div>
+                </Link>
                 {/* PICKUP  */}
-                <div className={BtnClass}>
+                <Link href={"/pickup"} className={BtnClass}>
                     <BsShop className="mx-2" size={35} />
                     <span>Pickup</span>
-                </div>
+                </Link>
                 {/* CATERING  */}
-                <div className={BtnClass}>
+                <Link href={"/wholesale"} className={BtnClass}>
                     <PiCallBell className="mx-2" size={35} />
                     <span>Wholesale</span>
-                </div>
+                </Link>
                 {/* GIFTS  */}
-                <div className={BtnClass}>
+                <Link href={"/gifts"} className={BtnClass}>
                     <BsCreditCard2Back className="mx-2" size={35} />
                     <span>Gifts</span>
-                </div>
+                </Link>
                 {/* SHIPPING  */}
-                <div className={BtnClass}>
-                    <BsMailbox className="mx-2" size={35} />
-                    <span>Shipping</span>
-                </div>
+                <Link href={"/rewards"} className={BtnClass}>
+                    <GiIceCreamScoop className="mx-2" size={35} />
+                    <span>Rewards</span>
+                </Link>
                 {/* SUBSCRIPTIONS  */}
-                <div className={BtnClass}>
+                <Link href={"/subscriptions"} className={BtnClass}>
                     <PiArrowsCounterClockwiseFill className="mx-2" size={35} />
                     <span>Subs</span>
-                </div>
+                </Link>
             </div>
         </div>
     );

@@ -1,15 +1,17 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 
-import Menu from "@/components/ui/home/Menu";
-import PageBanner from "@/components/ui/home/PageBanner";
-import RewardsBanner from "@/components/ui/home/RewardsBanner";
+import Menu from "@/components/page-components/home/Menu";
+import PageBanner from "@/components/page-components/home/PageBanner";
+import RewardsBanner from "@/components/page-components/home/RewardsBanner";
+import VideoPlayer from "@/components/page-components/home/VideoPlayer";
 
 const Home = () => {
     return (
         <div className="w-full flex flex-col">
             <div className="">
+                <VideoPlayer src="/taharka-bros-vid.mp4" />
                 <PageBanner />
                 <Menu />
                 <RewardsBanner />

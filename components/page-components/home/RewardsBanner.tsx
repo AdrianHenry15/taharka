@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 import { BsPhoneFill } from "react-icons/bs";
-import Button from "../buttons/Button";
+import Button from "../../Button";
 
 const RewardsBanner = () => {
     return (
