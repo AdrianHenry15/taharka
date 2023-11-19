@@ -13,8 +13,8 @@ const OrderCard = (props: IOrderCardProps) => {
         <Link href={source} className="flex bg-white my-2 mx-10 p-4 rounded-md self-center max-w-[300px] md:w-[300px]">
             <div className="mr-10">{props.children}</div>
             <div className="flex flex-col">
-                <span className="font-bold text-lg">{props.name}</span>
-                <span className="font-light text-xs">{props.description}</span>
+                <h3 className="font-bold text-lg">{props.name}</h3>
+                <p className="font-light text-xs">{props.description}</p>
             </div>
         </Link>
     );

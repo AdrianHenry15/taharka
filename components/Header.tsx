@@ -14,7 +14,7 @@ const Header = () => {
     const openMenuModal = useMenuModalStore().openModal;
     const openOrderModal = useOrderModalStore().openModal;
     return (
-        <div className="flex items-center justify-between w-full px-4 fixed top-0 bg-white z-10 rounded-b-lg lg:w-4/5">
+        <section className="flex items-center justify-between w-full px-4 fixed top-0 bg-white z-10 rounded-b-lg lg:w-4/5">
             {/* HAMBURGER AND LOGO CONTAINER  */}
             <div className="flex items-center w-full">
                 <RxHamburgerMenu
@@ -24,20 +24,20 @@ const Header = () => {
                 />
                 <Link className="pl-10 flex items-center w-full justify-center md:justify-start" href={"/"}>
                     <Image className="pb-4" width={40} src={Logo} alt="logo" />
-                    <span className="font-bold text-md text-center">Taharka Bros.</span>
+                    <h5 className="font-bold text-md text-center">Taharka Bros.</h5>
                 </Link>
             </div>
             {/* LOCATION AND ORDER NOW CONTAINER */}
             <div className="items-center hidden md:flex">
                 <Link className="flex items-center p-4" href={"/location"}>
                     <MdLocationPin size={20} className="mr-2" />
-                    <span className="whitespace-nowrap">Find A Shop</span>
+                    <h5 className="whitespace-nowrap">Find A Shop</h5>
                 </Link>
                 <div onClick={openOrderModal} className="bg-black rounded-full text-white px-10 py-2 whitespace-nowrap cursor-pointer">
-                    <span className="font-bold">Order Now</span>
+                    <h5 className="font-bold">Order Now</h5>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

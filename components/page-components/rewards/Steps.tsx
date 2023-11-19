@@ -1,20 +1,20 @@
 import React from "react";
 
-interface IStepsProps {
+interface StepsProps {
     children: React.ReactNode;
     title: string;
     description: string;
 }
 
-const Steps = (props: IStepsProps) => {
+const Steps: React.FC<StepsProps> = ({ children, title, description }) => {
     return (
-        <div className="flex flex-col flex-1 justify-center items-center md:px-10">
-            <div className="text-center rounded-full bg-pink-200 p-4 my-10">{props.children}</div>
+        <article className="flex flex-col flex-1 justify-center items-center md:px-10">
+            <div className="text-center rounded-full bg-pink-200 p-4 my-10">{children}</div>
             <div className="flex flex-col justify-center items-center">
-                <span className="font-semibold text-xl">{props.title}</span>
-                <span className="text-center font-light p-4 text-sm">{props.description}</span>
+                <h3 className="font-semibold text-xl">{title}</h3>
+                <p className="text-center font-light p-4 text-sm">{description}</p>
             </div>
-        </div>
+        </article>
     );
 };
 

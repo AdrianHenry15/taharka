@@ -6,53 +6,65 @@ import { GiIceCreamScoop } from "react-icons/gi";
 import Link from "next/link";
 
 const PageBanner = () => {
-    const BtnClass =
+    const btnClass =
         "flex items-center text-black font-semibold bg-white rounded-lg flex-1 m-1 py-6 w-1/2 min-w-[170px] max-w-[170px] justify-start pr-10 lg:bg-black lg:text-white lg:w-full";
 
     return (
-        <div
+        <section
             id="home-banner"
             className="flex flex-col justify-center items-center text-center w-full py-6 px-2 bg-black text-white font-light"
         >
-            <span className="font-bold text-3xl">Ice Cream</span>
-            <span className="text-sm my-4">
+            <h2 className="font-bold text-3xl">Ice Cream</h2>
+            <p className="text-sm my-4">
                 Whether you need dessert delivery*, curbside pickup, or something else, we make it easy to order ice cream online and
                 through the app.
-            </span>
+            </p>
             <aside className="text-xs text-zinc-400 mb-4">*Shipping only available in the United States</aside>
             <div className="flex flex-wrap py-4 justify-center">
                 {/* DELIVERY  */}
-                <Link href={"/delivery"} className={BtnClass}>
-                    <BsTruck className="mx-2" size={35} />
-                    <span>Delivery</span>
+                <Link href={"/delivery"} passHref>
+                    <a className={btnClass}>
+                        <BsTruck className="mx-2" size={35} />
+                        <span>Delivery</span>
+                    </a>
                 </Link>
                 {/* PICKUP  */}
-                <Link href={"/pickup"} className={BtnClass}>
-                    <BsShop className="mx-2" size={35} />
-                    <span>Pickup</span>
+                <Link href={"/pickup"} passHref>
+                    <a className={btnClass}>
+                        <BsShop className="mx-2" size={35} />
+                        <span>Pickup</span>
+                    </a>
                 </Link>
                 {/* CATERING  */}
-                <Link href={"/wholesale"} className={BtnClass}>
-                    <PiCallBell className="mx-2" size={35} />
-                    <span>Wholesale</span>
+                <Link href={"/wholesale"} passHref>
+                    <a className={btnClass}>
+                        <PiCallBell className="mx-2" size={35} />
+                        <span>Wholesale</span>
+                    </a>
                 </Link>
                 {/* GIFTS  */}
-                <Link href={"/gifts"} className={BtnClass}>
-                    <BsCreditCard2Back className="mx-2" size={35} />
-                    <span>Gifts</span>
+                <Link href={"/gifts"} passHref>
+                    <a className={btnClass}>
+                        <BsCreditCard2Back className="mx-2" size={35} />
+                        <span>Gifts</span>
+                    </a>
                 </Link>
                 {/* SHIPPING  */}
-                <Link href={"/rewards"} className={BtnClass}>
-                    <GiIceCreamScoop className="mx-2" size={35} />
-                    <span>Rewards</span>
+                <Link href={"/rewards"} passHref>
+                    <a className={btnClass}>
+                        <GiIceCreamScoop className="mx-2" size={35} />
+                        <span>Rewards</span>
+                    </a>
                 </Link>
                 {/* SUBSCRIPTIONS  */}
-                <Link href={"/subscriptions"} className={BtnClass}>
-                    <PiArrowsCounterClockwiseFill className="mx-2" size={35} />
-                    <span>Subs</span>
+                <Link href={"/subscriptions"} passHref>
+                    <a className={btnClass}>
+                        <PiArrowsCounterClockwiseFill className="mx-2" size={35} />
+                        <span>Subs</span>
+                    </a>
                 </Link>
             </div>
-        </div>
+        </section>
     );
 };
 

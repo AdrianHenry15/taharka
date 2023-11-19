@@ -22,12 +22,12 @@ const Menu = () => {
         fetchProducts();
     }, []);
     return (
-        <div id="menu" className="flex flex-col py-14">
+        <section id="menu" className="flex flex-col py-14">
             {/* COOKIE FLAVOR TAB */}
-            <div className="flex flex-col bg-black p-4 text-white justify-start w-64 mb-10">
-                <span className="font-semibold text-2xl whitespace-nowrap">Ice Cream Flavors</span>
-                <span className="text-zinc-400 text-xs">MINIMUM 6 PINTS</span>
-            </div>
+            <aside className="flex flex-col bg-black p-4 text-white justify-start w-64 mb-10">
+                <h2 className="font-semibold text-2xl whitespace-nowrap">Ice Cream Flavors</h2>
+                <p className="text-zinc-400 text-xs">MINIMUM 6 PINTS</p>
+            </aside>
             {/* ITEMS CONTAINER */}
             <div className="flex flex-col w-full">
                 {/* ITEMS */}
@@ -35,7 +35,7 @@ const Menu = () => {
                     return <MenuItem key={id} id={id} name={name} price={price} imageSrc={image} description={description} />;
                 })}
             </div>
-        </div>
+        </section>
     );
 };
 

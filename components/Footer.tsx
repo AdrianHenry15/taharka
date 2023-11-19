@@ -6,10 +6,10 @@ import { BiCopyright } from "react-icons/bi";
 
 const Footer = () => {
     return (
-        <div className="flex flex-col bg-black text-white px-4 py-10 w-full md:py-0 md:pt-10">
+        <section className="flex flex-col bg-black text-white px-4 py-10 w-full md:py-0 md:pt-10">
             <div className="flex flex-col md:w-1/2 md:self-center">
                 <div className="flex flex-col">
-                    <span className="font-semibold text-xl">COMPANY</span>
+                    <h3 className="font-semibold text-xl">COMPANY</h3>
                     <nav className="text-zinc-500 flex flex-wrap text-md">
                         <Link className="mr-4 my-2" href={"/story"}>
                             Our Story
@@ -38,14 +38,14 @@ const Footer = () => {
                     <BsLinkedin size={30} />
                 </div>
                 <div className="flex flex-col justify-center items-center pt-12 pb-28 md:pb-10">
-                    <span className="font-bold text-3xl text-white">Taharka Bros.</span>
+                    <h1 className="font-bold text-3xl text-white">Taharka Bros.</h1>
                     <div className="flex items-center text-zinc-600">
                         <BiCopyright />
-                        <span>2023. all rights reserved.</span>
+                        <aside>2023. all rights reserved.</aside>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

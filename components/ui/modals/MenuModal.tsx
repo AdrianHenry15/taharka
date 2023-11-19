@@ -39,11 +39,11 @@ const MainModal = () => {
 
     if (isOpen) {
         return (
-            <ModalContainer>
+            <ModalContainer ariaLabel="menu-modal">
                 <div
                     ref={modalRef}
                     className="flex flex-col h-screen bg-black text-white overflow-y-scroll p-6 w-9/12 sm:w-[275px]"
-                    id="modal"
+                    id="menu-modal"
                 >
                     {/* MODAL HEADER  */}
                     <div className={`flex items-center justify-between pb-2 ${borderBottom}`}>
