@@ -22,17 +22,21 @@ const Header = () => {
                     size={30}
                     onClick={openMenuModal}
                 />
-                <Link className="pl-10 flex items-center w-full justify-center md:justify-start" href={"/"}>
+                <div className="pl-10 flex items-center w-full justify-center md:justify-start">
                     <Image className="pb-4" width={40} src={Logo} alt="logo" />
-                    <h5 className="font-bold text-md text-center">Taharka Bros.</h5>
-                </Link>
+                    <Link className="whitespace-nowrap" href={"/"}>
+                        Taharka Bros.
+                    </Link>
+                </div>
             </div>
             {/* LOCATION AND ORDER NOW CONTAINER */}
             <div className="items-center hidden md:flex">
-                <Link className="flex items-center p-4" href={"/location"}>
+                <div className="flex items-center p-4">
                     <MdLocationPin size={20} className="mr-2" />
-                    <h5 className="whitespace-nowrap">Find A Shop</h5>
-                </Link>
+                    <Link className="whitespace-nowrap" href={"/location"}>
+                        Find A Shop
+                    </Link>
+                </div>
                 <div onClick={openOrderModal} className="bg-black rounded-full text-white px-10 py-2 whitespace-nowrap cursor-pointer">
                     <h5 className="font-bold">Order Now</h5>
                 </div>

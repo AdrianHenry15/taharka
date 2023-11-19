@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 import Menu from "@/components/page-components/home/Menu";

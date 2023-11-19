@@ -22,46 +22,44 @@ const PageBanner = () => {
             <aside className="text-xs text-zinc-400 mb-4">*Shipping only available in the United States</aside>
             <div className="flex flex-wrap py-4 justify-center">
                 {/* DELIVERY  */}
-                <Link href={"/delivery"}>
-                    <a className={btnClass}>
+                <Link href={"/delivery"} className={btnClass}>
+                    <>
                         <BsTruck className="mx-2" size={35} />
-                        <span>Delivery</span>
-                    </a>
+                        Delivery
+                    </>
                 </Link>
                 {/* PICKUP  */}
-                <Link href={"/pickup"}>
-                    <a className={btnClass}>
+                <Link href={"/pickup"} className={btnClass}>
+                    <>
                         <BsShop className="mx-2" size={35} />
-                        <span>Pickup</span>
-                    </a>
+                        Pickup
+                    </>
                 </Link>
                 {/* CATERING  */}
-                <Link href={"/wholesale"}>
-                    <a className={btnClass}>
-                        <PiCallBell className="mx-2" size={35} />
-                        <span>Wholesale</span>
-                    </a>
+                <Link href={"/wholesale"} className={btnClass}>
+                    <PiCallBell className="mx-2" size={35} />
+                    Wholesale
                 </Link>
                 {/* GIFTS  */}
-                <Link href={"/gifts"}>
-                    <a className={btnClass}>
+                <Link href={"/gifts"} className={btnClass}>
+                    <>
                         <BsCreditCard2Back className="mx-2" size={35} />
-                        <span>Gifts</span>
-                    </a>
+                        Gifts
+                    </>
                 </Link>
                 {/* SHIPPING  */}
-                <Link href={"/rewards"}>
-                    <a className={btnClass}>
+                <Link href={"/rewards"} className={btnClass}>
+                    <>
                         <GiIceCreamScoop className="mx-2" size={35} />
-                        <span>Rewards</span>
-                    </a>
+                        Rewards
+                    </>
                 </Link>
                 {/* SUBSCRIPTIONS  */}
-                <Link href={"/subscriptions"}>
-                    <a className={btnClass}>
+                <Link href={"/subscriptions"} className={btnClass}>
+                    <>
                         <PiArrowsCounterClockwiseFill className="mx-2" size={35} />
-                        <span>Subs</span>
-                    </a>
+                        Subs
+                    </>
                 </Link>
             </div>
         </section>

@@ -57,7 +57,11 @@ const MainModal = () => {
                         {pages.map((value, index) => {
                             const link = value === "Gifting" ? "gifts" : value.toLowerCase().replace(" ", "-");
                             return (
-                                <Link key={index} className="my-4" href={value === "Menu" ? "#menu" : `/${link}`}>
+                                <Link
+                                    key={index}
+                                    className="my-4"
+                                    href={value === "Menu" ? "#menu" : `/${link}`}
+                                    legacyBehavior>
                                     {value}
                                 </Link>
                             );
@@ -76,7 +80,7 @@ const MainModal = () => {
                         {altPages.map((value, index) => {
                             const link = value === "Gifting" ? "gifts" : value.toLowerCase().replace(" ", "-");
                             return (
-                                <Link key={index} className="my-4" href={`/${link}`}>
+                                <Link key={index} className="my-4" href={`/${link}`} legacyBehavior>
                                     {value}
                                 </Link>
                             );
