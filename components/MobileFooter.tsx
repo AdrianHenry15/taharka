@@ -5,7 +5,6 @@ import Link from "next/link";
 import React from "react";
 
 import { MdLocationPin } from "react-icons/md";
-import Button from "./Button";
 
 const MobileFooter = () => {
     const { openModal } = useOrderModalStore();

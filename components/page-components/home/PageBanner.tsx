@@ -1,9 +1,9 @@
 import React from "react";
+import Link from "next/link";
 
-import { BsTruck, BsShop, BsMailbox, BsCreditCard2Back } from "react-icons/bs";
+import { BsTruck, BsShop, BsCreditCard2Back } from "react-icons/bs";
 import { PiCallBell, PiArrowsCounterClockwiseFill } from "react-icons/pi";
 import { GiIceCreamScoop } from "react-icons/gi";
-import Link from "next/link";
 
 const PageBanner = () => {
     const btnClass =
@@ -22,42 +22,42 @@ const PageBanner = () => {
             <aside className="text-xs text-zinc-400 mb-4">*Shipping only available in the United States</aside>
             <div className="flex flex-wrap py-4 justify-center">
                 {/* DELIVERY  */}
-                <Link href={"/delivery"} passHref>
+                <Link href={"/delivery"}>
                     <a className={btnClass}>
                         <BsTruck className="mx-2" size={35} />
                         <span>Delivery</span>
                     </a>
                 </Link>
                 {/* PICKUP  */}
-                <Link href={"/pickup"} passHref>
+                <Link href={"/pickup"}>
                     <a className={btnClass}>
                         <BsShop className="mx-2" size={35} />
                         <span>Pickup</span>
                     </a>
                 </Link>
                 {/* CATERING  */}
-                <Link href={"/wholesale"} passHref>
+                <Link href={"/wholesale"}>
                     <a className={btnClass}>
                         <PiCallBell className="mx-2" size={35} />
                         <span>Wholesale</span>
                     </a>
                 </Link>
                 {/* GIFTS  */}
-                <Link href={"/gifts"} passHref>
+                <Link href={"/gifts"}>
                     <a className={btnClass}>
                         <BsCreditCard2Back className="mx-2" size={35} />
                         <span>Gifts</span>
                     </a>
                 </Link>
                 {/* SHIPPING  */}
-                <Link href={"/rewards"} passHref>
+                <Link href={"/rewards"}>
                     <a className={btnClass}>
                         <GiIceCreamScoop className="mx-2" size={35} />
                         <span>Rewards</span>
                     </a>
                 </Link>
                 {/* SUBSCRIPTIONS  */}
-                <Link href={"/subscriptions"} passHref>
+                <Link href={"/subscriptions"}>
                     <a className={btnClass}>
                         <PiArrowsCounterClockwiseFill className="mx-2" size={35} />
                         <span>Subs</span>

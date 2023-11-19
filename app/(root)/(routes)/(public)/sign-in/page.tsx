@@ -14,9 +14,9 @@ import { FcGoogle } from "react-icons/fc";
 const SignInModal = () => {
     return (
         <div className="flex flex-col h-full justify-center items-center bg-white">
-            <Link href={"/"}>
+            {/* <Link href={"/"}>
                 <IoMdClose className="self-start flex" />
-            </Link>
+            </Link> */}
             <Image className="bg-pink-400 rounded-full" src={Logo} alt="logo" width={75} height={75} />
             <div className="flex w-full items-center">
                 <span className={`flex flex-1 justify-center text-2xl`}>Sign In</span>
