@@ -34,7 +34,7 @@ const OrderModal = () => {
 
     if (isOpen) {
         return (
-            <ModalContainer ariaLabel="order-modal">
+            <ModalContainer>
                 {/* CONTAINER */}
                 <div id="order-modal" ref={modalRef} className="flex flex-col w-full h-full justify-center items-center overflow-y-scroll">
                     <div className="flex flex-col bg-black border-white border-2 w-full h-full justify-center md:rounded-md md:w-[800px] md:h-[700px]">

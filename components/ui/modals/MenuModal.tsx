@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 
 import ModalContainer from "./ModalContainer";
@@ -39,7 +39,7 @@ const MainModal = () => {
 
     if (isOpen) {
         return (
-            <ModalContainer ariaLabel="menu-modal">
+            <ModalContainer>
                 <div
                     ref={modalRef}
                     className="flex flex-col h-screen bg-black text-white overflow-y-scroll p-6 w-9/12 sm:w-[275px]"
@@ -57,11 +57,7 @@ const MainModal = () => {
                         {pages.map((value, index) => {
                             const link = value === "Gifting" ? "gifts" : value.toLowerCase().replace(" ", "-");
                             return (
-                                <Link
-                                    key={index}
-                                    className="my-4"
-                                    href={value === "Menu" ? "#menu" : `/${link}`}
-                                    legacyBehavior>
+                                <Link key={index} className="my-4" href={`/${link}`}>
                                     {value}
                                 </Link>
                             );
@@ -80,7 +76,7 @@ const MainModal = () => {
                         {altPages.map((value, index) => {
                             const link = value === "Gifting" ? "gifts" : value.toLowerCase().replace(" ", "-");
                             return (
-                                <Link key={index} className="my-4" href={`/${link}`} legacyBehavior>
+                                <Link key={index} className="my-4" href={`/${link}`}>
                                     {value}
                                 </Link>
                             );
