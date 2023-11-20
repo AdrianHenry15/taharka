@@ -10,7 +10,7 @@ interface IOrderCardProps {
 const OrderCard = (props: IOrderCardProps) => {
     const source = props.name.toLowerCase().replace(" ", "-");
     return (
-        <Link href={source} className="flex bg-white my-2 mx-10 p-4 rounded-md self-center max-w-[300px] md:w-[300px]">
+        <Link href={`/order/${source}`} className="flex bg-white my-2 mx-10 p-4 rounded-md self-center max-w-[300px] md:w-[300px]">
             <>
                 <div className="mr-10">{props.children}</div>
                 <div className="flex flex-col">

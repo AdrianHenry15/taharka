@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 
 import { IoMdClose } from "react-icons/io";
 import { BsTruck, BsShop, BsMailbox, BsCreditCard2Back } from "react-icons/bs";
@@ -14,6 +15,8 @@ import OrderCard from "../OrderCard";
 const OrderModal = () => {
     const { isOpen, closeModal } = useOrderModalStore();
     const modalRef = useRef<HTMLDivElement | null>(null);
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
 
     // if you click outside of the modal the modal closes
     useEffect(() => {
@@ -40,7 +43,7 @@ const OrderModal = () => {
                     <div className="flex flex-col bg-black border-white border-2 w-full h-full justify-center md:rounded-md md:w-[800px] md:h-[700px]">
                         {/* HEAD */}
                         <div className="w-full flex m-2">
-                            <IoMdClose className="text-white" size={25} onClick={closeModal} />
+                            <IoMdClose className="text-white cursor-pointer" size={25} onClick={closeModal} />
                         </div>
                         <span className="font-bold text-2xl text-white self-center">Start Order</span>
                         {/* BODY  */}

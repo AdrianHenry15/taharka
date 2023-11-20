@@ -3,7 +3,8 @@ import { Metadata } from "next";
 
 import "./global.css";
 
-import { AuthSessionProvider } from "@/providers/auth-session-provider";
+import { getServerSession } from "next-auth";
+import SessionProvider from "@/providers/session-provider";
 
 const inter = Nunito_Sans({ subsets: ["latin"] });
 
@@ -13,11 +14,12 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+    const session = await getServerSession();
     return (
         <html lang="en">
             <link rel="icon" href="/taharka_logo.png" />
             <body className={inter.className}>
-                <AuthSessionProvider>{children}</AuthSessionProvider>
+                <SessionProvider session={session}>{children}</SessionProvider>
             </body>
         </html>
     );

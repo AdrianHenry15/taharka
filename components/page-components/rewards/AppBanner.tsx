@@ -1,8 +1,6 @@
 import Image from "next/image";
 import React from "react";
 
-import Button from "@/components/Button";
-
 import IPhone from "@/public/imgs/transparent-iphone.png";
 import Logo from "@/public/imgs/taharka_logo.png";
 import Link from "next/link";

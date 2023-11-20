@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
 
 import ModalContainer from "./ModalContainer";
 import { useMenuModalStore } from "@/hooks/useModal";
@@ -16,6 +18,9 @@ const altPages = ["Wholesale", "Gifting", "Find Us", "Fundraisers", "Sign Out"];
 const MainModal = () => {
     const { isOpen, closeModal } = useMenuModalStore();
     const modalRef = useRef<HTMLDivElement | null>(null);
+    const { data: session } = useSession();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
 
     // Tailwind Styles
     const borderBottom = "border-b-[1px] border-opacity-50 border-zinc-500";
@@ -48,9 +53,12 @@ const MainModal = () => {
                     {/* MODAL HEADER  */}
                     <div className={`flex items-center justify-between pb-2 ${borderBottom}`}>
                         <AiOutlineClose className="cursor-pointer" onClick={closeModal} />
-                        <Link className="font=bold text-zinc-500" href={"/account"}>
-                            My Account
-                        </Link>
+                        {session && (
+                            <Link className="font=bold text-zinc-500" href={"/account"}>
+                                My Account
+                            </Link>
+                        )}
+                        {!session && <button onClick={() => signOut()}>Sign out</button>}
                     </div>
                     {/* MODAL NAV */}
                     <div className={`flex flex-col font-semibold text-xl ${borderBottom}`}>
