@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 
 import ModalContainer from "./ModalContainer";
@@ -12,13 +12,14 @@ import { AiOutlineClose, AiOutlineYoutube } from "react-icons/ai";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 import { BsTwitter, BsTiktok } from "react-icons/bs";
 
-const pages = ["Home", "Menu", "Order", "Rewards", "Our Story"];
-const altPages = ["Wholesale", "Gifting", "Find Us", "Fundraisers", "Sign Out"];
+const pages = ["Home", "Order", "Rewards", "Our Story"];
+const altPages = ["Wholesale", "Gifs", "Find Us", "Fundraisers"];
 
 const MainModal = () => {
     const { isOpen, closeModal } = useMenuModalStore();
     const modalRef = useRef<HTMLDivElement | null>(null);
     const { data: session } = useSession();
+    const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
@@ -63,9 +64,9 @@ const MainModal = () => {
                     {/* MODAL NAV */}
                     <div className={`flex flex-col font-semibold text-xl ${borderBottom}`}>
                         {pages.map((value, index) => {
-                            const link = value === "Gifting" ? "gifts" : value.toLowerCase().replace(" ", "-");
+                            const link = value === "Home" ? "/" : value.toLowerCase().replace(" ", "-");
                             return (
-                                <Link key={index} className="my-4" href={`/${link}`}>
+                                <Link onClick={closeModal} key={index} className="my-4" href={`/${link}`}>
                                     {value}
                                 </Link>
                             );
@@ -84,7 +85,7 @@ const MainModal = () => {
                         {altPages.map((value, index) => {
                             const link = value === "Gifting" ? "gifts" : value.toLowerCase().replace(" ", "-");
                             return (
-                                <Link key={index} className="my-4" href={`/${link}`}>
+                                <Link onClick={closeModal} key={index} className="my-4" href={`/${link}`}>
                                     {value}
                                 </Link>
                             );

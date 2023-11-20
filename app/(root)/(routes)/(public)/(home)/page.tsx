@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div className="w-full flex flex-col">
             <div className="">
-                <VideoPlayer src="/taharka-bros-vid.mp4" />
+                {/* <VideoPlayer src="/taharka-bros-vid.mp4" /> */}
                 <PageBanner />
                 <Menu />
                 <RewardsBanner />

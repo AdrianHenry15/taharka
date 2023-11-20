@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
 
 import { IoMdClose } from "react-icons/io";
 import { BsTruck, BsShop, BsMailbox, BsCreditCard2Back } from "react-icons/bs";
@@ -15,8 +14,6 @@ import OrderCard from "../OrderCard";
 const OrderModal = () => {
     const { isOpen, closeModal } = useOrderModalStore();
     const modalRef = useRef<HTMLDivElement | null>(null);
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
 
     // if you click outside of the modal the modal closes
     useEffect(() => {
@@ -39,8 +36,11 @@ const OrderModal = () => {
         return (
             <ModalContainer>
                 {/* CONTAINER */}
-                <div id="order-modal" ref={modalRef} className="flex flex-col w-full h-full justify-center items-center overflow-y-scroll">
-                    <div className="flex flex-col bg-black border-white border-2 w-full h-full justify-center md:rounded-md md:w-[800px] md:h-[700px]">
+                <div id="order-modal" className="flex flex-col w-full h-full justify-center items-center overflow-y-scroll">
+                    <div
+                        ref={modalRef}
+                        className="flex flex-col bg-black border-white border-2 w-full h-full justify-center md:rounded-md md:w-[800px] md:h-[700px]"
+                    >
                         {/* HEAD */}
                         <div className="w-full flex m-2">
                             <IoMdClose className="text-white cursor-pointer" size={25} onClick={closeModal} />
@@ -48,19 +48,31 @@ const OrderModal = () => {
                         <span className="font-bold text-2xl text-white self-center">Start Order</span>
                         {/* BODY  */}
                         <div className="flex flex-col mt-10 mb-4">
-                            <OrderCard name="Delivery" description="Fresh ice cream delivered to you. What's better than that?">
+                            <OrderCard
+                                onClick={closeModal}
+                                name="Delivery"
+                                description="Fresh ice cream delivered to you. What's better than that?"
+                            >
                                 <BsTruck size={40} />
                             </OrderCard>
-                            <OrderCard name="Store Pickup" description="Pick up fresh ice cream at your favorite Taharka location.">
+                            <OrderCard
+                                onClick={closeModal}
+                                name="Store Pickup"
+                                description="Pick up fresh ice cream at your favorite Taharka location."
+                            >
                                 <BsShop size={40} />
                             </OrderCard>
-                            <OrderCard name="Wholesale" description="Set a date for a wholesale order of 6+ pints of ice cream.">
+                            <OrderCard
+                                onClick={closeModal}
+                                name="Wholesale"
+                                description="Set a date for a wholesale order of 6+ pints of ice cream."
+                            >
                                 <PiCallBell size={40} />
                             </OrderCard>
-                            <OrderCard name="Gifts" description="Send a digital gift along with a friendly message.">
+                            <OrderCard onClick={closeModal} name="Gifts" description="Send a digital gift along with a friendly message.">
                                 <BsCreditCard2Back size={40} />
                             </OrderCard>
-                            <OrderCard name="Shipping" description="Fresh ice cream shipped to you Happy day!">
+                            <OrderCard onClick={closeModal} name="Shipping" description="Fresh ice cream shipped to you Happy day!">
                                 <BsMailbox size={40} />
                             </OrderCard>
                         </div>
