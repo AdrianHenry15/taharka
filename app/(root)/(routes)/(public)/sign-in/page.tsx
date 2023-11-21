@@ -60,6 +60,8 @@ const SignInModal = () => {
                     <IoMdClose className="flex text-start" size={25} />
                 </Link>
                 <Image className="bg-black rounded-full" src={Logo} alt="logo" width={75} height={75} />
+                {/* SIGN IN / SIGN UP */}
+                {/* setLogin = Setting the to either "Sign In" or "Sign Up" */}
                 <div className="flex w-full items-center justify-around">
                     <button
                         onClick={() => setLogin(true)}
@@ -86,8 +88,10 @@ const SignInModal = () => {
                             <label className="pt-4 font-semibold text-xl" htmlFor="email">
                                 Your Email
                             </label>
-                            <input className="rounded-full mb-4" type="email" id="email" name="email" placeholder="taharka@bros.com" />
-                            <button className="bg-black rounded-full py-2 text-white text-sm">SEND CONFIRMATION CODE</button>
+                            <input className="rounded-full flex mb-4" type="email" id="email" name="email" placeholder="taharka@bros.com" />
+                            <button onClick={sendConfirmationCode} className="bg-black rounded-full py-2 text-white text-sm">
+                                SEND CONFIRMATION CODE
+                            </button>
                         </form>
                         <p className="py-4 text-xl font-light self-center">or</p>
 
@@ -106,19 +110,19 @@ const SignInModal = () => {
                     <div className="flex flex-col w-full md:px-20 md:pb-2">
                         <form className="flex flex-col w-full" action="/sign-up" method="post">
                             {/* FIRST NAME */}
-                            <label className="pt-4 font-semibold text-xl" htmlFor="firstName">
+                            <label className="mt-4 font-semibold text-xl" htmlFor="firstName">
                                 First Name
                             </label>
                             <input className="rounded-full" type="text" id="firstName" name="firstName" placeholder="First Name" />
 
                             {/* LAST NAME */}
-                            <label className="pt-4 font-semibold text-xl" htmlFor="lastName">
+                            <label className="mt-4 font-semibold text-xl" htmlFor="lastName">
                                 Last Name
                             </label>
                             <input className="rounded-full" type="text" id="lastName" name="lastName" placeholder="Last Name" />
 
                             {/* EMAIL */}
-                            <label className="pt-4 font-semibold text-xl" htmlFor="email">
+                            <label className="mt-4 font-semibold text-xl" htmlFor="email">
                                 Email
                             </label>
                             <input className="rounded-full" type="email" id="email" name="email" placeholder="Email" />
