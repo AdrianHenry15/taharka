@@ -6,7 +6,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 
 import ModalContainer from "./ModalContainer";
-import { useMenuModalStore } from "@/hooks/useModal";
+import { useMenuModalStore, useOrderModalStore } from "@/hooks/useModal";
 
 import { AiOutlineClose, AiOutlineYoutube } from "react-icons/ai";
 import { SiFacebook, SiInstagram } from "react-icons/si";
@@ -17,6 +17,7 @@ const altPages = ["Wholesale", "Gifs", "Find Us", "Fundraisers"];
 
 const MainModal = () => {
     const { isOpen, closeModal } = useMenuModalStore();
+    const openOrderModal = useOrderModalStore().openModal;
     const modalRef = useRef<HTMLDivElement | null>(null);
     const { data: session } = useSession();
 
@@ -62,11 +63,28 @@ const MainModal = () => {
                     <div className={`flex flex-col font-semibold text-xl ${borderBottom}`}>
                         {pages.map((value, index) => {
                             const link = value === "Home" ? "/" : value.toLowerCase().replace(" ", "-");
-                            return (
-                                <Link onClick={closeModal} key={index} className="my-4" href={`/${link}`}>
-                                    {value}
-                                </Link>
-                            );
+
+                            // ORDER IS A VARIANT BECAUSE IT OPENS THE ORDER MODAL AND IS NOT A LINK
+                            if (value === "Order") {
+                                return (
+                                    <button
+                                        className="my-4 text-start"
+                                        key={index}
+                                        onClick={() => {
+                                            closeModal();
+                                            openOrderModal();
+                                        }}
+                                    >
+                                        Order
+                                    </button>
+                                );
+                            } else {
+                                return (
+                                    <Link onClick={closeModal} key={index} className="my-4" href={`/${link}`}>
+                                        {value}
+                                    </Link>
+                                );
+                            }
                         })}
                     </div>
                     {/* SOCIAL MEDIA */}

@@ -20,9 +20,7 @@ const RewardsBanner = () => {
                     Earn Loyalty Points toward FREE ice cream with the Taharka App!
                 </p>
             </div>
-            {/* <Button isLink containerClass="mb-0 mt-6" text={"Earn Taharka Points"} onClick={() => {}} path={"/rewards"} /> */}
-            {/* </div> */}
-            <Button containerClass="mt-6 mb-0" isLink text={"Earn Taharka Points"} path={"/rewards"} />
+            <button className="bg-black rounded-full px-10 py-2 text-sm text-white mt-10">Earn Taharka Points</button>
         </section>
     );
 };
