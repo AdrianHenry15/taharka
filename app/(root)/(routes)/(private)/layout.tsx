@@ -6,7 +6,7 @@ export default async function PrivateLayout({ children }: { children: React.Reac
     const session = await getServerSession();
 
     if (!session || !session.user) {
-        redirect("/signin");
+        redirect("/sign-in");
     } else if (session) {
         return <section className="flex flex-col w-full h-full">{children}</section>;
     }

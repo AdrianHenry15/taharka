@@ -19,9 +19,6 @@ const MainModal = () => {
     const { isOpen, closeModal } = useMenuModalStore();
     const modalRef = useRef<HTMLDivElement | null>(null);
     const { data: session } = useSession();
-    const router = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
 
     // Tailwind Styles
     const borderBottom = "border-b-[1px] border-opacity-50 border-zinc-500";

@@ -17,3 +17,9 @@ export const useOrderModalStore = create<IModalStore>((set) => ({
     openModal: () => set({ isOpen: true }),
     closeModal: () => set({ isOpen: false }),
 }));
+
+export const useSignInModalStore = create<IModalStore>((set) => ({
+    isOpen: false,
+    openModal: () => set({ isOpen: true }),
+    closeModal: () => set({ isOpen: false }),
+}));
