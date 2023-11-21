@@ -14,11 +14,11 @@ const Header = () => {
     const openMenuModal = useMenuModalStore().openModal;
     const openOrderModal = useOrderModalStore().openModal;
     return (
-        <section className="flex items-center justify-between w-full px-4 fixed top-0 bg-white z-10 rounded-b-lg lg:w-4/5">
+        <header className="flex items-center justify-between w-full px-4 fixed top-0 bg-white z-10 rounded-b-lg lg:w-4/5">
             {/* HAMBURGER AND LOGO CONTAINER  */}
             <div className="flex items-center w-full">
                 <RxHamburgerMenu
-                    className="text-zinc-500 font-extrabold fixed left-5 cursor-pointer md:relative"
+                    className="text-zinc-500 font-extrabold absolute left-5 cursor-pointer md:relative"
                     size={30}
                     onClick={openMenuModal}
                 />
@@ -41,7 +41,7 @@ const Header = () => {
                     <h5 className="font-bold">Order Now</h5>
                 </div>
             </div>
-        </section>
+        </header>
     );
 };
 

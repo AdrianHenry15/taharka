@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
@@ -10,10 +10,14 @@ import Logo from "@/public/taharka_logo.png";
 import { IoMdClose } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { useSignInModalStore } from "@/hooks/useModal";
+import axios from "axios";
+import { NextResponse } from "next/server";
 
 const SignInModal = () => {
     const { isOpen, closeModal } = useSignInModalStore();
     const modalRef = useRef<HTMLDivElement | null>(null);
+    const [email, setEmail] = useState("");
+    const [login, setLogin] = useState(false);
 
     // if you click outside of the modal the modal closes
     useEffect(() => {
@@ -31,31 +35,115 @@ const SignInModal = () => {
             document.removeEventListener("mousedown", handleOutsideClick);
         };
     }, [isOpen, closeModal]);
+
+    const sendConfirmationCode = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        // POST req to server endpoint
+        try {
+            const response = await axios.post("/api/auth/send-confirmation-code", { email });
+            console.log("Server response:", response.data);
+        } catch (error) {
+            console.error("Error:", error);
+            NextResponse.error();
+        }
+    };
+
     return (
-        <div className="flex justify-center mt-2 h-screen">
-            <div id="sign-in-modal" ref={modalRef} className="flex flex-col h-[300px] items-center w-full m-6 rounded-lg bg-white  py-6">
-                <Link className="flex w-full mt-4" href={"/"}>
+        <section className="flex justify-center mt-2 h-screen md:mt-0 md:bg-zinc-700">
+            <div
+                id="sign-in-modal"
+                ref={modalRef}
+                className="flex flex-col items-center w-full m-6 rounded-lg bg-white py-6 md:w-[600px] md:h-min md:self-center md:p-4"
+            >
+                <Link className="flex w-full mt-4 md:mt-0" href={"/"}>
                     <IoMdClose className="flex text-start" size={25} />
                 </Link>
                 <Image className="bg-black rounded-full" src={Logo} alt="logo" width={75} height={75} />
                 <div className="flex w-full items-center justify-around">
-                    <h3 className={`flex justify-center text-4xl font-light border-black border-b-8 rounded-md`}>Sign In</h3>
-                    <h3 className={`flex justify-center text-4xl font-light border-black border-b-8 rounded-md`}>Sign Up</h3>
+                    <button
+                        onClick={() => setLogin(true)}
+                        className={`flex justify-center text-4xl font-light ${
+                            login ? "border-black" : "border-transparent"
+                        } border-b-8 rounded-md`}
+                    >
+                        Sign In
+                    </button>
+                    <button
+                        onClick={() => setLogin(false)}
+                        className={`flex justify-center text-4xl font-light ${
+                            !login ? "border-black" : "border-transparent"
+                        } border-b-8 rounded-md`}
+                    >
+                        Sign Up
+                    </button>
                 </div>
+                {/* SIGN IN  */}
                 {/* TODO: EMAIL / PHONE */}
-                {/* <div>
-                <span>Your Email</span>
-                <input type="tel" placeholder="+1 (888) 888-8888" />
-            </div>
-            <Button text="SEND CONFIRMATION EMAIL" onClick={() => {}} /> */}
+                {login && (
+                    <div className="flex flex-col w-full md:px-20 md:pb-2">
+                        <form className="flex flex-col w-full" action="/sign-in" method="post">
+                            <label className="pt-4 font-semibold text-xl" htmlFor="email">
+                                Your Email
+                            </label>
+                            <input className="rounded-full mb-4" type="email" id="email" name="email" placeholder="taharka@bros.com" />
+                            <button className="bg-black rounded-full py-2 text-white text-sm">SEND CONFIRMATION CODE</button>
+                        </form>
+                        <p className="py-4 text-xl font-light self-center">or</p>
 
-                {/* PROVIDERS  */}
-                <div>
-                    {/* GOOGLE INSTAGRAM APPLE FACEBOOK TWITTER */}
-                    <FcGoogle onClick={() => signIn()} />
-                </div>
+                        {/* PROVIDERS  */}
+                        <button
+                            onClick={() => signIn("google")}
+                            className="flex items-center justify-evenly w-full border-black border-2 rounded-full py-2 text-lg"
+                        >
+                            <label>Sign In With</label>
+                            <FcGoogle size={20} />
+                        </button>
+                    </div>
+                )}
+                {/* SIGN UP */}
+                {!login && (
+                    <div className="flex flex-col w-full md:px-20 md:pb-2">
+                        <form className="flex flex-col w-full" action="/sign-up" method="post">
+                            {/* FIRST NAME */}
+                            <label className="pt-4 font-semibold text-xl" htmlFor="firstName">
+                                First Name
+                            </label>
+                            <input className="rounded-full" type="text" id="firstName" name="firstName" placeholder="First Name" />
+
+                            {/* LAST NAME */}
+                            <label className="pt-4 font-semibold text-xl" htmlFor="lastName">
+                                Last Name
+                            </label>
+                            <input className="rounded-full" type="text" id="lastName" name="lastName" placeholder="Last Name" />
+
+                            {/* EMAIL */}
+                            <label className="pt-4 font-semibold text-xl" htmlFor="email">
+                                Email
+                            </label>
+                            <input className="rounded-full" type="email" id="email" name="email" placeholder="Email" />
+
+                            {/* PHONE */}
+                            {/* <label className="pt-4 font-semibold text-xl" htmlFor="phone">
+                                Phone Number
+                            </label>
+                            <input className="rounded-full" type="tel" id="phone" name="phone" placeholder="+1 (111) 111-1111" /> */}
+
+                            <button className="bg-black rounded-full mt-4 py-2 text-white text-sm">CREATE ACCOUNT</button>
+                            <p className="py-4 text-xl font-light self-center">or</p>
+                            {/* PROVIDERS  */}
+                            <button
+                                onClick={() => signIn("google")}
+                                className="flex items-center justify-evenly w-full border-black border-2 rounded-full py-2 text-lg"
+                            >
+                                <label>Sign Up With</label>
+                                <FcGoogle size={20} />
+                            </button>
+                        </form>
+                    </div>
+                )}
             </div>
-        </div>
+        </section>
     );
 };
 
