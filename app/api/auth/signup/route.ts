@@ -1,8 +1,8 @@
 import prismadb from "@/prisma/prismadb";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-    const { firstName, lastName, email, phone, emailVerification, phoneVerification } = req.body;
+export async function POST(req: Request) {
+    const { firstName, lastName, email, phone, emailVerification, phoneVerification } = await req.json();
 
     try {
         const user = await prismadb.user.create({
@@ -15,9 +15,9 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
                 phoneVerification: phoneVerification,
             },
         });
-        res.status(201).json({ user });
+        NextResponse.json({ user });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: "Internal Server Error" });
+        NextResponse.json({ error: "Internal Server Error" });
     }
 }
