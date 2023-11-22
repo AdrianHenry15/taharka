@@ -5,6 +5,7 @@ interface IOrderCardProps {
     children: React.ReactNode;
     name: string;
     description: string;
+    link: string;
     onClick?: () => void;
 }
 
@@ -13,7 +14,7 @@ const OrderCard = (props: IOrderCardProps) => {
     return (
         <Link
             onClick={props.onClick}
-            href={`/order/${source}`}
+            href={props.link}
             className="flex bg-white my-2 mx-10 p-4 rounded-md self-center max-w-[300px] md:w-[300px]"
         >
             <>

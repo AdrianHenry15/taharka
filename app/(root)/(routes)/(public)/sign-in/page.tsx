@@ -101,7 +101,7 @@ const SignInModal = () => {
                             onClick={() => signIn("google")}
                             className="flex items-center justify-evenly w-full border-black border-2 rounded-full py-2 text-lg"
                         >
-                            <label>Sign In With</label>
+                            <label className="cursor-pointer">Sign In With</label>
                             <FcGoogle size={20} />
                         </button>
                     </div>
@@ -141,7 +141,7 @@ const SignInModal = () => {
                                 onClick={() => signIn("google")}
                                 className="flex items-center justify-evenly w-full border-black border-2 rounded-full py-2 text-lg"
                             >
-                                <label>Sign Up With</label>
+                                <label className="cursor-pointer">Sign Up With</label>
                                 <FcGoogle size={20} />
                             </button>
                         </form>

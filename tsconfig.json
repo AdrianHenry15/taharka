@@ -24,6 +24,14 @@
             "@/*": ["./*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "prisma/seed.ts"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        "tailwind.config.js",
+        "prisma/seed.ts",
+        "app/(root)/(routes)/(private)/store-pickup/page.txs"
+    ],
     "exclude": ["node_modules"]
 }

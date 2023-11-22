@@ -49,6 +49,7 @@ const OrderModal = () => {
                         {/* BODY  */}
                         <div className="flex flex-col mt-10 mb-4">
                             <OrderCard
+                                link="/order/delivery"
                                 onClick={closeModal}
                                 name="Delivery"
                                 description="Fresh ice cream delivered to you. What's better than that?"
@@ -56,6 +57,7 @@ const OrderModal = () => {
                                 <BsTruck size={40} />
                             </OrderCard>
                             <OrderCard
+                                link="/order/store-pickup"
                                 onClick={closeModal}
                                 name="Store Pickup"
                                 description="Pick up fresh ice cream at your favorite Taharka location."
@@ -63,16 +65,27 @@ const OrderModal = () => {
                                 <BsShop size={40} />
                             </OrderCard>
                             <OrderCard
+                                link="/order/wholesale"
                                 onClick={closeModal}
                                 name="Wholesale"
                                 description="Set a date for a wholesale order of 6+ pints of ice cream."
                             >
                                 <PiCallBell size={40} />
                             </OrderCard>
-                            <OrderCard onClick={closeModal} name="Gifts" description="Send a digital gift along with a friendly message.">
+                            <OrderCard
+                                link="/gifts"
+                                onClick={closeModal}
+                                name="Gifts"
+                                description="Send a digital gift along with a friendly message."
+                            >
                                 <BsCreditCard2Back size={40} />
                             </OrderCard>
-                            <OrderCard onClick={closeModal} name="Shipping" description="Fresh ice cream shipped to you Happy day!">
+                            <OrderCard
+                                link="/order/shipping"
+                                onClick={closeModal}
+                                name="Shipping"
+                                description="Fresh ice cream shipped to you Happy day!"
+                            >
                                 <BsMailbox size={40} />
                             </OrderCard>
                         </div>

@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
-import { BsTruck, BsShop, BsCreditCard2Back } from "react-icons/bs";
-import { PiCallBell, PiArrowsCounterClockwiseFill } from "react-icons/pi";
+import { BsTruck, BsShop, BsCreditCard2Back, BsMailbox } from "react-icons/bs";
+import { PiCallBell } from "react-icons/pi";
 import { GiIceCreamScoop } from "react-icons/gi";
 
 const PageBanner = () => {
@@ -57,8 +57,8 @@ const PageBanner = () => {
                 {/* SUBSCRIPTIONS  */}
                 <Link href={"/subscriptions"} className={btnClass}>
                     <>
-                        <PiArrowsCounterClockwiseFill className="mx-2" size={35} />
-                        Subs
+                        <BsMailbox className="mx-2" size={35} />
+                        Shipping
                     </>
                 </Link>
             </div>
