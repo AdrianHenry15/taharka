@@ -1,5 +1,6 @@
-import ComingSoon from "@/components/ComingSoon";
 import React from "react";
+
+import ComingSoon from "@/components/ComingSoon";
 
 const Fundraisers = () => {
     return (

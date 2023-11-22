@@ -2,7 +2,7 @@ import React from "react";
 
 import ComingSoon from "@/components/ComingSoon";
 
-const Wholesale = () => {
+const Locations = () => {
     return (
         <div>
             <ComingSoon />
@@ -10,4 +10,4 @@ const Wholesale = () => {
     );
 };
 
-export default Wholesale;
+export default Locations;

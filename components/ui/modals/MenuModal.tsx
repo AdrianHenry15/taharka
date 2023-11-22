@@ -13,7 +13,7 @@ import { SiFacebook, SiInstagram } from "react-icons/si";
 import { BsTwitter, BsTiktok } from "react-icons/bs";
 
 const pages = ["Home", "Order", "Rewards", "Our Story"];
-const altPages = ["Wholesale", "Gifs", "Find Us", "Fundraisers"];
+const altPages = ["Wholesale", "Gifts", "Find Us", "Fundraisers"];
 
 const MainModal = () => {
     const { isOpen, closeModal } = useMenuModalStore();

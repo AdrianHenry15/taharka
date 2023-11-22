@@ -3,15 +3,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
+import { NextResponse } from "next/server";
 import { signIn } from "next-auth/react";
 
 import Logo from "@/public/taharka_logo.png";
 
+import { useSignInModalStore } from "@/hooks/useModal";
+
 import { IoMdClose } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
-import { useSignInModalStore } from "@/hooks/useModal";
-import axios from "axios";
-import { NextResponse } from "next/server";
 
 const SignInModal = () => {
     const { isOpen, closeModal } = useSignInModalStore();
