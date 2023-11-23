@@ -21,11 +21,11 @@ model Product {
 }
 
 model User {
-    id                String  @id @default(cuid())
+    id                String @id @default(cuid())
     firstName         String
     lastName          String
-    email             String  @unique
+    email             String @unique
     emailVerification String
-    phone             String? @unique
-    phoneVerification String?
+    // phone             String? @unique
+    // phoneVerification String?
 }

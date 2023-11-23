@@ -2,7 +2,7 @@ import prismadb from "@/prisma/prismadb";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-    const { firstName, lastName, email, phone, emailVerification, phoneVerification } = await req.json();
+    const { firstName, lastName, email, emailVerification } = await req.json();
 
     try {
         const user = await prismadb.user.create({
@@ -10,9 +10,7 @@ export async function POST(req: Request) {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
-                phone: phone,
                 emailVerification: emailVerification,
-                phoneVerification: phoneVerification,
             },
         });
         NextResponse.json({ user });

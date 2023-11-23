@@ -17,6 +17,8 @@ import { FcGoogle } from "react-icons/fc";
 const SignInModal = () => {
     const { isOpen, closeModal } = useSignInModalStore();
     const modalRef = useRef<HTMLDivElement | null>(null);
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [login, setLogin] = useState(false);
 
@@ -37,6 +39,26 @@ const SignInModal = () => {
         };
     }, [isOpen, closeModal]);
 
+    const createAccount = async () => {
+        try {
+            const userData = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+            };
+            // create account here
+            const response = await axios.post("/api/auth/sign-up", userData);
+
+            const createdUser = response.data.user;
+
+            console.log("Account created successfully:", createdUser);
+
+            // Add logic for handling success, such as redirecting the user or showing a success message
+        } catch (error) {
+            console.error("Error creating account:", error);
+        }
+    };
+
     const sendConfirmationCode = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -48,6 +70,16 @@ const SignInModal = () => {
             console.error("Error:", error);
             NextResponse.error();
         }
+    };
+
+    const handleFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFirstName(e.target.value);
+    };
+    const handleLastName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setLastName(e.target.value);
+    };
+    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
     };
 
     return (
@@ -89,7 +121,14 @@ const SignInModal = () => {
                             <label className="pt-4 font-semibold text-xl" htmlFor="email">
                                 Your Email
                             </label>
-                            <input className="rounded-full flex mb-4" type="email" id="email" name="email" placeholder="taharka@bros.com" />
+                            <input
+                                onChange={(e) => handleEmail(e)}
+                                className="rounded-full flex mb-4"
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="taharka@bros.com"
+                            />
                             <button onClick={sendConfirmationCode} className="bg-black rounded-full py-2 text-white text-sm">
                                 SEND CONFIRMATION CODE
                             </button>
@@ -114,19 +153,40 @@ const SignInModal = () => {
                             <label className="mt-4 font-semibold text-xl" htmlFor="firstName">
                                 First Name
                             </label>
-                            <input className="rounded-full" type="text" id="firstName" name="firstName" placeholder="First Name" />
+                            <input
+                                onChange={(e) => handleFirstName(e)}
+                                className="rounded-full"
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="First Name"
+                            />
 
                             {/* LAST NAME */}
                             <label className="mt-4 font-semibold text-xl" htmlFor="lastName">
                                 Last Name
                             </label>
-                            <input className="rounded-full" type="text" id="lastName" name="lastName" placeholder="Last Name" />
+                            <input
+                                onChange={(e) => handleLastName(e)}
+                                className="rounded-full"
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                placeholder="Last Name"
+                            />
 
                             {/* EMAIL */}
                             <label className="mt-4 font-semibold text-xl" htmlFor="email">
                                 Email
                             </label>
-                            <input className="rounded-full" type="email" id="email" name="email" placeholder="Email" />
+                            <input
+                                onChange={(e) => handleEmail(e)}
+                                className="rounded-full"
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Email"
+                            />
 
                             {/* PHONE */}
                             {/* <label className="pt-4 font-semibold text-xl" htmlFor="phone">
@@ -134,15 +194,8 @@ const SignInModal = () => {
                             </label>
                             <input className="rounded-full" type="tel" id="phone" name="phone" placeholder="+1 (111) 111-1111" /> */}
 
-                            <button className="bg-black rounded-full mt-4 py-2 text-white text-sm">CREATE ACCOUNT</button>
-                            <p className="py-4 text-xl font-light self-center">or</p>
-                            {/* PROVIDERS  */}
-                            <button
-                                onClick={() => signIn("google")}
-                                className="flex items-center justify-evenly w-full border-black border-2 rounded-full py-2 text-lg"
-                            >
-                                <label className="cursor-pointer">Sign Up With</label>
-                                <FcGoogle size={20} />
+                            <button onClick={createAccount} className="bg-black rounded-full mt-4 py-4 text-white text-sm">
+                                CREATE ACCOUNT
                             </button>
                         </form>
                     </div>
