@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
-import { NextResponse } from "next/server";
 import { signIn } from "next-auth/react";
 
 import Logo from "@/public/taharka_logo.png";
@@ -13,14 +12,15 @@ import { useSignInModalStore } from "@/hooks/useModal";
 
 import { IoMdClose } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
+import { redirect } from "next/navigation";
 
 const SignInModal = () => {
     const { isOpen, closeModal } = useSignInModalStore();
     const modalRef = useRef<HTMLDivElement | null>(null);
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [login, setLogin] = useState(false);
+    const [login, setLogin] = useState(true);
+    // const [firstName, setFirstName] = useState("");
+    // const [lastName, setLastName] = useState("");
+    // const [email, setEmail] = useState("");
 
     // if you click outside of the modal the modal closes
     useEffect(() => {
@@ -39,48 +39,49 @@ const SignInModal = () => {
         };
     }, [isOpen, closeModal]);
 
-    const createAccount = async () => {
-        try {
-            const userData = {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-            };
-            // create account here
-            const response = await axios.post("/api/auth/sign-up", userData);
+    // const createAccount = async (e: FormEvent<HTMLFormElement>) => {
+    //     const formData = e.currentTarget;
+    //     try {
+    //         const userData = {
+    //             firstName: formData.get("firstName"),
+    //             lastName: formData.get("lastName"),
+    //             email: formData.get("email"),
+    //         };
+    //         // create account here
+    //         const response = await axios.post("/api/auth/new-user", userData);
+    //         const createdUser = response.data.user;
 
-            const createdUser = response.data.user;
+    //         console.log("Account created successfully:", createdUser);
+    //         redirect("/");
 
-            console.log("Account created successfully:", createdUser);
+    //         // Add logic for handling success, such as redirecting the user or showing a success message
+    //     } catch (error) {
+    //         console.error("Error creating account:", error);
+    //     }
+    // };
 
-            // Add logic for handling success, such as redirecting the user or showing a success message
-        } catch (error) {
-            console.error("Error creating account:", error);
-        }
-    };
+    // const sendConfirmationCode = async (e: React.FormEvent) => {
+    //     e.preventDefault();
 
-    const sendConfirmationCode = async (e: React.FormEvent) => {
-        e.preventDefault();
+    //     // POST req to server endpoint
+    //     try {
+    //         const response = await axios.post("/api/auth/send-confirmation-code", { email });
+    //         console.log("Server response:", response.data);
+    //     } catch (error) {
+    //         console.error("Error:", error);
+    //         NextResponse.error();
+    //     }
+    // };
 
-        // POST req to server endpoint
-        try {
-            const response = await axios.post("/api/auth/send-confirmation-code", { email });
-            console.log("Server response:", response.data);
-        } catch (error) {
-            console.error("Error:", error);
-            NextResponse.error();
-        }
-    };
-
-    const handleFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFirstName(e.target.value);
-    };
-    const handleLastName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setLastName(e.target.value);
-    };
-    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
-    };
+    // const handleFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     setFirstName(e.target.value);
+    // };
+    // const handleLastName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     setLastName(e.target.value);
+    // };
+    // const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     setEmail(e.target.value);
+    // };
 
     return (
         <section className="flex justify-center mt-2 h-screen md:mt-0 md:bg-zinc-700">
@@ -122,27 +123,30 @@ const SignInModal = () => {
                                 Your Email
                             </label>
                             <input
-                                onChange={(e) => handleEmail(e)}
+                                // onChange={(e) => handleEmail(e)}
                                 className="rounded-full flex mb-4"
                                 type="email"
                                 id="email"
                                 name="email"
                                 placeholder="taharka@bros.com"
                             />
-                            <button onClick={sendConfirmationCode} className="bg-black rounded-full py-2 text-white text-sm">
+                            <button
+                                // onClick={sendConfirmationCode}
+                                className="bg-black rounded-full py-2 text-white text-sm"
+                            >
                                 SEND CONFIRMATION CODE
                             </button>
                         </form>
                         <p className="py-4 text-xl font-light self-center">or</p>
 
                         {/* PROVIDERS  */}
-                        <button
-                            onClick={() => signIn("google")}
+                        <Link
+                            href={"/api/auth/signin/google"}
                             className="flex items-center justify-evenly w-full border-black border-2 rounded-full py-2 text-lg"
                         >
                             <label className="cursor-pointer">Sign In With</label>
                             <FcGoogle size={20} />
-                        </button>
+                        </Link>
                     </div>
                 )}
                 {/* SIGN UP */}
@@ -154,7 +158,7 @@ const SignInModal = () => {
                                 First Name
                             </label>
                             <input
-                                onChange={(e) => handleFirstName(e)}
+                                // onChange={(e) => handleFirstName(e)}
                                 className="rounded-full"
                                 type="text"
                                 id="firstName"
@@ -167,7 +171,7 @@ const SignInModal = () => {
                                 Last Name
                             </label>
                             <input
-                                onChange={(e) => handleLastName(e)}
+                                // onChange={(e) => handleLastName(e)}
                                 className="rounded-full"
                                 type="text"
                                 id="lastName"
@@ -180,7 +184,7 @@ const SignInModal = () => {
                                 Email
                             </label>
                             <input
-                                onChange={(e) => handleEmail(e)}
+                                // onChange={(e) => handleEmail(e)}
                                 className="rounded-full"
                                 type="email"
                                 id="email"
@@ -194,9 +198,24 @@ const SignInModal = () => {
                             </label>
                             <input className="rounded-full" type="tel" id="phone" name="phone" placeholder="+1 (111) 111-1111" /> */}
 
-                            <button onClick={createAccount} className="bg-black rounded-full mt-4 py-4 text-white text-sm">
+                            <button
+                                // onClick={createAccount}
+                                type="submit"
+                                className="bg-black rounded-full mt-4 py-4 text-white text-sm"
+                            >
                                 CREATE ACCOUNT
                             </button>
+
+                            <p className="py-4 text-xl font-light self-center">or</p>
+
+                            {/* PROVIDERS  */}
+                            <Link
+                                href={"/api/auth/signin/google"}
+                                className="flex items-center justify-evenly w-full border-black border-2 rounded-full py-2 text-lg"
+                            >
+                                <label className="cursor-pointer">Sign Up With</label>
+                                <FcGoogle size={20} />
+                            </Link>
                         </form>
                     </div>
                 )}

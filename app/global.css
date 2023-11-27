@@ -27,3 +27,8 @@
     color: gray;
     font-weight: 700;
 }
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
