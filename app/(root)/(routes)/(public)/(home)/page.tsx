@@ -1,12 +1,9 @@
 import React from "react";
 
-import Menu from "@/components/page-components/home/Menu";
-import PageBanner from "@/components/page-components/home/PageBanner";
-import RewardsBanner from "@/components/page-components/home/RewardsBanner";
-import VideoPlayer from "@/components/page-components/home/VideoPlayer";
+import HomePage from "@/components/page-components/home";
 
 const Home = () => {
-    return <Home />;
+    return <HomePage />;
 };
 
 export default Home;

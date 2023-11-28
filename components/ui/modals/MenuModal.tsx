@@ -2,8 +2,6 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { signOut, useSession } from "next-auth/react";
 
 import ModalContainer from "./ModalContainer";
 import { useMenuModalStore, useOrderModalStore } from "@/hooks/useModal";
@@ -19,7 +17,6 @@ const MainModal = () => {
     const { isOpen, closeModal } = useMenuModalStore();
     const openOrderModal = useOrderModalStore().openModal;
     const modalRef = useRef<HTMLDivElement | null>(null);
-    const { data: session } = useSession();
 
     // Tailwind Styles
     const borderBottom = "border-b-[1px] border-opacity-50 border-zinc-500";
@@ -52,12 +49,9 @@ const MainModal = () => {
                     {/* MODAL HEADER  */}
                     <div className={`flex items-center justify-between pb-2 ${borderBottom}`}>
                         <AiOutlineClose className="cursor-pointer" onClick={closeModal} />
-                        {session && (
-                            <Link className="font=bold text-zinc-500" href={"/account"}>
-                                My Account
-                            </Link>
-                        )}
-                        {!session && <button onClick={() => signOut()}>Sign out</button>}
+                        <Link className="font=bold text-zinc-500" href={"/account"}>
+                            My Account
+                        </Link>
                     </div>
                     {/* MODAL NAV */}
                     <div className={`flex flex-col font-semibold text-xl ${borderBottom}`}>
