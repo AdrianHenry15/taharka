@@ -9,7 +9,7 @@ import { MdLocationPin } from "react-icons/md";
 const MobileFooter = () => {
     const { openModal } = useOrderModalStore();
     return (
-        <section className="flex justify-evenly items-center w-full fixed bottom-0 bg-white py-6 md:hidden">
+        <section className="flex justify-evenly items-center w-full fixed bottom-0 bg-white py-6 z-10 md:hidden">
             {/* FIND SHOP  */}
             <div className="flex items-center p-4">
                 <MdLocationPin size={20} className="mr-2" />

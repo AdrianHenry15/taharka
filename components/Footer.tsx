@@ -6,7 +6,7 @@ import { BiCopyright } from "react-icons/bi";
 
 const Footer = () => {
     return (
-        <footer className="flex flex-col bg-black text-white px-4 py-10 w-full md:py-0 md:pt-10">
+        <footer className="flex flex-col bg-black text-white px-4 py-10 w-full z-10 md:py-0 md:pt-10">
             <div className="flex flex-col md:w-1/2 md:self-center">
                 <div className="flex flex-col">
                     <h3 className="font-semibold text-xl">COMPANY</h3>

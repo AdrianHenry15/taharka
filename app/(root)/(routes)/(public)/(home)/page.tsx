@@ -6,16 +6,7 @@ import RewardsBanner from "@/components/page-components/home/RewardsBanner";
 import VideoPlayer from "@/components/page-components/home/VideoPlayer";
 
 const Home = () => {
-    return (
-        <div className="w-full flex flex-col">
-            <div className="">
-                <VideoPlayer src="/taharka-bros-vid.mp4" />
-                <PageBanner />
-                <Menu />
-                <RewardsBanner />
-            </div>
-        </div>
-    );
+    return <Home />;
 };
 
 export default Home;
