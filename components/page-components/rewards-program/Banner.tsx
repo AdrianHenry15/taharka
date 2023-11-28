@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Banner = () => {
     return (
-        <section className="flex flex-col items-center h-min bg-pink-200 p-10 md:flex-row md:justify-center">
+        <section className="flex flex-col items-center h-min bg-pink-200 py-20 px-4 md:flex-row md:justify-center">
             <div className="flex flex-col items-center md:flex-1">
                 <h1 className="font-semibold text-4xl text-center">A whole new way to treat yourself</h1>
                 <p className="font-light py-4">{`Don't miss out on FREE ice cream!`}</p>

@@ -5,7 +5,7 @@ import { HiOutlineHandThumbUp } from "react-icons/hi2";
 
 const CreamCashGuide = () => {
     return (
-        <section className="flex flex-col items-center p-4">
+        <section className="flex flex-col items-center py-20 px-4">
             <h3 className="font-semibold text-2xl md:text-4xl">Using your Cream Cash</h3>
             {/* CONTAINER 1 */}
             <div className="flex items-center py-4">

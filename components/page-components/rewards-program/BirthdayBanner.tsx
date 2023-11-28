@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const BirthdayBanner = () => {
     return (
-        <section className="flex flex-col bg-pink-200 p-4 md:flex-row md:justify-center">
+        <section className="flex flex-col bg-pink-200 py-20 px-4 md:flex-row md:justify-center">
             <div className="flex flex-col md:flex-1 md:justify-center md:px-10 md:max-w-[700px]">
                 <h2 className="font-semibold text-2xl md:text-4xl">Birthday Treat</h2>
                 <p className="font-light text-sm py-2 md:text-lg">

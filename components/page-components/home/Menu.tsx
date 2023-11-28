@@ -1,13 +1,10 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import dynamic from "next/dynamic";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Image from "next/image";
+import React from "react";
 
 import "swiper/css";
 import AllFlavors from "./AllFlavors";
+import { Product } from "@/lib/shopify/types";
 
-const Menu = () => {
+const Menu = ({ products }: { products: Product[] }) => {
     return (
         <section id="menu" className="flex flex-col py-14">
             {/* COOKIE FLAVOR TAB */}
@@ -17,7 +14,7 @@ const Menu = () => {
             </aside>
             {/* ITEMS CONTAINER */}
             {/* ITEMS */}
-            <AllFlavors products={[]} />
+            <AllFlavors products={products} />
         </section>
     );
 };

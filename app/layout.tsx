@@ -1,9 +1,9 @@
-import { Nunito_Sans } from "next/font/google";
+import { Roboto_Slab } from "next/font/google";
 import { Metadata } from "next";
 
 import "./global.css";
 
-const inter = Nunito_Sans({ subsets: ["latin"] });
+const inter = Roboto_Slab({ subsets: ["latin"] });
 const { SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : "http://localhost:4000";
 

@@ -5,7 +5,7 @@ import IceCreamVariety from "@/public/imgs/ice-creams.jpg";
 
 const BonusBanner = () => {
     return (
-        <section className="bg-white flex flex-col p-4 md:text-center">
+        <section className="bg-white flex flex-col py-20 px-4 md:text-center">
             <div className="flex flex-col">
                 <h4 className="font-semibold text-2xl md:text-4xl">Bonus points & Double Cream Days</h4>
                 <p className="my-2">Never miss a chance to earn Double Cream on select days so you can get FREE treats faster!</p>

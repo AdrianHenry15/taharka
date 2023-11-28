@@ -7,7 +7,7 @@ interface IFAQProps {
 
 const FAQ = (props: IFAQProps) => {
     return (
-        <div className="flex flex-col bg-white rounded-xl p-4 my-4 w-full self-center md:text-xl">
+        <div className="flex flex-col bg-white rounded-xl py-20 px-4 my-4 w-full self-center md:text-xl">
             <div className="flex font-bold">
                 <h2 className="mr-4">Q.</h2>
                 <p>{props.q}</p>

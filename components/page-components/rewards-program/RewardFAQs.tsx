@@ -3,7 +3,7 @@ import FAQ from "./FAQ";
 
 const RewardFAQs = () => {
     return (
-        <section className="bg-zinc-300 flex flex-col w-full p-4 items-center">
+        <section className="bg-zinc-300 flex flex-col w-full py-20 px-4 items-center">
             <div className="flex flex-col items-center md:w-6/12">
                 <h1 className="font-bold text-4xl">FAQs</h1>
                 <FAQ

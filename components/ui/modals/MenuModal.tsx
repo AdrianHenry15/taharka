@@ -10,7 +10,7 @@ import { AiOutlineClose, AiOutlineYoutube } from "react-icons/ai";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 import { BsTwitter, BsTiktok } from "react-icons/bs";
 
-const pages = ["Home", "Order", "Rewards", "Our Story"];
+const pages = ["Home", "Order", "Rewards Program", "Our Story"];
 const altPages = ["Wholesale", "Gifts", "Locations", "Fundraisers"];
 
 const MainModal = () => {

@@ -7,7 +7,7 @@ import { BsCash } from "react-icons/bs";
 
 const LoyaltyGuide = () => {
     return (
-        <section className="flex flex-col justify-center items-center py-10">
+        <section className="flex flex-col justify-center items-center py-20 px-4">
             <div className="flex flex-col justify-center items-center">
                 <h2 className="font-semibold text-3xl">How it works</h2>
                 <p className="font-light">Start earning Cream in three easy steps</p>

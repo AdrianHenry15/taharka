@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const AppBanner = () => {
     return (
-        <section className="bg-pink-200 flex flex-col p-4 md:items-center">
+        <section className="bg-pink-200 flex flex-col py-20 px-4 md:items-center">
             <div className="flex flex-col items-start md:justify-center">
                 <h5 className="font-semibold text-2xl md:text-4xl">Download the App for the best experience</h5>
                 <p className="my-4">Enjoy personalize ordering, FREE Cream, birthday rewards, and more with the Taharka Bros. App.</p>
