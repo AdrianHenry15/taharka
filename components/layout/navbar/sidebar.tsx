@@ -10,7 +10,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Menu } from "@/lib/shopify/types";
 import Search from "./search";
 
-export default function MobileMenu({ menu }: { menu: Menu[] }) {
+export default function Sidebar({ menu }: { menu: Menu[] }) {
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +62,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                         leaveFrom="translate-x-0"
                         leaveTo="translate-x-[-100%]"
                     >
-                        <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-white pb-6 dark:bg-black">
+                        <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-white pb-6 dark:bg-black md:w-[390px]">
                             <div className="p-4">
                                 <button
                                     className="mb-4 flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white"

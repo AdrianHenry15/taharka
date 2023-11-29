@@ -9,7 +9,7 @@ import MobileFooter from "@/components/mobile-footer";
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
     return (
         <Suspense>
-            <div className="mx-auto flex max-w-screen-2xl flex-col gap-8 px-4 pb-4 text-black dark:text-white md:flex-row">
+            <div className="flex w-full bg-zinc-900 flex-col gap-8 px-4 pb-4 pt-10 text-black dark:text-white md:flex-row md:pt-36">
                 <div className="order-first w-full flex-none md:max-w-[125px]">
                     <Collections />
                 </div>
@@ -18,8 +18,8 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
                     <FilterList list={sorting} title="Sort by" />
                 </div>
             </div>
-            <MobileFooter />
-            <Footer />
+            {/* <MobileFooter />
+            <Footer /> */}
         </Suspense>
     );
 }

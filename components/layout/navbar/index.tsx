@@ -3,14 +3,13 @@ import { Suspense } from "react";
 
 import Cart from "@/components/cart";
 import OpenCart from "@/components/cart/open-cart";
-import LogoSquare from "@/components/logo-square";
 import Logo from "@/public/taharka_logo.png";
 import TBLogo from "@/public/imgs/tb-logo.avif";
 import { getMenu } from "@/lib/shopify";
 import { Menu } from "@/lib/shopify/types";
-import MobileMenu from "./mobile-menu";
 import Search from "./search";
 import Image from "next/image";
+import Sidebar from "./sidebar";
 
 const { SITE_NAME } = process.env;
 
@@ -20,7 +19,7 @@ export default async function Navbar() {
     return (
         <nav className="bg-pink-400 flex items-center z-50 justify-between p-4 w-full md:fixed md:rounded-b-xl md:w-11/12 lg:px-6">
             <div className="block flex-none">
-                <MobileMenu menu={menu} />
+                <Sidebar menu={menu} />
             </div>
             <div className="flex w-full items-center">
                 <div className="flex w-full md:w-1/3">
