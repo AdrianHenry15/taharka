@@ -1,33 +1,55 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
-    content: [
-        './pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './components/**/*.{js,ts,jsx,tsx,mdx}',
-        './app/**/*.{js,ts,jsx,tsx,mdx}',
-    ],
+    content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {
-            gridTemplateColumns: {
-                '13': 'repeat(13, minmax(0, 1fr))',
+            fontFamily: {
+                sans: ["var(--font-geist-sans)"],
             },
-            colors: {
-                blue: {
-                    400: '#2589FE',
-                    500: '#0070F3',
-                    600: '#2F6FEB',
+            keyframes: {
+                fadeIn: {
+                    from: { opacity: "0" },
+                    to: { opacity: "1" },
+                },
+                marquee: {
+                    "0%": { transform: "translateX(0%)" },
+                    "100%": { transform: "translateX(-100%)" },
+                },
+                blink: {
+                    "0%": { opacity: "0.2" },
+                    "20%": { opacity: "1" },
+                    "100% ": { opacity: "0.2" },
                 },
             },
-        },
-        keyframes: {
-            shimmer: {
-                '100%': {
-                    transform: 'translateX(100%)',
-                },
+            animation: {
+                fadeIn: "fadeIn .3s ease-in-out",
+                carousel: "marquee 60s linear infinite",
+                blink: "blink 1.4s both infinite",
             },
         },
     },
-
-    plugins: [require('@tailwindcss/forms')],
+    future: {
+        hoverOnlyWhenSupported: true,
+    },
+    plugins: [
+        require("@tailwindcss/container-queries"),
+        require("@tailwindcss/typography"),
+        plugin(({ matchUtilities, theme }) => {
+            matchUtilities(
+                {
+                    "animation-delay": (value) => {
+                        return {
+                            "animation-delay": value,
+                        };
+                    },
+                },
+                {
+                    values: theme("transitionDelay"),
+                }
+            );
+        }),
+    ],
 };
 export default config;
