@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 
-import ModalContainer from "./ModalContainer";
+import ModalContainer from "./modal-container";
 import { useMenuModalStore, useOrderModalStore } from "@/hooks/useModal";
 
 import { AiOutlineClose, AiOutlineYoutube } from "react-icons/ai";

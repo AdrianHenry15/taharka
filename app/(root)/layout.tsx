@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
 
-import Header from "@/components/Header";
-import MenuModal from "@/components/ui/modals/MenuModal";
-import MobileFooter from "@/components/MobileFooter";
-import Footer from "@/components/Footer";
-import OrderModal from "@/components/ui/modals/OrderModal";
+import MenuModal from "@/components/ui/modals/menu-modal";
+import MobileFooter from "@/components/mobile-footer";
+import Footer from "@/components/footer";
+import OrderModal from "@/components/ui/modals/order-modal";
+import Navbar from "@/components/layout/navbar";
 
 export default async function SetupLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -13,7 +13,7 @@ export default async function SetupLayout({ children }: { children: React.ReactN
                 <MenuModal />
                 <OrderModal />
             </Suspense>
-            <Header />
+            <Navbar />
             <Suspense>
                 {children}
                 <MobileFooter />

@@ -6,10 +6,10 @@ import { IoMdClose } from "react-icons/io";
 import { BsTruck, BsShop, BsMailbox, BsCreditCard2Back } from "react-icons/bs";
 import { PiCallBell } from "react-icons/pi";
 
-import ModalContainer from "./ModalContainer";
+import ModalContainer from "./modal-container";
 
 import { useOrderModalStore } from "@/hooks/useModal";
-import OrderCard from "../OrderCard";
+import OrderCard from "../order-card";
 
 const OrderModal = () => {
     const { isOpen, closeModal } = useOrderModalStore();

@@ -1,4 +1,4 @@
-import OpengraphImage from "@/components/OpenGraphImage";
+import OpengraphImage from "@/components/open-graph-image";
 
 export const runtime = "edge";
 

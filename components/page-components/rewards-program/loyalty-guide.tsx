@@ -1,5 +1,5 @@
 import React from "react";
-import Steps from "./Steps";
+import Steps from "./steps";
 
 import { LuSmartphone } from "react-icons/lu";
 import { PiIceCreamLight } from "react-icons/pi";
