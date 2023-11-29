@@ -1,12 +1,12 @@
 import React from "react";
 
-import AppBanner from "@/components/page-components/rewards-program/app-banner";
-import Banner from "@/components/page-components/rewards-program/banner";
-import BirthdayBanner from "@/components/page-components/rewards-program/birthday-banner";
-import BonusBanner from "@/components/page-components/rewards-program/bonus-banner";
-import CreamCashGuide from "@/components/page-components/rewards-program/cream-cash-guide";
-import LoyaltyGuide from "@/components/page-components/rewards-program/loyalty-guide";
-import RewardFAQs from "@/components/page-components/rewards-program/rewards-faq";
+import AppBanner from "@/components/layout/rewards-program/app-banner";
+import Banner from "@/components/layout/rewards-program/banner";
+import BirthdayBanner from "@/components/layout/rewards-program/birthday-banner";
+import BonusBanner from "@/components/layout/rewards-program/bonus-banner";
+import CreamCashGuide from "@/components/layout/rewards-program/cream-cash-guide";
+import LoyaltyGuide from "@/components/layout/rewards-program/loyalty-guide";
+import RewardFAQs from "@/components/layout/rewards-program/rewards-faq";
 
 const RewardsProgram = () => {
     return (

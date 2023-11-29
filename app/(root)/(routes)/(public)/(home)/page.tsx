@@ -2,11 +2,11 @@ import React, { Suspense } from "react";
 
 import { getProducts } from "@/lib/shopify";
 
-import PageBanner from "@/components/page-components/home/page-banner";
-import RewardsBanner from "@/components/page-components/home/rewards-banner";
-import TruckBanner from "@/components/page-components/home/truck-banner";
-import VideoPlayer from "@/components/page-components/home/video-player";
-import AllFlavorsMenu from "@/components/page-components/home/all-flavors-menu";
+import PageBanner from "@/components/layout/home/page-banner";
+import RewardsBanner from "@/components/layout/home/rewards-banner";
+import TruckBanner from "@/components/layout/home/truck-banner";
+import VideoPlayer from "@/components/layout/home/video-player";
+import AllFlavorsMenu from "@/components/layout/home/all-flavors-menu";
 
 export default async function HomePage() {
     const products = await getProducts({});
