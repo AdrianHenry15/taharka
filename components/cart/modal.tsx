@@ -95,7 +95,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
 
                                             const merchandiseUrl = createUrl(
                                                 `/product/${item.merchandise.product.handle}`,
-                                                new URLSearchParams(merchandiseSearchParams)
+                                                new URLSearchParams(merchandiseSearchParams),
                                             );
 
                                             return (

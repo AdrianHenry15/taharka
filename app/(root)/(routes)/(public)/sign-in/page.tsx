@@ -1,10 +1,8 @@
 "use client";
 
-import React, { FormEvent, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import axios from "axios";
-import { signIn } from "next-auth/react";
 
 import Logo from "@/public/taharka_logo.png";
 
@@ -12,7 +10,6 @@ import { useSignInModalStore } from "@/hooks/useModal";
 
 import { IoMdClose } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
-import { redirect } from "next/navigation";
 
 const SignInModal = () => {
     const { isOpen, closeModal } = useSignInModalStore();

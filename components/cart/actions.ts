@@ -52,7 +52,7 @@ export async function updateItemQuantity(
         lineId: string;
         variantId: string;
         quantity: number;
-    }
+    },
 ) {
     const cartId = cookies().get("cartId")?.value;
 

@@ -47,7 +47,7 @@ const config: Config = {
                 },
                 {
                     values: theme("transitionDelay"),
-                }
+                },
             );
         }),
     ],
