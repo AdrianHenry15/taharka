@@ -6,8 +6,6 @@ import "swiper/css";
 
 import { Product } from "@/lib/shopify/types";
 
-import { useCartStore } from "@/hooks/useCart";
-
 // interface ICartLines {
 //     merchandiseId: string;
 //     quantity: number;
@@ -20,8 +18,6 @@ interface IMenuSliderProps {
 }
 
 const MenuSlider = (props: IMenuSliderProps) => {
-    const createAndSetCart = useCartStore((state) => state.createAndSetCart);
-
     return (
         <section id="menu" className="flex flex-col my-14">
             {/* COOKIE FLAVOR TAB */}
@@ -66,7 +62,7 @@ const MenuSlider = (props: IMenuSliderProps) => {
                                     <p className="text-zinc-400 text-[11px] italic">{`$${product.priceRange.maxVariantPrice.amount}0 `} </p>
                                 </div>
                             </div>
-                            <button className="w-full self-center my-2 text-white bg-black rounded-full" onClick={createAndSetCart}>
+                            <button className="w-full self-center my-2 text-white bg-black rounded-full">
                                 <p className="w-full self-center text-xs py-2 text-white bg-black rounded-full">Add To Cart</p>
                             </button>
                         </SwiperSlide>
