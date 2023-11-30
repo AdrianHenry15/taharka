@@ -9,7 +9,7 @@ import { getCartQuery } from "./queries/cart";
 import { getCollectionProductsQuery, getCollectionQuery, getCollectionsQuery } from "./queries/collection";
 import { getMenuQuery } from "./queries/menu";
 import { getPageQuery, getPagesQuery } from "./queries/page";
-import { getProductQuery, getProductRecommendationsQuery, getProductsQuery } from "./queries/product";
+import { getProductMetafieldsQuery, getProductQuery, getProductRecommendationsQuery, getProductsQuery } from "./queries/product";
 import {
     Cart,
     Collection,
