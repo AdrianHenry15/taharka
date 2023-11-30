@@ -6,7 +6,6 @@ import { createUrl } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { EditItemQuantityButton } from "../cart/edit-item-quantity-button";
 
 export function Gallery({ images }: { images: { src: string; altText: string }[] }) {
     const pathname = usePathname();

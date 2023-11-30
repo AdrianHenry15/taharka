@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 
-import { getProducts } from "@/lib/shopify";
 import PageBanner from "@/components/layout/home/page-banner";
 import RewardsBanner from "@/components/layout/home/rewards-banner";
 import TruckBanner from "@/components/layout/home/truck-banner";
