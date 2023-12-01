@@ -22,40 +22,40 @@ const PageBanner = () => {
             <aside className="text-xs text-zinc-400 mb-4">*Shipping only available in the United States</aside>
             <div className="flex flex-wrap py-4 justify-center">
                 {/* DELIVERY  */}
-                <Link href={"/order/delivery"} className={btnClass}>
+                <Link href={"/local-delivery"} className={btnClass}>
                     <>
                         <BsTruck className="mx-2" size={35} />
                         Delivery
                     </>
                 </Link>
                 {/* PICKUP  */}
-                <Link href={"/order/pickup"} className={btnClass}>
+                <Link href={"/find-a-store"} className={btnClass}>
                     <>
                         <BsShop className="mx-2" size={35} />
                         Pickup
                     </>
                 </Link>
                 {/* CATERING  */}
-                <Link href={"/order/wholesale"} className={btnClass}>
+                <Link href={"/wholesale"} className={btnClass}>
                     <PiCallBell className="mx-2" size={35} />
                     Wholesale
                 </Link>
                 {/* GIFTS  */}
-                <Link href={"/order/gifts"} className={btnClass}>
+                <Link href={"/gift-cards"} className={btnClass}>
                     <>
                         <BsCreditCard2Back className="mx-2" size={35} />
                         Gifts
                     </>
                 </Link>
                 {/* SHIPPING  */}
-                <Link href={"/order/rewards"} className={btnClass}>
+                <Link href={"/rewards-program"} className={btnClass}>
                     <>
                         <GiIceCreamScoop className="mx-2" size={35} />
                         Rewards
                     </>
                 </Link>
                 {/* SUBSCRIPTIONS  */}
-                <Link href={"/order/shipping"} className={btnClass}>
+                <Link href={"/nationwide-shipping"} className={btnClass}>
                     <>
                         <BsMailbox className="mx-2" size={35} />
                         Shipping
