@@ -1,20 +1,18 @@
-import React from "react";
+import React, { Suspense } from "react";
 
-import Header from "@/components/Header";
-import MenuModal from "@/components/ui/modals/MenuModal";
-import MobileFooter from "@/components/MobileFooter";
+import MobileFooter from "@/components/mobile-footer";
 import Footer from "@/components/Footer";
-import OrderModal from "@/components/ui/modals/OrderModal";
+import Navbar from "@/components/layout/navbar";
 
 export default async function SetupLayout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="w-full flex flex-col items-center h-full">
-            <MenuModal />
-            <OrderModal />
-            <Header />
-            {children}
-            <MobileFooter />
-            <Footer />
-        </div>
+        <main className="w-full flex flex-col items-center h-full">
+            <Navbar />
+            <Suspense>
+                {children}
+                <MobileFooter />
+                <Footer />
+            </Suspense>
+        </main>
     );
 }

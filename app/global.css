@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (prefers-color-scheme: light) {
+    html {
+        color-scheme: light;
+    }
+}
+
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+    img[loading="lazy"] {
+        clip-path: inset(0.6px);
+    }
+}
+
+a,
+input,
+button {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+}
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 :root {
@@ -26,4 +43,12 @@
     font-size: var(--aside-text);
     color: gray;
     font-weight: 700;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 50px 0;
+    overflow: hidden;
 }
