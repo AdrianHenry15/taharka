@@ -53,10 +53,10 @@ export function VariantSelector({ options, variants }: { options: ProductOption[
                     // disable combinations that are not available. For example, if the color gray is only available in size medium,
                     // then all other sizes should be disabled.
                     const filtered = Array.from(optionSearchParams.entries()).filter(([key, value]) =>
-                        options.find((option) => option.name.toLowerCase() === key && option.values.includes(value))
+                        options.find((option) => option.name.toLowerCase() === key && option.values.includes(value)),
                     );
                     const isAvailableForSale = combinations.find((combination) =>
-                        filtered.every(([key, value]) => combination[key] === value && combination.availableForSale)
+                        filtered.every(([key, value]) => combination[key] === value && combination.availableForSale),
                     );
 
                     // The option is active if it's in the url params.
@@ -79,7 +79,7 @@ export function VariantSelector({ options, variants }: { options: ProductOption[
                                         !isActive && isAvailableForSale,
                                     "relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:text-neutral-400 dark:ring-neutral-700 before:dark:bg-neutral-700":
                                         !isAvailableForSale,
-                                }
+                                },
                             )}
                         >
                             {value}

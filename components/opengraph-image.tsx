@@ -34,6 +34,6 @@ export default async function OpengraphImage(props?: Props): Promise<ImageRespon
                     weight: 700,
                 },
             ],
-        }
+        },
     );
 }

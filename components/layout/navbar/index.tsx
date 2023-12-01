@@ -17,15 +17,21 @@ export default async function Navbar() {
     const menu = await getMenu("next-js-frontend-header-menu");
 
     return (
-        <nav className="bg-pink-400 flex items-center z-50 justify-between p-4 w-full md:fixed md:rounded-b-xl md:w-11/12 lg:px-6">
+        <nav className="bg-white flex items-center z-50 justify-between px-4 w-full md:fixed md:rounded-b-xl md:w-11/12 lg:px-6">
             <div className="block flex-none">
                 <Sidebar menu={menu} />
             </div>
             <div className="flex w-full items-center">
                 <div className="flex w-full md:w-1/3">
                     <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
-                        <Image className="mb-4 hidden md:flex" src={Logo} alt="logo" width={50} height={50} />
-                        <Image className="" src={TBLogo} alt="logo" width={150} height={150} />
+                        <Image className="mb-4 flex md:hidden" src={Logo} alt="logo" width={50} height={50} />
+                        <Image
+                            className="bg-pink-500 hidden ml-4 my-2 px-4 py-2 rounded-lg md:flex"
+                            src={TBLogo}
+                            alt="logo"
+                            width={130}
+                            height={130}
+                        />
                         {/* <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">{SITE_NAME}</div> */}
                     </Link>
                     {menu.length ? (
@@ -47,10 +53,6 @@ export default async function Navbar() {
                     <Search />
                 </div>
                 <div className="flex justify-end md:w-1/3">
-                    {/* ORDER NOW LINK */}
-                    <button className="bg-black rounded-full justify-end mr-10 text-white px-10 py-2 self-center whitespace-nowrap cursor-pointer hidden md:flex">
-                        <p className="font-bold">Order Now</p>
-                    </button>
                     <Suspense fallback={<OpenCart />}>
                         <Cart />
                     </Suspense>

@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 
 import MobileFooter from "@/components/mobile-footer";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/layout/navbar";
 
 export default async function SetupLayout({ children }: { children: React.ReactNode }) {

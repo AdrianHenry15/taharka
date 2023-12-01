@@ -23,7 +23,7 @@ function SubmitButton({ type }: { type: "plus" | "minus" }) {
                 {
                     "cursor-not-allowed": pending,
                     "ml-auto": type === "minus",
-                }
+                },
             )}
         >
             {pending ? (

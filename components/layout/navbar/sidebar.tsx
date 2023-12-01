@@ -36,9 +36,9 @@ export default function Sidebar({ menu }: { menu: Menu[] }) {
             <button
                 onClick={openMobileMenu}
                 aria-label="Open mobile menu"
-                className="flex h-11 w-11 items-center justify-center rounded-3xl bg-black border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-3xl border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white"
             >
-                <Bars3Icon className="h-4" />
+                <Bars3Icon className="h-4 text-black" />
             </button>
             <Transition show={isOpen}>
                 <Dialog onClose={closeMobileMenu} className="relative z-50">
