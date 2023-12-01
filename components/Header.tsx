@@ -8,7 +8,6 @@ import { LiaShoppingCartSolid } from "react-icons/lia";
 
 import Logo from "../public/taharka_logo.png";
 
-import { useMenuModalStore, useOrderModalStore } from "@/hooks/useModal";
 import OpenCart from "./cart/open-cart";
 import Cart from "./cart";
 
