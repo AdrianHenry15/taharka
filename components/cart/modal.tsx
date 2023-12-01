@@ -7,7 +7,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
-import Price from "@/components/price";
+import Price from "@/components/Price";
 import { DEFAULT_OPTION } from "@/lib/constants";
 import type { Cart } from "@/lib/shopify/types";
 import { createUrl } from "@/lib/utils";
