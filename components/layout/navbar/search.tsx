@@ -6,7 +6,11 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 import { createUrl } from "@/lib/utils";
 
-export default function Search() {
+interface ISearchProps {
+    dark?: boolean;
+}
+
+export default function Search(props: ISearchProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
 
@@ -27,7 +31,12 @@ export default function Search() {
     }
 
     return (
-        <form onSubmit={onSubmit} className="w-max-[550px] border-black border-2 rounded-lg relative w-full lg:w-80 xl:w-full">
+        <form
+            onSubmit={onSubmit}
+            className={`w-max-[550px] ${
+                props.dark ? "border-white" : "border-black"
+            } border-2 rounded-lg relative w-full lg:w-80 xl:w-full`}
+        >
             <input
                 key={searchParams?.get("q")}
                 type="text"
@@ -35,8 +44,8 @@ export default function Search() {
                 placeholder="Search for products..."
                 autoComplete="off"
                 defaultValue={searchParams?.get("q") || ""}
-                style={{ color: "black" }}
-                className="w-full rounded-lg bg-white px-4 py-2 text-sm text-white placeholder:text-white dark:border-white dark:bg-transparent dark:text-white dark:placeholder:text-black"
+                style={props.dark ? { color: "white" } : { color: "black" }}
+                className={`w-full rounded-lg bg-transparent px-4 py-2 text-sm ${props.dark ? "text-white" : "text-black"} `}
             />
             <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
                 <MagnifyingGlassIcon className="h-4" />
