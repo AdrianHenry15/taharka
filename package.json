@@ -27,6 +27,9 @@
     },
     "homepage": "https://github.com/AdrianHenry15/taharka#readme",
     "dependencies": {
+        "@builder.io/dev-tools": "^0.2.6",
+        "@builder.io/react": "^3.1.1",
+        "@builder.io/sdk": "^2.1.1",
         "@headlessui/react": "^1.7.17",
         "@heroicons/react": "^2.0.18",
         "@tailwindcss/container-queries": "^0.1.1",

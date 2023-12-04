@@ -73,7 +73,7 @@ export default function Sidebar({ menu }: { menu: Menu[] }) {
                                 </button>
 
                                 <div className="mb-4 w-full">
-                                    <Search />
+                                    <Search dark />
                                 </div>
                                 {menu.length ? (
                                     <ul className="flex w-full flex-col">
