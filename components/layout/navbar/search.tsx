@@ -33,7 +33,7 @@ export default function Search(props: ISearchProps) {
     return (
         <form
             onSubmit={onSubmit}
-            className={`w-max-[550px] ${
+            className={`w-max-[350px] ${
                 props.dark ? "border-white" : "border-black"
             } border-2 rounded-lg relative w-full lg:w-80 xl:w-full`}
         >

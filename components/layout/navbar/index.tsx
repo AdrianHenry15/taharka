@@ -9,13 +9,14 @@ import Logo from "@/public/taharka_logo.png";
 import TBLogo from "@/public/imgs/tb-logo.avif";
 import { getMenu } from "@/lib/shopify";
 import Sidebar from "./sidebar";
+import { Menu } from "@/lib/shopify/types";
 
 export default async function Navbar() {
     const menu = await getMenu("main-menu");
 
     return (
         <nav className="bg-white flex items-center z-50 justify-between px-4 w-full md:fixed md:rounded-b-xl md:w-11/12 lg:px-6">
-            <div className="block flex-none">
+            <div className="block flex-none md:hidden">
                 <Sidebar menu={menu} />
             </div>
             <div className="flex w-full items-center">
@@ -31,7 +32,7 @@ export default async function Navbar() {
                         />
                         {/* <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">{SITE_NAME}</div> */}
                     </Link>
-                    {/* {menu.length ? (
+                    {menu.length ? (
                         <ul className="hidden gap-6 text-sm md:flex md:items-center">
                             {menu.map((item: Menu) => (
                                 <li key={item.title}>
@@ -44,7 +45,7 @@ export default async function Navbar() {
                                 </li>
                             ))}
                         </ul>
-                    ) : null} */}
+                    ) : null}
                 </div>
                 <div className="hidden justify-center md:flex md:w-1/3">
                     <Search />
