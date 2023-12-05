@@ -14,7 +14,7 @@ const NavMenu = (props: INavMenuProps) => {
     const pathname = usePathname();
     if (props.menu.length) {
         return (
-            <ul className="md:flex w-full hidden items-center justify-start gap-6 text-sm">
+            <ul className="lg:flex md:ml-4 w-full hidden items-center justify-start gap-6 text-sm">
                 {props.menu.map((item: Menu) => (
                     <li key={item.title}>
                         <Link

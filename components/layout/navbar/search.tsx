@@ -1,5 +1,6 @@
 "use client";
 
+import { Transition } from "@headlessui/react";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { createUrl } from "lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -13,8 +14,8 @@ interface ISearchProps {
 export default function Search(props: ISearchProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const [search, setSearch] = useState(false);
     const searchRef = useRef(null);
+    const [search, setSearch] = useState(false);
 
     useEffect(() => {
         const handleClickOutside = (event: any) => {
@@ -57,8 +58,8 @@ export default function Search(props: ISearchProps) {
         );
     } else {
         return (
-            <div className="absolute w-full top-0 bg-white z-10 flex items-center justify-center h-20 left-0">
-                <form onSubmit={onSubmit} className="w-max-[550px] relative w-full lg:w-80 xl:w-10/12">
+            <div className="absolute w-full top-0 bg-white z-10 flex items-center justify-center h-20 left-0 transition-all ease-in-out">
+                <form onSubmit={onSubmit} className="w-max-[550px] relative w-full">
                     <input
                         key={searchParams?.get("q")}
                         type="text"

@@ -62,7 +62,7 @@ export default function Sidebar({ menu }: { menu: Menu[] }) {
                         leaveFrom="translate-x-0"
                         leaveTo="translate-x-[-100%]"
                     >
-                        <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-white pb-6 dark:bg-black md:w-[390px]">
+                        <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-white pb-6 dark:bg-black lg:w-[390px]">
                             <div className="p-4">
                                 <div className="flex justify-between items-center">
                                     <button
