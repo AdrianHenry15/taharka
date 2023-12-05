@@ -1,16 +1,10 @@
 "use client";
 
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { createUrl } from "lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-
-import { createUrl } from "@/lib/utils";
-
-interface ISearchProps {
-    dark?: boolean;
-}
-
-export default function Search(props: ISearchProps) {
+export default function Search() {
     const router = useRouter();
     const searchParams = useSearchParams();
 
@@ -31,12 +25,7 @@ export default function Search(props: ISearchProps) {
     }
 
     return (
-        <form
-            onSubmit={onSubmit}
-            className={`w-max-[350px] ${
-                props.dark ? "border-white" : "border-black"
-            } border-2 rounded-lg relative w-full lg:w-80 xl:w-full`}
-        >
+        <form onSubmit={onSubmit} className="w-max-[550px] relative w-full lg:w-80 xl:w-10/12">
             <input
                 key={searchParams?.get("q")}
                 type="text"
@@ -44,8 +33,7 @@ export default function Search(props: ISearchProps) {
                 placeholder="Search for products..."
                 autoComplete="off"
                 defaultValue={searchParams?.get("q") || ""}
-                style={props.dark ? { color: "white" } : { color: "black" }}
-                className={`w-full rounded-lg bg-transparent px-4 py-2 text-sm ${props.dark ? "text-white" : "text-black"} `}
+                className="w-full rounded-lg border bg-white px-4 py-2 text-sm text-black placeholder:text-neutral-500 dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
             />
             <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
                 <MagnifyingGlassIcon className="h-4" />
