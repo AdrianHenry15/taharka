@@ -135,3 +135,5 @@ debugGlobalStateStore
 next-env.d.ts
 awsConfig.ts
 .vercel
+
+.env*.local
