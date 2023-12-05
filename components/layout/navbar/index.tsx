@@ -10,38 +10,23 @@ import OpenCart from "@/components/cart/open-cart";
 import Logo from "@/public/imgs/pink-logo.png";
 import { getMenu } from "@/lib/shopify";
 import MobileMenu from "./mobile-menu";
+import NavMenu from "./nav-menu";
 
 export default async function Navbar() {
     const menu = await getMenu("main-menu");
 
     return (
-        <nav className="bg-white flex items-center z-50 justify-between px-4 w-full md:fixed md:rounded-b-xl md:w-11/12 lg:px-6">
+        <nav className="bg-white flex items-center z-50 justify-between px-4 py-4 w-full md:fixed md:rounded-b-xl md:w-11/12 lg:px-6">
             <div className="absolute left-4 flex md:hidden">
                 <MobileMenu menu={menu} />
             </div>
-            <div className="flex w-full items-center">
-                <div className="flex w-full">
-                    <Link href="/" className="mr-2 flex w-full items-center justify-center md:justify-start lg:mr-6">
-                        <Image className="my-2 py-2 rounded-lg md:flex" src={Logo} alt="logo" width={130} height={130} />
-                        {/* <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">{SITE_NAME}</div> */}
+            <div className="flex w-full items-center justify-center">
+                <div className="flex md:flex-1">
+                    <Link href="/" className="flex w-32 items-center justify-center md:justify-start lg:mr-6">
+                        <Image className="" src={Logo} alt="logo" width={125} />
                     </Link>
-                    {/* {menu.length ? (
-                        <ul className="hidden gap-6 text-sm md:flex md:items-center">
-                            {menu.map((item: Menu) => (
-                                <li key={item.title}>
-                                    <Link
-                                        href={item.path}
-                                        className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
-                                    >
-                                        {item.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    ) : null} */}
+                    <NavMenu menu={menu} />
                 </div>
-                {/* <div className="hidden justify-center md:flex md:w-1/3">
-                </div> */}
                 <div className="flex items-center justify-end right-4 absolute">
                     <Link className="mx-2 hidden md:flex" href={"/login"}>
                         <UserIcon className="h-6 w-6 transition-all ease-in-out hover:scale-110 text-black" />
