@@ -27,6 +27,7 @@
     },
     "homepage": "https://github.com/AdrianHenry15/taharka#readme",
     "dependencies": {
+        "@bluebeela/nextjs-shopify-auth": "^1.0.2",
         "@builder.io/dev-tools": "^0.2.6",
         "@builder.io/react": "^3.1.1",
         "@builder.io/sdk": "^2.1.1",

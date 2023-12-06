@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 
 import PageBanner from "@/components/layout/home/page-banner";
 import RewardsBanner from "@/components/layout/home/rewards-banner";
-import TruckBanner from "@/components/layout/home/truck-banner";
 import VideoPlayer from "@/components/layout/home/video-player";
 import { Carousel } from "@/components/carousel";
 import IgContainer from "@/components/layout/home/ig-container";
@@ -19,7 +18,7 @@ export default async function HomePage() {
                 </Suspense>
                 <RewardsBanner />
                 {/* <TruckBanner /> */}
-                <div className="flex justify-center my-10">
+                <div className="flex justify-center">
                     <IgContainer />
                 </div>
             </div>

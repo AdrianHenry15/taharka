@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 
-import IPhone from "@/public/imgs/transparent-iphone.png";
 import Logo from "@/public/imgs/taharka_logo.png";
 import Link from "next/link";
 
@@ -15,7 +14,7 @@ const AppBanner = () => {
                     Download the app
                 </Link>
             </div>
-            <Image className="self-center mt-6" src={IPhone} alt="iphone" width={200} height={200} />
+            {/* <Image className="self-center mt-6" src={IPhone} alt="iphone" width={200} height={200} /> */}
             <Image
                 className="self-center mt-[290px] absolute bg-white rounded-full md:mt-[250px]"
                 src={Logo}

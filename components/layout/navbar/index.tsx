@@ -28,7 +28,7 @@ export default async function Navbar() {
                     <NavMenu menu={menu} />
                 </div>
                 <div className="flex items-center justify-end right-4 absolute">
-                    <Link className="mx-2 hidden lg:flex" href={"/login"}>
+                    <Link className="mx-2 hidden lg:flex" href={"/account/login"}>
                         <UserIcon className="h-6 w-6 transition-all ease-in-out hover:scale-110 text-black" />
                     </Link>
                     <Suspense fallback={<OpenCart />}>
