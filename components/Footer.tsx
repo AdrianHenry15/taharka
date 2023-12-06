@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="flex flex-col md:w-1/2 md:self-center">
                 <div className="flex flex-col">
                     <h3 className="font-semibold text-xl">COMPANY</h3>
-                    <nav className="text-zinc-500 flex flex-wrap text-md">
+                    <nav className="text-zinc-500 flex flex-wrap text-md text-center">
                         <Link className="mr-4 my-2" href={"/story"}>
                             Our Story
                         </Link>

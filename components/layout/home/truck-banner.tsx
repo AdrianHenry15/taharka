@@ -1,14 +1,16 @@
 import Image from "next/image";
 import React from "react";
 
-import Logo from "@/public/taharka_logo.png";
+import Truck from "@/public/imgs/the-truck.jpg";
 
 const TruckBanner = () => {
     return (
-        <section
-            id="rewards-banner"
-            className="flex flex-col justify-center items-center h-[700px] bg-[url('/imgs/the-truck.jpg')] bg-cover py-20 w-full object-top bg-center md:py-10 md:px-20 lg:py-20"
-        >
+        <section className="m-40">
+            {/* <div
+                id="rewards-banner"
+                className="flex flex-col justify-center items-center h-[700px] bg-[url('/imgs/the-truck.jpg')] bg-cover py-20 w-full object-top bg-center md:py-10 md:px-20 lg:py-20"
+            > */}
+            <Image className="absolute" src={Truck} alt="truck" width={1000} height={1000}></Image>
             <div className="flex-col bg-white opacity-90 w-1/2 p-10 rounded-lg justify-center items-center hidden md:flex">
                 <div className="flex flex-1 justify-center">
                     <h5 className="font-bold text-4xl mb-4 text-center">Book The Truck!</h5>
@@ -21,6 +23,7 @@ const TruckBanner = () => {
                 </span>
             </div>
             <button className="bg-black rounded-full px-10 py-2 text-sm text-white mt-10 md:py-4 md:px-16">Book The Truck</button>
+            {/* </div> */}
         </section>
     );
 };
